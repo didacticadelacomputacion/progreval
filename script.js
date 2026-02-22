@@ -8,7 +8,7 @@ const PROGREVAL = window.$rdf.Namespace('urn:protege:ontology:progreval#');
 const RDF = window.$rdf.Namespace('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
 
 // Configuration
-const ONTOLOGY_URL = 'https://raw.githubusercontent.com/afernandezortuzar/ProgrEvalOWL/main/ProgrEval-Ontology.owl';
+const ONTOLOGY_URL = 'https://raw.githubusercontent.com/didacticadelacomputacion/progreval/main/ontology/ProgrEval-Ontology.owl';
 
 // 2. Load Ontology
 fetch(ONTOLOGY_URL, { mode: 'cors', credentials: 'omit' })
