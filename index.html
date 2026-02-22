@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorador de ProgrEval</title>
+    <!-- Import rdflib.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/rdflib@2.2.32/dist/rdflib.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h2>ProgrEval</h2>
+
+    <nav class="tab-nav">
+        <button type="button" class="tab-button active" id="tab-button-query" onclick="loadTab('query')">Query</button>
+        <button type="button" class="tab-button" id="tab-button-documentation" onclick="loadTab('documentation')">Documentación</button>
+        <button type="button" class="tab-button" id="tab-button-design" onclick="loadTab('design')">Diseño</button>
+    </nav>
+
+    <main id="tab-content">
+        <!-- Tab content will be loaded here -->
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
