@@ -14,22 +14,22 @@
                 <select id="select-concepto" name="concepto" disabled>
                     <option value="">Cargando...</option>
                 </select>
+                <div id="concepto-description" class="field-description"></div>
             </div>
             <div class="form-group half-width">
-                <label for="select-competencia">Nivel de Competencia</label>
-                <select id="select-competencia" name="competencia" disabled>
-                    <option value="">Seleccione un concepto primero</option>
-                </select>
+                <label>Nivel de Competencia</label>
+                <div id="competencia-container" class="checkbox-list-container">
+                    <div class="status-message">Seleccione un concepto primero</div>
+                </div>
             </div>
         </div>
-
-        <div id="competencia-description"></div>
 
         <div class="form-group">
             <label for="select-desempeno">Desempeño</label>
             <select id="select-desempeno" name="desempeno" disabled>
                 <option value="">Cargando...</option>
             </select>
+            <div id="desempeno-description" class="field-description"></div>
         </div>
 
         <div class="form-group">
@@ -53,6 +53,7 @@
                 </select>
             </div>
         </div>
+        <div id="formato-description" class="field-description"></div>
 
         <div class="form-actions">
             <button type="button" id="btn-submit-design" class="btn-primary">Mostrar ejemplos</button>

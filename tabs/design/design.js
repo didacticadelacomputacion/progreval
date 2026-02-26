@@ -1,7 +1,102 @@
 (function() {
     // DOM Elements
     const submitBtn = document.getElementById('btn-submit-design');
+    const designContainer = document.getElementById('design-container');
+
+    // --- Reusable Tooltip Module ---
+    // 1. Cleanup: Remove any leftover tooltips from previous script executions
+    document.querySelectorAll('.custom-tooltip').forEach(el => el.remove());
+
+    let tooltipElement = null;
+    let activeTooltipTarget = null;
+
+    /**
+     * Creates the tooltip element and appends it to the body.
+     */
+    function createTooltipElement() {
+        if (tooltipElement) return;
+        if (!designContainer) return;
+        
+        tooltipElement = document.createElement('div');
+        tooltipElement.className = 'custom-tooltip';
+        
+        designContainer.appendChild(tooltipElement);
+    }
+
+    /**
+     * Hides the currently visible tooltip.
+     */
+    function hideTooltip() {
+        if (!tooltipElement || !tooltipElement.classList.contains('show')) return;
+
+        tooltipElement.classList.remove('show');
+
+        // Restore title to the target element
+        if (activeTooltipTarget && activeTooltipTarget.dataset.originalTitle) {
+            activeTooltipTarget.setAttribute('title', activeTooltipTarget.dataset.originalTitle);
+            delete activeTooltipTarget.dataset.originalTitle;
+        }
+        activeTooltipTarget = null;
+    }
+
+    /**
+     * Shows a tooltip with a given text near a target element.
+     * @param {HTMLElement} target - The element to position the tooltip near.
+     * @param {string} text - The text content for the tooltip.
+     */
+    function showTooltip(target, text) {
+        createTooltipElement();
+
+        // If clicking the same icon that already has an active tooltip, hide it.
+        if (target === activeTooltipTarget) {
+            hideTooltip();
+            return;
+        }
+
+        // Hide any previous tooltip before showing a new one
+        hideTooltip();
+
+        activeTooltipTarget = target;
+
+        // Prevent native tooltip from showing
+        if (target.getAttribute('title')) {
+            target.dataset.originalTitle = target.getAttribute('title');
+            target.removeAttribute('title');
+        }
+
+        tooltipElement.textContent = text;
+        tooltipElement.classList.add('show');
+
+        const targetRect = target.getBoundingClientRect();
+        const tooltipRect = tooltipElement.getBoundingClientRect();
+
+        let top = targetRect.bottom + window.scrollY + 8;
+        let left = targetRect.left + window.scrollX + (targetRect.width / 2) - (tooltipRect.width / 2);
+
+        // Boundary checks
+        if (left < 5) left = 5;
+        if (left + tooltipRect.width > window.innerWidth - 5) left = window.innerWidth - tooltipRect.width - 5;
+
+        tooltipElement.style.top = `${top}px`;
+        tooltipElement.style.left = `${left}px`;
+    }
     
+    // Self-cleaning global click listener
+    function handleGlobalClick(e) {
+        // If the design tab is no longer in the DOM, remove this listener (cleanup)
+        if (!document.getElementById('design-container')) {
+            document.removeEventListener('click', handleGlobalClick);
+            return;
+        }
+
+        // Hide tooltip if clicking outside the tooltip AND outside the active icon
+        if (tooltipElement && tooltipElement.classList.contains('show')) {
+            if (!tooltipElement.contains(e.target) && e.target !== activeTooltipTarget) {
+                hideTooltip();
+            }
+        }
+    }
+
     // SPARQL Queries Configuration
     // Fill these strings with your SPARQL queries.
     // Ensure the query returns a single column with the values you want to list.
@@ -236,6 +331,54 @@
     };
 
     /**
+     * Renders the Competencia options as a list of checkboxes.
+     * @param {Array} data 
+     */
+    const renderCompetenciaOptions = (data) => {
+        const container = document.getElementById('competencia-container');
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        if (data.length === 0) {
+            container.innerHTML = '<div class="status-message">No se encontraron niveles de competencia.</div>';
+            return;
+        }
+
+        // Sort by order
+        if (data.length > 0 && data[0].hasOwnProperty('order')) {
+            data.sort((a, b) => parseInt(a.order, 10) - parseInt(b.order, 10));
+        }
+
+        let html = '';
+        data.forEach(item => {
+            html += `<label class="competencia-option">
+                <div class="competencia-header">
+                    <input type="radio" name="competencia_option" value="${item.value}" style="margin-right: 8px;">
+                    ${item.label}
+                </div>
+                <div class="competencia-body">${item.description || ''}</div>
+            </label>`;
+        });
+        container.innerHTML = html;
+
+        // Event delegation for validation and styling
+        container.onchange = (e) => {
+            if (e.target.name === 'competencia_option') {
+                // Remove 'selected' class from all options
+                container.querySelectorAll('.competencia-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                // Add 'selected' class to the parent label of the checked radio
+                if (e.target.checked) {
+                    e.target.closest('.competencia-option').classList.add('selected');
+                }
+                checkFormValidity();
+            }
+        };
+    };
+
+    /**
      * Builds the "Conocimientos previos" grid.
      * @param {Array<{label: string, instance_uri: string, description: string}>} conceptos
      * @param {Array<{label: string, instance_uri: string, description: string}>} desempenos
@@ -299,7 +442,6 @@
         html += '</tbody></table>';
         container.innerHTML = html;
 
-        // Event delegation for Select All
         container.onchange = (e) => {
             if (e.target.id === 'select-all-grid') {
                 const isChecked = e.target.checked;
@@ -370,11 +512,19 @@
     };
 
     const checkFormValidity = () => {
-        const requiredIds = ['select-concepto', 'select-competencia', 'select-desempeno', 'select-publico', 'select-formato'];
-        const allFilled = requiredIds.every(id => {
+        const requiredIds = ['select-concepto', 'select-desempeno', 'select-publico', 'select-formato'];
+        let allFilled = requiredIds.every(id => {
             const el = document.getElementById(id);
             return el && el.value !== "";
         });
+
+        if (allFilled) {
+            const checkedCompetencia = document.querySelector('input[name="competencia_option"]:checked');
+            if (!checkedCompetencia) {
+                allFilled = false;
+            }
+        }
+
         if (submitBtn) {
             submitBtn.disabled = !allFilled;
             const note = document.getElementById('submit-disabled-note');
@@ -384,7 +534,37 @@
         }
     };
 
+    const setupDescriptionListener = (selectId, descriptionId) => {
+        const select = document.getElementById(selectId);
+        const descContainer = document.getElementById(descriptionId);
+        if (select && descContainer) {
+            select.addEventListener('change', (e) => {
+                const selectedOption = e.target.options[e.target.selectedIndex];
+                const desc = selectedOption ? selectedOption.dataset.description : '';
+                descContainer.textContent = desc || '';
+                descContainer.style.display = desc ? 'block' : 'none';
+            });
+        }
+    };
+
     const init = async () => {
+        // --- Initialize Tooltip Listeners ---
+        if (designContainer) {
+            // Use event delegation for all info icons within the design tab
+            designContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('info-icon')) {
+                    const description = e.target.getAttribute('title') || e.target.dataset.originalTitle;
+                    if (description) {
+                        showTooltip(e.target, description);
+                    }
+                    e.stopPropagation(); // Prevent the document click listener from hiding it immediately
+                }
+            });
+        }
+        // Global listener to hide tooltip when clicking elsewhere
+        document.addEventListener('click', handleGlobalClick);
+        // --- End Tooltip Listeners ---
+
         // Fetch all data first
         const [conceptos, desempenos, publicos, formatos] = await Promise.all([
             fetchData('concepto'),
@@ -421,6 +601,14 @@
 
             esfuerzoSelect.addEventListener('change', (e) => {
                 const val = e.target.value;
+                
+                // Clear formato description when effort changes
+                const formatoDesc = document.getElementById('formato-description');
+                if (formatoDesc) {
+                    formatoDesc.style.display = 'none';
+                    formatoDesc.textContent = '';
+                }
+
                 if (!val) {
                     formatoSelect.disabled = true;
                     formatoSelect.innerHTML = '<option value="">Seleccione un esfuerzo primero</option>';
@@ -442,51 +630,35 @@
         if (conceptoSelect) {
             conceptoSelect.addEventListener('change', async (e) => {
                 const val = e.target.value;
-                const compSelect = document.getElementById('select-competencia');
-                if (!compSelect) return;
+                const compContainer = document.getElementById('competencia-container');
+
+                if (!compContainer) return;
 
                 if (!val) {
-                    compSelect.disabled = true;
-                    compSelect.innerHTML = '<option value="">Seleccione un concepto primero</option>';
+                    compContainer.innerHTML = '<div class="status-message">Seleccione un concepto primero</div>';
                     checkFormValidity();
                     return;
                 }
 
-                compSelect.disabled = true;
-                compSelect.innerHTML = '<option value="">Cargando...</option>';
+                compContainer.innerHTML = '<div class="status-message">Cargando...</div>';
 
                 // Construct URI (assuming standard namespace pattern)
                 const uri = `<${val}>`;
                 
                 const data = await fetchData('competencia', { '{{CONCEPTO_URI}}': uri });
                 data.forEach(d => d.value = d.instance_uri);
-                renderSelect('select-competencia', data);
+                renderCompetenciaOptions(data);
                 checkFormValidity();
             });
         }
 
-        // Add event listener for Competencia -> Descripcion
-        const competenciaSelect = document.getElementById('select-competencia');
-        if (competenciaSelect) {
-            competenciaSelect.addEventListener('change', async (e) => {
-                const descDiv = document.getElementById('competencia-description');
-                if (!descDiv) return;
-
-                const selectedOption = e.target.options[e.target.selectedIndex];
-                const description = selectedOption.dataset.description;
-
-                if (description) {
-                    descDiv.textContent = description;
-                    descDiv.style.display = 'block';
-                } else {
-                    descDiv.style.display = 'none';
-                    descDiv.textContent = '';
-                }
-            });
-        }
+        // Setup description listeners
+        setupDescriptionListener('select-concepto', 'concepto-description');
+        setupDescriptionListener('select-desempeno', 'desempeno-description');
+        setupDescriptionListener('select-formato', 'formato-description');
 
         // Attach validation listeners to all required selects
-        ['select-competencia', 'select-desempeno', 'select-publico', 'select-formato'].forEach(id => {
+        ['select-desempeno', 'select-publico', 'select-formato'].forEach(id => {
             const el = document.getElementById(id);
             if (el) el.addEventListener('change', checkFormValidity);
         });
@@ -520,9 +692,13 @@
                 }
             });
             
+            // Get Competencia value
+            const checkedCompetencia = document.querySelector('input[name="competencia_option"]:checked');
+            const competenciaReplacement = checkedCompetencia ? `<${checkedCompetencia.value}>` : '';
+
             const replacements = {
                 '{{CONCEPTO_URI}}': getSelectedValue('select-concepto'),
-                '{{NIVEL_COMPETENCIA_URI}}': getSelectedValue('select-competencia'),
+                '{{NIVEL_COMPETENCIA_URI}}': competenciaReplacement,
                 '{{DESEMPENO_URI}}': getSelectedValue('select-desempeno'),
                 '{{NIVEL_EDUCATIVO_URI}}': getSelectedValue('select-publico'),
                 '{{FORMATO_URI}}': getSelectedValue('select-formato')
