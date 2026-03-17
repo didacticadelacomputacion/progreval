@@ -254,6 +254,7 @@
     <!-- urn:protege:ontology:progreval#Concepto-Fundamental -->
 
     <owl:Class rdf:about="urn:protege:ontology:progreval#Concepto-Fundamental">
+        <dc:description>Acá hay que poner información sobre el rol que cumple este parámetro</dc:description>
         <rdfs:label xml:lang="es-ar">Concepto Fundamental</rdfs:label>
     </owl:Class>
     
@@ -262,6 +263,7 @@
     <!-- urn:protege:ontology:progreval#Desempeño -->
 
     <owl:Class rdf:about="urn:protege:ontology:progreval#Desempeño">
+        <dc:description>Acá hay que poner información sobre el rol que cumple este parámetro</dc:description>
         <rdfs:label xml:lang="es-ar">Desempeño</rdfs:label>
     </owl:Class>
     
@@ -284,7 +286,8 @@
     <!-- urn:protege:ontology:progreval#Formato-Actividad -->
 
     <owl:Class rdf:about="urn:protege:ontology:progreval#Formato-Actividad">
-        <rdfs:label xml:lang="es-ar">Instrumento</rdfs:label>
+        <dc:description>Acá hay que poner información sobre el rol que cumple este parámetro</dc:description>
+        <rdfs:label xml:lang="es-ar">Formato de actividad</rdfs:label>
     </owl:Class>
     
 
@@ -300,13 +303,16 @@
 
     <!-- urn:protege:ontology:progreval#Nivel-de-Competencia -->
 
-    <owl:Class rdf:about="urn:protege:ontology:progreval#Nivel-de-Competencia"/>
+    <owl:Class rdf:about="urn:protege:ontology:progreval#Nivel-de-Competencia">
+        <dc:description>Acá hay que poner información sobre el rol que cumple este parámetro</dc:description>
+    </owl:Class>
     
 
 
     <!-- urn:protege:ontology:progreval#Publico-Objetivo -->
 
     <owl:Class rdf:about="urn:protege:ontology:progreval#Publico-Objetivo">
+        <dc:description>Acá hay que poner información sobre el rol que cumple este parámetro</dc:description>
         <rdfs:label xml:lang="es-ar">Público Objetivo</rdfs:label>
     </owl:Class>
     
