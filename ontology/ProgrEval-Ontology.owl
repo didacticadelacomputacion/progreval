@@ -426,7 +426,7 @@ Niveles de Complejidad:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Especificacion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Desempeño"/>
-        <rdfs:comment>Habildad para describir formalmente las características de una solución o sistema.</rdfs:comment>
+        <dc:description>Habildad para describir formalmente las características de una solución o sistema.</dc:description>
         <rdfs:label>Especificación</rdfs:label>
     </owl:NamedIndividual>
     
@@ -446,7 +446,7 @@ Niveles de Complejidad:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Evaluacion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Desempeño"/>
-        <rdfs:comment xml:lang="es-ar">Habilidad para obtener el resultado de una expresión o función, dados los valores de sus variables o parámetros.</rdfs:comment>
+        <dc:description xml:lang="es-ar">Habilidad para obtener el resultado de una expresión o función, dados los valores de sus variables o parámetros.</dc:description>
         <rdfs:label>Evaluación</rdfs:label>
     </owl:NamedIndividual>
     

@@ -2,6 +2,7 @@
     // DOM Elements
     const submitBtn = document.getElementById('btn-submit-design');
     const designContainer = document.getElementById('design-container');
+    const btnGeneratePrompt = document.getElementById('btn-generate-prompt');
 
     // --- Reusable Tooltip Module ---
     // 1. Cleanup: Remove any leftover tooltips from previous script executions
@@ -198,7 +199,15 @@
         # Recupera la respuesta del enunciado, si existe
         OPTIONAL { ?enunciado_modelo progreval:Respuesta ?Respuesta . }
         }
-        ORDER BY RAND()`
+        ORDER BY RAND()`,
+        class_descriptions: `PREFIX dc: <http://purl.org/dc/elements/1.1/>
+        PREFIX progreval: <urn:protege:ontology:progreval#>
+
+        SELECT ?Class_URI ?Description
+        WHERE {
+            ?Class_URI dc:description ?Description .
+            
+        }`
     };
 
     /**
@@ -470,12 +479,16 @@
 
     const renderResults = (results) => {
         const resultsDiv = document.getElementById('design-results');
+        const btnGeneratePrompt = document.getElementById('btn-generate-prompt');
         if (!resultsDiv) return;
 
         if (results.length === 0) {
             resultsDiv.innerHTML = '<div class="status">No se encontraron resultados.</div>';
+            btnGeneratePrompt.disabled = true;
             return;
         }
+
+        btnGeneratePrompt.disabled = false; 
 
         // Determine headers from the first result object
         const headers = Object.keys(results[0]);
@@ -484,6 +497,7 @@
 
         results.forEach((row, index) => {
             html += `<div class="result-row">`;
+            html += `<button type="button" class="btn-copy-example" title="Copiar ejemplo">Copiar</button>`;
             html += `<h3 class="row-header">Ejemplo ${index + 1}</h3>`;
             
             headers.forEach(h => {
@@ -510,6 +524,28 @@
 
         resultsDiv.innerHTML = html;
     };
+
+    /**
+     * Renders the Esfuerzo glossary.
+     * @param {Array<{label: string, order: string}>} effortData
+     */
+    const renderEsfuerzoGlossary = (effortData) => {
+        const container = document.getElementById('esfuerzo-glossary');
+        if (!container) return;
+
+        // Sort by order
+        effortData.sort((a, b) => parseInt(a.order, 10) - parseInt(b.order, 10));
+
+        if (effortData.length === 0) {
+            container.innerHTML = '<div class="status-message">No se encontraron datos.</div>';
+            return;
+        }
+
+        container.innerHTML = effortData.map(item =>
+            `<div class="glossary-item"><span class="glossary-term">${item.order}:</span> ${item.label}</div>`
+        ).join('');
+    };
+
 
     const checkFormValidity = () => {
         const requiredIds = ['select-concepto', 'select-desempeno', 'select-publico', 'select-formato'];
@@ -566,11 +602,12 @@
         // --- End Tooltip Listeners ---
 
         // Fetch all data first
-        const [conceptos, desempenos, publicos, formatos] = await Promise.all([
+        const [conceptos, desempenos, publicos, formatos, classDescriptions] = await Promise.all([
             fetchData('concepto'),
             fetchData('desempeno'),
             fetchData('publico_objetivo'),
-            fetchData('formato_esfuerzo')
+            fetchData('formato_esfuerzo'),
+            fetchData('class_descriptions')
         ]);
 
         // Assign instance_uri attribute value to a value attribute to match renderSelect contract
@@ -586,40 +623,72 @@
         renderSelect('select-desempeno', desempenos);
         renderSelect('select-publico', publicos);
 
+        // Render Class Tooltips (Descriptions)
+        const classLabelMap = {
+            'Publico-Objetivo': 'select-publico',
+            'Concepto-Fundamental': 'select-concepto',
+            'Desempeño': 'select-desempeno',
+            'Formato-Actividad': 'select-formato',
+            'Nivel-de-Competencia': 'competencia-container' // Special case: find label relative to container
+        };
+
+        classDescriptions.forEach(item => {
+            // item.class_uri will look like "...#Publico-Objetivo"
+            const className = item.class_uri.split('#').pop();
+            const targetId = classLabelMap[className];
+            
+            if (targetId) {
+                let labelEl;
+                if (className === 'Nivel-de-Competencia') {
+                    // This label doesn't have a 'for' attribute, find it via the container
+                    const container = document.getElementById(targetId);
+                    if (container && container.parentElement) {
+                        labelEl = container.parentElement.querySelector('label');
+                    }
+                } else {
+                    labelEl = document.querySelector(`label[for="${targetId}"]`);
+                }
+
+                // Check if an info-icon does NOT already exist as the next sibling
+                if (labelEl && !labelEl.nextElementSibling?.classList.contains('info-icon')) {
+                    const icon = document.createElement('span');
+                    icon.className = 'info-icon';
+                    icon.textContent = 'ℹ️';
+                    // The global tooltip listener uses the title attribute
+                    icon.title = item.description; 
+                    labelEl.after(icon); // Place icon after the label, not inside it
+                }
+            }
+        });
+
         // Logic for Esfuerzo/Formato
-        const esfuerzoSelect = document.getElementById('select-esfuerzo');
         const formatoSelect = document.getElementById('select-formato');
 
-        if (esfuerzoSelect && formatoSelect) {
-            // Extract unique efforts
-            const effortOptions = [...new Map(formatos.map(i => {
-                const item = { label: i.esfuerzo, value: i.esfuerzo, order: i.order };
+        if (formatoSelect) {
+            // 1. Prepare and render Esfuerzo Glossary
+            const effortGlossaryData = [...new Map(formatos.map(i => {
+                const item = { label: i.esfuerzo, order: i.order };
                 return [`${item.value}|${item.order}`, item];
-            })).values()];
-            
-            renderSelect('select-esfuerzo', effortOptions);
+            })).values()].filter(i => i.label && i.order);
+            renderEsfuerzoGlossary(effortGlossaryData);
 
-            esfuerzoSelect.addEventListener('change', (e) => {
-                const val = e.target.value;
-                
-                // Clear formato description when effort changes
-                const formatoDesc = document.getElementById('formato-description');
-                if (formatoDesc) {
-                    formatoDesc.style.display = 'none';
-                    formatoDesc.textContent = '';
-                }
-
-                if (!val) {
-                    formatoSelect.disabled = true;
-                    formatoSelect.innerHTML = '<option value="">Seleccione un esfuerzo primero</option>';
-                    checkFormValidity();
-                    return;
-                }
-                
-                const filtered = formatos.filter(item => item.esfuerzo === val);
-                renderSelect('select-formato', filtered);
-                checkFormValidity();
+            // 2. Prepare and render Formato dropdown
+            // Sort by effort order, then by label
+            formatos.sort((a, b) => {
+                const orderA = parseInt(a.order, 10);
+                const orderB = parseInt(b.order, 10);
+                if (orderA !== orderB) return orderA - orderB;
+                return a.label.localeCompare(b.label);
             });
+
+            // Modify labels to include effort
+            formatos.forEach(f => {
+                if (f.label && f.order) {
+                    f.label = `${f.label} (Esfuerzo: ${f.order})`;
+                }
+            });
+
+            renderSelect('select-formato', formatos);
         }
 
         // Render Grid
@@ -736,6 +805,233 @@
             
 
             renderResults(results);
+        });
+    }
+
+    // --- Prompt Popup Logic ---
+    const promptPopup = document.getElementById('prompt-popup');
+    const btnClosePopup = document.getElementById('popup-close-btn');
+    const btnCopyPrompt = document.getElementById('btn-copy-prompt');
+    const promptText = document.getElementById('prompt-text');
+
+    /**
+     * Generates an AI prompt based on the current form selections.
+     * This is a placeholder; the full logic will be provided later.
+     * @returns {string} The generated prompt text.
+     */
+    const generateAIPrompt = async () => {
+
+        // Fetch all data first
+        const [conceptos, desempenos] = await Promise.all([
+            fetchData('concepto'),
+            fetchData('desempeno')
+        ]);
+
+        const getSelectedText = (id) => {
+            const el = document.getElementById(id);
+            if (!el || el.selectedIndex <= 0) return 'N/A';
+            // Clean up the label text which now includes effort
+            return el.options[el.selectedIndex].text.split(' (Esfuerzo:')[0];
+        };
+
+        const getCheckedLabel = (name) => {
+            const checked = document.querySelector(`input[name="${name}"]:checked`);
+            if (!checked) return 'N/A';
+            // Clone the node to avoid modifying the DOM, then remove the input to get clean text
+            const headerClone = checked.closest('.competencia-option').querySelector('.competencia-header').cloneNode(true);
+            headerClone.querySelector('input').remove();
+            return headerClone.textContent.trim();
+        };
+
+        const publico = getSelectedText('select-publico');
+        const concepto = getSelectedText('select-concepto');
+        const competencia = getCheckedLabel('competencia_option');
+        const desempeno = getSelectedText('select-desempeno');
+        const formato = getSelectedText('select-formato');
+
+        const getDesc = (list, suffix) => list.find(item => item.instance_uri.split('#').pop() === suffix)?.description || 'N/A';
+
+        const definicion_directiva_repeticion = getDesc(conceptos, 'Directiva-de-Repeticion');
+        const definicion_directiva_seleccion = getDesc(conceptos, 'Directiva-de-Seleccion');
+        const definicion_expresion_logica = getDesc(conceptos, 'Expresion-Logica');
+        const definicion_expresion_matematica = getDesc(conceptos, 'Expresion-Matematica');
+        const definicion_funcion = getDesc(conceptos, 'Funcion');
+        const definicion_tipo_dato_primitivo = getDesc(conceptos, 'Tipo-de-Dato-Primitivo');
+        const definicion_tipo_dato_estructurado = getDesc(conceptos, 'Tipo-de-Dato-Estructurado');
+        const definicion_variable = getDesc(conceptos, 'Variable');
+        const definicion_definicion = getDesc(desempenos, 'Definicion');
+        const definicion_depuracion = getDesc(desempenos, 'Depuracion');
+        const definicion_especificacion = getDesc(desempenos, 'Especificacion');
+        const definicion_esquematizacion = getDesc(desempenos, 'Esquematizacion');
+        const definicion_evaluacion = getDesc(desempenos, 'Evaluacion');
+        const definicion_explicacion = getDesc(desempenos, 'Explicacion');
+        const definicion_implementacion = getDesc(desempenos, 'Implementacion');
+        const definicion_modificacion = getDesc(desempenos, 'Modificacion');
+        const definicion_seguimiento = getDesc(desempenos, 'Seguimiento');
+
+        const getVal = (id) => {
+            const el = document.getElementById(id);
+            return el ? el.value.trim() : '';
+        };
+
+        const getCompetenciaDesc = (term) => {
+            const options = Array.from(document.querySelectorAll('#competencia-container .competencia-option'));
+            const found = options.find(opt => opt.querySelector('.competencia-header')?.textContent.toLowerCase().includes(term.toLowerCase()));
+            return found ? found.querySelector('.competencia-body')?.textContent.trim() || 'N/A' : 'N/A';
+        };
+
+        const nivel_basico_concepto = getCompetenciaDesc('Básico');
+        const nivel_intermedio_concepto = getCompetenciaDesc('Intermedio');
+        const nivel_avanzado_concepto = getCompetenciaDesc('Avanzado');
+        
+        // Retrieve generated examples from the results section
+        let ejemplos = 'N/A';
+        const resultsContainer = document.getElementById('design-results');
+        if (resultsContainer && resultsContainer.querySelectorAll('.result-row').length > 0) {
+            ejemplos = Array.from(resultsContainer.querySelectorAll('.result-row')).map((row, i) => {
+                const content = Array.from(row.querySelectorAll('.data-pair')).map(pair => {
+                    return `${pair.querySelector('.data-label').textContent} ${pair.querySelector('.data-value').textContent}`;
+                }).join('\n');
+                return `Ejemplo ${i+1}:\n${content}`;
+            }).join('\n\n');
+        }        
+         
+        const contexto_adicional = getVal('input-additional-info');
+        
+        const formato_salida = 'Markdown';
+        const lenguaje_progamacion = getVal('input-language') || 'un lenguaje de programación adecuado';
+        const caracteristicas_vetadas_del_lenguaje = getVal('input-forbidden-features');
+        
+        const conocimientos_previos = Array.from(document.querySelectorAll('input[name="conocimiento_previo"]:checked')).map(cb => {
+            const colIndex = cb.dataset.col;
+            const gridHeader = document.querySelectorAll('#knowledge-grid-container thead th')[parseInt(colIndex) + 1];
+            const conceptoLabel = gridHeader ? gridHeader.querySelector('.header-label').textContent : '';
+            const rowHeader = cb.closest('tr').querySelector('th .header-label');
+            const desempenoLabel = rowHeader ? rowHeader.textContent : '';
+            return `(${conceptoLabel})-(${desempenoLabel})`;
+        }).join(', ') || 'Ninguno';
+        
+
+        return `# Identidad
+Sos un profesor de programación de ${publico} especializado en el diseño de evaluaciones. Tu tarea es generar consignas de evaluación sobre un concepto y desempeños específicos de programación. El propósito de cada consigna es obtener evidencias de aprendizaje de los estudiantes respecto a lo evaluado. Para esto, las consignas deben proponer situaciones en las que los estudiantes pongan en juego un determinado nivel de competencia sobre el concepto y un desempeño de programación específicos.
+
+# Terminologia
+Conceptos:
+Directiva de Repetición: ${definicion_directiva_repeticion}
+Directiva de Selección: ${definicion_directiva_seleccion}
+Expresión Lógica: ${definicion_expresion_logica}
+Expresión Matemática: ${definicion_expresion_matematica}
+Función: ${definicion_funcion}
+Tipo de Dato Primitivo: ${definicion_tipo_dato_primitivo}
+Tipo de Dato Estructurado: ${definicion_tipo_dato_estructurado}
+Variable: ${definicion_variable}
+
+Desempeños:
+Definición: ${definicion_definicion}
+Depuración: ${definicion_depuracion}
+Especificación: ${definicion_especificacion}
+Esquematización: ${definicion_esquematizacion}
+Evaluación: ${definicion_evaluacion}
+Explicación: ${definicion_explicacion}
+Implementación: ${definicion_implementacion}
+Modificación: ${definicion_modificacion}
+Seguimiento: ${definicion_seguimiento}
+
+Conocimientos previos: conjunto de conocimientos ya adquiridos por los estudiantes previo a la tarea actual. Se detallará como un conjunto de pares (Concepto)-(Desempeño).
+
+# Tarea
+Generar una consigna para evaluar ${concepto} donde los estudiantes pongan en juego desempeños de ${desempeno}. Además, deberás elaborar una respuesta posible y argumentos breves que validen la consigna respecto del concepto, el desempeño, el nivel de competencia y los conocimientos previos indicados.
+
+# Requisitos de la consigna
+La consigna debe:
+- Evaluar el concepto: ${concepto}
+- Requerir un nivel de competencia: ${competencia} 
+- Utilizar el formato de actividad: ${formato}
+- Promover desempeños de programación asociados a: ${desempeno}
+- Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos}
+- Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje : ''}
+
+
+La consigna puede poner en juego competencias de niveles inferiores pero no debe involucrar competencias de niveles superiores. Además, en ningún caso debe anticipar cuál es el concepto que se debe utilizar para resolver la consigna y cómo se espera que sea empleado.
+
+# Nivel de competencia
+Las consignas a generar están clasificadas en tres niveles de competencia respecto del concepto que se está evaluando: 
+Básico: ${nivel_basico_concepto}
+Intermedio: ${nivel_intermedio_concepto}
+Avanzado: ${nivel_avanzado_concepto}
+
+# Ejemplos
+Los siguiente ejemplos muestran consignas de evaluación y una posible solución escrita en pseudocódigo.
+
+Utilizá los ejemplos como referencia para: 
+- Definir la estructura de la consigna y el nivel de detalle esperado. 
+- Generar una consigna para ser resuelta con el lenguaje de programación especificado, no en pseudocódigo. No utilices instrucciones que no están definidas en el lenguaje.
+- La consigna no debe ser una copia de los ejemplos.
+
+${ejemplos}
+
+# Formato de salida
+Deberás generar únicamente la consigna, en formato ${formato_salida}, sin ningún tipo de información adicional como título, textos introductorios, preguntas, el formato de actividad utilizado.
+
+
+# Información adicional
+${contexto_adicional}
+`
+
+};
+
+    if (btnGeneratePrompt && promptPopup && btnClosePopup && btnCopyPrompt && promptText) {
+        btnGeneratePrompt.addEventListener('click', async () => {
+            promptPopup.style.display = 'flex';
+            promptText.value = 'Generando prompt...';
+            try {
+                promptText.value = await generateAIPrompt();
+            } catch (err) {
+                console.error(err);
+                promptText.value = 'Error al generar el prompt.';
+            }
+        });
+
+        const closePopup = () => { promptPopup.style.display = 'none'; };
+        btnClosePopup.addEventListener('click', closePopup);
+        promptPopup.addEventListener('click', (e) => {
+            if (e.target === promptPopup) closePopup();
+        });
+
+        btnCopyPrompt.addEventListener('click', () => {
+            navigator.clipboard.writeText(promptText.value).then(() => {
+                const originalText = btnCopyPrompt.textContent;
+                btnCopyPrompt.textContent = '¡Copiado!';
+                btnCopyPrompt.disabled = true;
+                setTimeout(() => {
+                    btnCopyPrompt.textContent = originalText;
+                    btnCopyPrompt.disabled = false;
+                }, 2000);
+            });
+        });
+    }
+
+    // --- Example Copy Logic (Event Delegation) ---
+    const resultsDiv = document.getElementById('design-results');
+    if (resultsDiv) {
+        resultsDiv.addEventListener('click', e => {
+            if (e.target.classList.contains('btn-copy-example')) {
+                const resultRow = e.target.closest('.result-row');
+                if (!resultRow) return;
+
+                let textToCopy = Array.from(resultRow.querySelectorAll('.data-pair'))
+                    .map(pair => {
+                        const label = pair.querySelector('.data-label').textContent;
+                        const value = pair.querySelector('.data-value').textContent;
+                        return `${label} ${value}`;
+                    })
+                    .join('\n\n');
+
+                navigator.clipboard.writeText(textToCopy.trim()).then(() => {
+                    e.target.textContent = 'Copiado!';
+                    setTimeout(() => { e.target.textContent = 'Copiar'; }, 2000);
+                });
+            }
         });
     }
 })();

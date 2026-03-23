@@ -3,10 +3,15 @@
     <p>Configure los parámetros de la actividad seleccionando las opciones a continuación.</p>
 
     <form id="design-form">
-        <div class="form-section">
-            <h3>Conocimientos previos</h3>
-            <div id="knowledge-grid-container" class="grid-container">Cargando tabla...</div>
+
+        <div class="form-group">
+            <label for="select-publico">Público objetivo</label>
+            <select id="select-publico" name="publico" disabled>
+                <option value="">Cargando...</option>
+            </select>
         </div>
+
+        
 
         <div class="form-row">
             <div class="form-group half-width">
@@ -32,33 +37,73 @@
             <div id="desempeno-description" class="field-description"></div>
         </div>
 
-        <div class="form-group">
-            <label for="select-publico">Público objetivo</label>
-            <select id="select-publico" name="publico" disabled>
-                <option value="">Cargando...</option>
-            </select>
+        <div class="form-section">
+            <h3>Conocimientos previos</h3>
+            <div id="knowledge-grid-container" class="grid-container">Cargando tabla...</div>
         </div>
 
         <div class="form-row">
             <div class="form-group half-width">
-                <label for="select-esfuerzo">Esfuerzo de corrección</label>
-                <select id="select-esfuerzo" name="esfuerzo" disabled>
-                    <option value="">Cargando...</option>
-                </select>
-            </div>
-            <div class="form-group half-width">
                 <label for="select-formato">Formato de actividad</label>
                 <select id="select-formato" name="formato" disabled>
-                    <option value="">Seleccione un esfuerzo primero</option>
+                    <option value="">Cargando...</option>
                 </select>
+                <div id="formato-description" class="field-description"></div>
+            </div>
+            <div class="form-group half-width">
+                <label>Glosario de Esfuerzos</label>
+                <div id="esfuerzo-glossary" class="glossary-container">
+                    Cargando...
+                </div>
             </div>
         </div>
-        <div id="formato-description" class="field-description"></div>
+
+        <details class="context-section">
+            <summary>Contexto específico (solo relevante para la generación de prompts)</summary>
+            
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="input-language">Lenguaje de Programación</label>
+                <input type="text" id="input-language" name="language" placeholder="e.g Python 3.14">
+            </div>
+
+            <div class="form-group">
+                <label for="input-forbidden-features">Características del lenguaje que no deben ser usadas</label>
+                <textarea id="input-forbidden-features" name="forbidden_features"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="input-best-practices">Reglas de buenas prácticas que utilicen en el curso</label>
+                <textarea id="input-best-practices" name="best_practices"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="input-learning-objectives">Objetivos de aprendizaje</label>
+                <textarea id="input-learning-objectives" name="learning_objectives"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="input-additional-info">Información adicional</label>
+                <textarea id="input-additional-info" name="additional_info"></textarea>
+            </div>
+        </details>
 
         <div class="form-actions">
             <button type="button" id="btn-submit-design" class="btn-primary">Mostrar ejemplos</button>
+            <button type="button" id="btn-generate-prompt" class="btn-secondary" disabled>Generar directiva de IA generativa (prompt)</button>
             <span id="submit-disabled-note">Seleccione un valor para cada lista</span>
         </div>
-        <div id="design-results" style="margin-top: 20px;"></div>
     </form>
+
+    <div id="design-results" style="margin-top: 20px;"></div>
+
+    <div id="prompt-popup" class="popup-overlay" style="display: none;">
+        <div class="popup-content">
+            <button id="popup-close-btn" class="popup-close-btn" title="Cerrar">&times;</button>
+            <h3>Directiva de IA Generativa</h3>
+            <textarea id="prompt-text" readonly></textarea>
+            <div class="form-actions" style="margin-top: 10px; text-align: right;">
+                <button id="btn-copy-prompt" class="btn-primary">Copiar al portapapeles</button>
+            </div>
+        </div>
+    </div>
 </div>
