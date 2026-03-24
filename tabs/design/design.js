@@ -939,39 +939,36 @@ Seguimiento: ${definicion_seguimiento}
 
 Conocimientos previos: conjunto de conocimientos ya adquiridos por los estudiantes previo a la tarea actual. Se detallará como un conjunto de pares (Concepto)-(Desempeño).
 
+# Nivel de competencia para el concepto a evaluar
+Básico: ${nivel_basico_concepto}
+Intermedio: ${nivel_intermedio_concepto}
+Avanzado: ${nivel_avanzado_concepto}
+
 # Tarea
 Generar una consigna para evaluar ${concepto} donde los estudiantes pongan en juego desempeños de ${desempeno}. Además, deberás elaborar una respuesta posible y argumentos breves que validen la consigna respecto del concepto, el desempeño, el nivel de competencia y los conocimientos previos indicados.
 
 # Requisitos de la consigna
 La consigna debe:
 - Evaluar el concepto: ${concepto}
-- Requerir un nivel de competencia: ${competencia} 
+- Requerir un nivel de competencia: ${competencia}. La consigna puede poner en juego competencias de niveles inferiores pero no debe involucrar competencias de niveles superiores. Además, en ningún caso debe anticipar cuál es el concepto que se debe utilizar para resolver la consigna y cómo se espera que sea empleado.
 - Utilizar el formato de actividad: ${formato}
 - Promover desempeños de programación asociados a: ${desempeno}
 - Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos}
 - Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje : ''}
 
 
-La consigna puede poner en juego competencias de niveles inferiores pero no debe involucrar competencias de niveles superiores. Además, en ningún caso debe anticipar cuál es el concepto que se debe utilizar para resolver la consigna y cómo se espera que sea empleado.
-
-# Nivel de competencia
-Las consignas a generar están clasificadas en tres niveles de competencia respecto del concepto que se está evaluando: 
-Básico: ${nivel_basico_concepto}
-Intermedio: ${nivel_intermedio_concepto}
-Avanzado: ${nivel_avanzado_concepto}
-
 # Ejemplos
 Los siguiente ejemplos muestran consignas de evaluación y una posible solución escrita en pseudocódigo.
 
 Utilizá los ejemplos como referencia para: 
 - Definir la estructura de la consigna y el nivel de detalle esperado. 
-- Generar una consigna para ser resuelta con el lenguaje de programación especificado, no en pseudocódigo. No utilices instrucciones que no están definidas en el lenguaje.
+- Generar una consigna para ser resuelta con el lenguaje de programación especificado. No utilices instrucciones que no están definidas en el lenguaje.
 - La consigna no debe ser una copia de los ejemplos.
 
 ${ejemplos}
 
 # Formato de salida
-Deberás generar únicamente la consigna, en formato ${formato_salida}, sin ningún tipo de información adicional como título, textos introductorios, preguntas, el formato de actividad utilizado.
+Deberás generar la consigna y su posible resolución tomando en cuenta los requisitos y el nivel de competencia indicados anteriormente, en formato ${formato_salida}, sin ningún tipo de información adicional como título, textos introductorios, preguntas, el formato de actividad utilizado.
 
 
 # Información adicional
@@ -994,9 +991,6 @@ ${contexto_adicional}
 
         const closePopup = () => { promptPopup.style.display = 'none'; };
         btnClosePopup.addEventListener('click', closePopup);
-        promptPopup.addEventListener('click', (e) => {
-            if (e.target === promptPopup) closePopup();
-        });
 
         btnCopyPrompt.addEventListener('click', () => {
             navigator.clipboard.writeText(promptText.value).then(() => {

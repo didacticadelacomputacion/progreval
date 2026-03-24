@@ -273,6 +273,8 @@
     background-color: #f9f9f9;
     max-height: 400px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .competencia-option {

@@ -41,7 +41,7 @@ fetch(ONTOLOGY_URL, { mode: 'cors', credentials: 'omit' })
     });
     
 // 3. Tab System Logic
-const TABS_TO_CACHE = ['query']; // Add 'documentation' here if you want to cache it too
+const TABS_TO_CACHE = ['query', 'design']; // Add 'documentation' here if you want to cache it too
 let currentTab = null;
 
 window.loadTab = function(tabName) {

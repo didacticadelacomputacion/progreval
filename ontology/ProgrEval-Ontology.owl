@@ -171,40 +171,21 @@
     
 
 
+    <!-- urn:protege:ontology:progreval#Dominio -->
+
+    <owl:DatatypeProperty rdf:about="urn:protege:ontology:progreval#Dominio"/>
+    
+
+
     <!-- urn:protege:ontology:progreval#Enunciado -->
 
     <owl:DatatypeProperty rdf:about="urn:protege:ontology:progreval#Enunciado"/>
     
 
 
-    <!-- urn:protege:ontology:progreval#Nivel-de-Competencia-Evaluado -->
+    <!-- urn:protege:ontology:progreval#Marco-de-trabajo -->
 
-    <owl:DatatypeProperty rdf:about="urn:protege:ontology:progreval#Nivel-de-Competencia-Evaluado">
-        <rdfs:range>
-            <rdfs:Datatype>
-                <owl:oneOf>
-                    <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                        <rdf:first>Exploratorio</rdf:first>
-                        <rdf:rest>
-                            <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                <rdf:first>Integrador</rdf:first>
-                                <rdf:rest>
-                                    <rdf:Description>
-                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
-                                        <rdf:first>Introductorio</rdf:first>
-                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                                    </rdf:Description>
-                                </rdf:rest>
-                            </rdf:Description>
-                        </rdf:rest>
-                    </rdf:Description>
-                </owl:oneOf>
-            </rdfs:Datatype>
-        </rdfs:range>
-        <dc:description xml:lang="es-ar">Complejidad de una actividad basada en el concepto tratado. Una actividad introductoria es aquella que presenta el concepto en su forma más básica. Una exploratoria lo expande en alguno de sus aspectos. Y una integradora trata de combinar los distintos aspectos del concepto y profundizar.</dc:description>
-    </owl:DatatypeProperty>
+    <owl:DatatypeProperty rdf:about="urn:protege:ontology:progreval#Marco-de-trabajo"/>
     
 
 
@@ -366,7 +347,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Definicion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Desempeño"/>
-        <dc:description xml:lang="es-ar">Habilidad para determinar cómo debe estar definido un componente de un programa para que cumpla un propósto determinado, entendiendo como componente a tipos de datos compuestos, variables y funciones.</dc:description>
+        <dc:description xml:lang="es-ar">Habilidad para determinar cómo debe estar definido un componente de un programa para que cumpla un propósito determinado, entendiendo como componente a tipos de datos compuestos, variables y funciones.</dc:description>
         <rdfs:label>Definición</rdfs:label>
     </owl:NamedIndividual>
     
@@ -397,16 +378,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Directiva-de-Repeticion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Directivas provistas por los lenguajes de programación para definir la repetición de secuencias de cómputo. En la mayoría de los lenguajes imperativos podemos definir bucles usando directivas como while y for.
-
-Niveles de Complejidad:
- - Introductorio:
-       - Repetición simple, cantidad fija de iteraciones.
- - Exploratorio
-       - Repetición condicional
-       - Repetición simple anidada
- - Integrador
-       - Repetición condicional anidada</dc:description>
+        <dc:description xml:lang="es-ar">Directivas provistas por los lenguajes de programación para definir la repetición de secuencias de cómputo. En la mayoría de los lenguajes imperativos podemos definir bucles usando directivas como while y for.</dc:description>
         <rdfs:label>Directiva de Repetición</rdfs:label>
     </owl:NamedIndividual>
     
@@ -426,7 +398,7 @@ Niveles de Complejidad:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Especificacion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Desempeño"/>
-        <dc:description>Habildad para describir formalmente las características de una solución o sistema.</dc:description>
+        <dc:description>Habilidad para describir formalmente las características de una solución o sistema.</dc:description>
         <rdfs:label>Especificación</rdfs:label>
     </owl:NamedIndividual>
     
@@ -456,7 +428,7 @@ Niveles de Complejidad:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Explicacion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Desempeño"/>
-        <dc:description xml:lang="es-ar">Habiidad para poner ideas y razonamientos en palabras.</dc:description>
+        <dc:description xml:lang="es-ar">Habilidad para poner ideas y razonamientos en palabras.</dc:description>
         <rdfs:label>Explicación</rdfs:label>
     </owl:NamedIndividual>
     
@@ -476,16 +448,7 @@ Niveles de Complejidad:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Expresion-Matematica">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Expresiones aritméticas y booleanas.
-
-Niveles de complejidad:
- - Introductorio
-      - Expresiones con una sola variable y sin llamados a funciones
- - Exploratorio
-      - Expresiones con más de una variable
-      - Expresiones con una variable y llamados a funciones
- - Integrador
-      - Expresiones con múltiples variables y llamados a funciones</dc:description>
+        <dc:description xml:lang="es-ar">Expresiones aritméticas y booleanas.</dc:description>
         <rdfs:label>Expresión Matemática</rdfs:label>
     </owl:NamedIndividual>
     
@@ -495,23 +458,7 @@ Niveles de complejidad:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Funcion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Porción de código parametrizado a la que se le da un nombre para poder referenciarlo en varios puntos de un programa.
-
-Funciones puras: funciones sin efectos secundarios que retornan un valor.
-Funciones impuras o procedimientos: funciones que alteran el estado del programa y no retornan ningún valor.
-
-Niveles de competencias:
- - Introductorio
-        - Procedimientos sin parámetros de entrada.
-        - Funciones puras sin parámetros de entrada.
- - Exploratorio
-        - Procedimientos con parámetros de entrada.
-        - Funciones puras con parámetros de entrada.
-        - Funciones que llaman a procedimientos sin parámetros de entrada ni valores de retorno.
-        - Funciones que llaman a funciones puras sin parámetros de entrada.
-- Integrador
-        - Funciones recursivas
-        - Funciones que llaman a otras funciones cualesquiera.</dc:description>
+        <dc:description xml:lang="es-ar">Porción de código parametrizado a la que se le da un nombre para poder referenciarlo en varios puntos de un programa. Consideraremos como funciones puras a funciones sin efectos secundarios que retornan un valor, y como funciones impuras o procedimientos a funciones que alteran el estado del programa y no retornan ningún valor.</dc:description>
         <rdfs:label>Función</rdfs:label>
     </owl:NamedIndividual>
     
@@ -817,8 +764,8 @@ El programa debe calcular y mostrar cuántas horas deben transcurrir para que la
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#cuadrado-verde-de-3-de-lado">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <Enunciado>Escribir un programa que ponga un cuadrado de tamaño 3 con bolitas de color Verde, con centro en la celda actual.</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Introductorio</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION PonerCuadrado(){
     Poner(Verde)
     Mover(Oeste)
@@ -849,6 +796,7 @@ El programa debe calcular y mostrar cuántas horas deben transcurrir para que la
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#depurar-dibujar-cuadrado-de-lado-2">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-depuracion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>Explicar por qué el siguiente programa no funciona y corregirlo.
@@ -880,7 +828,6 @@ FUNCION Línea2(){
     Poner(colorCuadrado)
     Mover(Oeste)
 }</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Integrador</Nivel-de-Competencia-Evaluado>
         <Respuesta>El parámetro colorDelCuadrado no alcanza a la función LíneaDe2CeldasHaciaElEste, debe pasársele por parámetro.
 
 FUNCION DibujarCuadrado_De2CeldasDeLado(colorDelCuadrado){
@@ -933,6 +880,7 @@ FUNCION LíneaDe2CeldasHaciaElEste(colorLínea){
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#dibujar-franja-diagonal-1">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>Completar los espacios vacíos con las expresiones correspondientes para que las funciones cumplan con su propósito y las precondiciones queden correctamente definidas.
@@ -978,7 +926,6 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     }
     
 }</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Exploratorio</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION DibujarFranjaDiagonalSuroesteANoresteDeGrosor_YLargo_DeColor_(grosor, largo, color){
 	/*
     	Propósito: Dibujar con bolitas de color **color** una franja diagonal ascendente de **grosor** celdas de grosor y **largo** celdas de largo, y de color **color**, empezando en el extremo inferior izquierdo y terminando en el extremo inferior derecho
@@ -2362,11 +2309,11 @@ Expresión: TotalCompra &gt; 75000 &amp; (Provincia &lt;&gt; &quot;Tierra del Fu
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#escribir-fecha-en-tablero">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <Enunciado>Construir una función EscribirFechaConDía_Mes_Año_(día, mes, año), que permita representar cualquier fecha dados el día, mes y año (como números). La representación debe ser la siguiente: Azul para el día, Rojo para el mes y Verde para el año, en tres celdas hacia el Este.
  
 Se cuenta con la siguiente función ya implementada:
      - Poner_DeColor_(cantidad, color): dados un valor entero para cantidad y un color, pone esa cantidad de bolitas del color indicado en la celda actual.</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Integrador</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION EscribirFechaConDía_Mes_Año_(día, mes, año) {
     Poner_DeColor_(dia, Azul)
     Mover(Este)
@@ -4242,6 +4189,7 @@ A: F ; B: V</Enunciado>
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#generalizar-pintar-3-puntos-azules-cada-3-celdas-hacia-el-este">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion-consigna-cerrada"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <Enunciado>Generalizar la función Pintar3PuntosAzulesCada3CeldasHaciaElEste() de modo que dado un colorPunto y una dirección, dibuje los puntos de ese color en esa dirección.
 Se cuenta con las siguientes funciones ya implementadas
 	- InvertirDirección_(dirección):
@@ -4264,7 +4212,6 @@ FUNCION Pintar3PuntosAzulesCada3CeldasHaciaElEste() {
     Mover3VecesAl_(Oeste)
     Mover3VecesAl_(Oeste)
 }</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Integrador</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION Pintar3Puntos_Cada3CeldasHaciaEl_(colorPunto, dirección) {
     /* Propósito: Poner una bolita de color **colorPunto** en la celda actual y luego 2, cada una a 3 celdas hacia la dirección **dirección** respecto de la anterior.
        Parámetros:
@@ -4432,6 +4379,7 @@ FIN FUNCION</Respuesta>
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#nova-contrato-mal-hecho">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <Enunciado>Tenemos un nuevo compañero del equipo, Nova, que no tiene formación profesional, y su código está lleno de malas prácticas de programación. Esta vez, en su código se encontró un procedimiento que tiene el código hecho, pero no el contrato.
   Se pide completar los contratos de función. No olvidar indicar en qué posición queda el cabezal, ni de establecer para qué son los parámetros. El código de Nova es el siguiente:
 
@@ -4445,7 +4393,6 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
     Mover(direcciónAMover)
     Mover(direcciónAMover)
 }</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Integrador</Nivel-de-Competencia-Evaluado>
         <Respuesta>Contrato Poner_ADistancia3Al_(color, dirección):
 	- Propósito: Poner una bolita del color pasado por parámetro a 3 celdas de distancia en la dirección pasada por parámetro y dejar el cabezal allí.
             - Parámetros:
@@ -4466,6 +4413,7 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#nova-dividir-en-subtareas">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <Enunciado>En el equipo de programación empezó a trabajar un programador que no tiene formación profesional, y al que todos apodaron Nova . En el código que escribió Nova se encontró un procedimiento que no aplica la técnica de división en subtareas, y tampoco tiene contrato. Para poder integrar el código con el resto, en este equipo se requiere que los programas sigan buenas prácticas de programación. Por eso, se pide corregir este código para que cumpla con las mismas.
 
   FUNCION ConstruirEscaleraAzulDe4Escalones() {
@@ -4489,7 +4437,6 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
 Consejo: pensar primero en qué subtareas dividirías el problema si tuvieses que hacerlo desde cero.
 
 La solución propuesta no debe alterar el código del procedimiento, sino que debe hacer uso de procedimientos auxiliares para extraer y darles nombre a las partes de la solución de Nova.</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Exploratorio</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION ConstruirEscaleraAzulDe4Escalones() {
 	ConstruirEscalonYPosicionarParaSiguiente()
 	ConstruirEscalonYPosicionarParaSiguiente()
@@ -4582,6 +4529,7 @@ trianguloDeAsteriscos(altura){
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pelear-la-batalla-1">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
         <Enunciado>Suponiendo que se está programando un juego donde en las celdas del tablero se representan Soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado), implementar el procedimiento PelearLaBatalla(). Sabiendo que, cuando 2 soldados enemigos pelean contra 3 aliados, todos mueren, y suponiendo que siempre hay suficientes soldados aliados como para ganar la batalla, PelearLaBatalla() debe simularla sobre la celda a la que apunta el cabezal.
  Por ejemplo, si hay 6 enemigos y 10 aliados, tras llamar a PelearLaBatalla() mueren los 6 enemigos y 9 de los aliados; si hay 10 enemigos y 21 aliados, tras llamar a PelearLaBatalla() mueren los 10 enemigos y 15 soldados aliados.
@@ -4596,7 +4544,6 @@ FUNCION PelearLaBatalla(){
          Sacar(Rojo)
     }
 }</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Exploratorio</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION PelearLaBatalla(){
 	REPETIR cantidadBolitas(Rojo) + cantidadBolitas(Rojo)/2 VECES {
     	Sacar(Negro)
@@ -4638,6 +4585,7 @@ FUNCION PelearLaBatalla(){
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pintar-3-puntos-azules-cada-3-celdas-hacia-el-este">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <Enunciado>Escribir el contrato faltante para la siguiente función:
 
 FUNCION Pintar3PuntosAzulesCada3CeldasHaciaElEste() {
@@ -4664,7 +4612,6 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
     Mover(direcciónAMover)
     Mover(direcciónAMover)
 }</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Integrador</Nivel-de-Competencia-Evaluado>
         <Respuesta>Contrato Pintar3PuntosAzulesCada3CeldasHaciaElEste():
 	- Propósito: Poner una bolita azul en la celda actual y luego 2, cada una a 3 celdas hacia el este respecto de la anterior.
 	- Precondición: Debe haber al menos 6 celdas hacia el este de la celda actual.</Respuesta>
@@ -4715,11 +4662,11 @@ FUNCION PintarFilaDeAzul(){
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#precondiciones-programas-simples">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <Enunciado>Cuáles serı́an las precondiciones para programas cuyo propósito sea:
 	- a. Poner 1000 bolitas de color Azul en la celda actual.
 	- b. Poner una bolita de color Rojo en la celda vecina al Este de la celda actual y sacar una bolita Azul de la celda vecina al Oeste de la celda actual.
 	- c. Poner un rectángulo de bolitas de color Negro cuyo tamaño sea de 3 filas de alto y 5 columnas, de ancho, centrado en la celda actual.</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Introductorio</Nivel-de-Competencia-Evaluado>
         <Respuesta>a.
 	- No hay precondición
 b.
@@ -4862,10 +4809,10 @@ FUNCION PonerRojaYNegra() {
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#reloj-analogico-radio-3">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <Enunciado>Dibujar un reloj analógico de agujas en un tablero cuadriculado puede ser un desafío. Una simplificación posible sería representar solamente algunos de los números que aparecen en el mismo: el 12 arriba, el 3 a la derecha, el 9 a la izquierda y el 6 abajo.
 Construir un procedimiento DibujarRelojAnalógicoSimplificado(), que ponga los números del reloj tal como se indicó, alrededor del casillero actual. El tamaño del reloj será de 2 celdas de “radio” (suponiendo que miramos al reloj como un círculo).
 Dividan el problema en partes más pequeñas y definan sus propios procedimientos para resolver cada una.</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Exploratorio</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION DibujarRelojAnalógicoSimplificado(){
 	Dibujar12()
     Dibujar3()
@@ -4955,6 +4902,7 @@ FUNCION Poner3BolitasRojas(){
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#reloj-analogico-radio-n">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion-consigna-cerrada"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>Generalizar la función DibujarRelojAnalógicoSimplificado() escribiendo una función llamada DibujarRelojAnalógicoSimplificadoDeRadio_(radio) que ponga los números del reloj como en la función original, pero donde el radio recibido por parámetro indica la distancia al centro del reloj: mientras más grande es el radio, más alejados están los números del centro.
  Se cuenta con las siguientes funciones ya implementadas:
@@ -4994,7 +4942,6 @@ FUNCION Dibujar9(){
     Poner_DeColor_(9, Rojo)
     Mover_VecesAl_(2, Este)
 }</Enunciado>
-        <Nivel-de-Competencia-Evaluado>Integrador</Nivel-de-Competencia-Evaluado>
         <Respuesta>FUNCION DibujarRelojAnalógicoSimplificadoDeRadio_(radio){
 	
     Dibujar12ADistancia_(radio)
