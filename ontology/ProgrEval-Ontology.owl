@@ -50,6 +50,14 @@
     
 
 
+    <!-- urn:protege:ontology:progreval#conMarcoDeTrabajo -->
+
+    <owl:ObjectProperty rdf:about="urn:protege:ontology:progreval#conMarcoDeTrabajo">
+        <rdfs:domain rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- urn:protege:ontology:progreval#concepto -->
 
     <owl:ObjectProperty rdf:about="urn:protege:ontology:progreval#concepto">
@@ -183,12 +191,6 @@
     
 
 
-    <!-- urn:protege:ontology:progreval#Marco-de-trabajo -->
-
-    <owl:DatatypeProperty rdf:about="urn:protege:ontology:progreval#Marco-de-trabajo"/>
-    
-
-
     <!-- urn:protege:ontology:progreval#Respuesta -->
 
     <owl:DatatypeProperty rdf:about="urn:protege:ontology:progreval#Respuesta"/>
@@ -279,6 +281,12 @@
         <rdfs:comment>Siempre que se agregue una nueva habilidad habrá que incorporarla a la lista de Equivalent to para que sea reconocida por el razonador. Además, deberá agregarse a regla &quot;(requiereManejode NuevaHabilidad) or (noRequiereManejoDe NuevaHabilidad)&quot; al axioma de SubClass of de Enunciado-Modelo.</rdfs:comment>
         <rdfs:label>Habilidad</rdfs:label>
     </owl:Class>
+    
+
+
+    <!-- urn:protege:ontology:progreval#Marco-de-Trabajo -->
+
+    <owl:Class rdf:about="urn:protege:ontology:progreval#Marco-de-Trabajo"/>
     
 
 
@@ -449,7 +457,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Expresion-Logica">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Expresiones de la lógica proposicional y tablas de verdad.</dc:description>
+        <dc:description xml:lang="es-ar">Expresiones de la lógica proposicional, tablas de verdad y predicados de relación.</dc:description>
         <rdfs:label>Expresión Lógica</rdfs:label>
     </owl:NamedIndividual>
     
@@ -459,7 +467,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Expresion-Matematica">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Expresiones aritméticas y relaciones de orden o magnitud.</dc:description>
+        <dc:description xml:lang="es-ar">Expresiones aritméticas.</dc:description>
         <rdfs:label>Expresión Matemática</rdfs:label>
     </owl:NamedIndividual>
     
@@ -570,6 +578,32 @@
     
 
 
+    <!-- urn:protege:ontology:progreval#Tablero-con-bolitas -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Tablero-con-bolitas">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Marco-de-Trabajo"/>
+        <dc:description>- Grilla con celdas donde colocar bolitas de colores.
+- Cada celda puede contener infinitas bolitas.
+- Contamos con un cabezal posicionado sobre una celda.
+- Contamos con comandos para controlar este cabezal
+	- Mover(DIRECCION_CARDINAL): mueve el cabezal un casillero hacia DIRECCION_CARDINAL. Si no hay más casillas en esa dirección, el programa falla.
+	- IrAlBorde(DIRECCION_CARDINAL): mueve el cabezal hasta el borde del tablero en dirección DIRECCION_CARDINAL.
+	- Las direcciones posibles son Norte, Sur, Este, Oeste.
+	- Poner(COLOR): Coloca una bolita de color COLOR en el casillero actual.
+	- Sacar(COLOR): Saca una bolita de color COLOR en el casillero actual. Si no hay bolitas del color indicado, el programa falla.
+	- Los colores posibles son Rojo, Verde, Azul y Negro.
+- El cabezal debe regresar a la celda de la que partió
+- Contamos con expresiones primitivas para sensar el tablero
+	- cantidadBolitas(COLOR): describe el número de bolitas de ese color en la celda actual
+- Contamos con operadores numéricos: +, -, *, div, mod, ^
+- Contamos con operadores de enumeración:
+	- siguiente(DIRECCION_CARDINAL): Retorna la siguiente dirección en el sentido de las agujas del reloj (Norte -&gt; Este -&gt; Sur -&gt; Oeste)
+	- previo(DIRECCION_CARDINAL): Retorna la dirección anterior en el sentido de las agujas del reloj (Norte -&gt; Oeste -&gt; Sur -&gt; Este)
+	- opuesto(DIRECCION_CARDINAL): Retorna la dirección opuesta (Norte -&gt; Sur, Sur -&gt; Norte, Oeste -&gt; Este, Este -&gt; Oeste)</dc:description>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado">
@@ -658,7 +692,7 @@ Cuentan con la función tamañoArray(array) para determinar el tamaño de un arr
 FUNCION estáPresenteEnArray(valor_objetivo, datos) {
     int i = 0;
     boolean encontrado = false;
-    REPETIR MIENTRAS (______) {
+    MIENTRAS (______) HACER{
         SI (datos[i] == valor_objetivo) ENTONCES {
             encontrado = true;
         } SINO {
@@ -669,7 +703,7 @@ FUNCION estáPresenteEnArray(valor_objetivo, datos) {
         <Respuesta>FUNCION estáPresenteEnArray(valor_objetivo, datos) {
     int i = 0;
     boolean encontrado = false;
-    REPETIR MIENTRAS (i &lt; tamañoArray(datos) &amp;&amp; !encontrado) {
+    MIENTRAS (i &lt; tamañoArray(datos) &amp;&amp; !encontrado) HACER {
         SI (datos[i] == valor_objetivo) ENTONCES {
             encontrado = true;
         } SINO {
@@ -684,8 +718,10 @@ FUNCION estáPresenteEnArray(valor_objetivo, datos) {
     <!-- urn:protege:ontology:progreval#calculadora-basica -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#calculadora-basica">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
         <Enunciado xml:lang="es-ar">Implemente un programa que simule una calculadora básica. El programa recibe tres parámetros: dos números y un carácter que representa la operación (&apos;+&apos;, &apos;-&apos;, &apos;*&apos;, &apos;/&apos;). Dependiendo del carácter recibido, el programa debe realizar la operación matemática correspondiente y devolver el resultado. Si el carácter no corresponde a ninguna operación válida o si el valor de alguno de los operandos es inválido para la operación dada, debe devolver un mensaje de error.</Enunciado>
@@ -715,7 +751,9 @@ FUNCION estáPresenteEnArray(valor_objetivo, datos) {
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#clasificar-triangulo">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
@@ -725,23 +763,23 @@ FUNCION estáPresenteEnArray(valor_objetivo, datos) {
 1 - Determinar si los lados forman un triángulo válido (la suma de dos lados cualesquiera debe ser mayor al tercero: teorema de la desigualdad triangular).
 
 2 - Si es válido, clasificarlo e imprimir si es &quot;Equilátero&quot; (tres lados iguales), &quot;Isósceles&quot; (exactamente dos lados iguales) o &quot;Escaleno&quot; (ningún lado igual). Si no es un triángulo válido, debe imprimir &quot;No es un triángulo&quot;</Enunciado>
-        <Respuesta>FUNCION ClasificarTriangulo(ladoA, ladoB, ladoC)
+        <Respuesta>FUNCION ClasificarTriangulo(ladoA, ladoB, ladoC){
     // Primero validamos si es un triángulo
-    SI (ladoA + ladoB &gt; ladoC) Y (ladoA + ladoC &gt; ladoB) Y (ladoB + ladoC &gt; ladoA) ENTONCES
+    SI (ladoA + ladoB &gt; ladoC) Y (ladoA + ladoC &gt; ladoB) Y (ladoB + ladoC &gt; ladoA) ENTONCES{
         // Es válido, ahora clasificamos
-        SI (ladoA == ladoB) Y (ladoB == ladoC) ENTONCES
+        SI (ladoA == ladoB) Y (ladoB == ladoC) ENTONCES{
             MOSTRAR &quot;Equilátero&quot;
-        SINO
-            SI (ladoA == ladoB) O (ladoA == ladoC) O (ladoB == ladoC) ENTONCES
+        }SINO{
+            SI (ladoA == ladoB) O (ladoA == ladoC) O (ladoB == ladoC) ENTONCES{
                 MOSTRAR &quot;Isósceles&quot;
-            SINO
+            }SINO{
                 MOSTRAR &quot;Escaleno&quot;
-            FIN_SI
-        FIN_SI
-    SINO
+            }
+        }
+    }SINO{
         MOSTRAR &quot;No es un triángulo&quot;
-    FIN_SI
-FIN_FUNCION</Respuesta>
+    }
+}</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -749,8 +787,10 @@ FIN_FUNCION</Respuesta>
     <!-- urn:protege:ontology:progreval#crecimiento-poblacion-bacterias -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#crecimiento-poblacion-bacterias">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <Enunciado xml:lang="es-ar">Se desea analizar el crecimiento de una población de bacterias. La población inicial es de N bacterias y se sabe que cada hora la población se duplica.
 
@@ -761,13 +801,13 @@ La cantidad inicial de bacterias (entero positivo).
 Un número objetivo de bacterias a alcanzar (entero positivo).
 
 El programa debe calcular y mostrar cuántas horas deben transcurrir para que la población supere o iguale al número objetivo. Debes utilizar un bucle para simular el crecimiento hora por hora.</Enunciado>
-        <Respuesta>calcular_horas_crecimiento(poblacion_actual, objetivo){
+        <Respuesta>FUNCION calcular_horas_crecimiento(poblacion_actual, objetivo){
     horas = 0
-    while (poblacion_actual &lt; objetivo){
+    REPETIR MIENTRAS (poblacion_actual &lt; objetivo){
         poblacion_actual = poblacion_actual * 2
         horas += 1
     }
-    return horas
+    RETORNAR horas
 }</Respuesta>
     </owl:NamedIndividual>
     
@@ -777,6 +817,11 @@ El programa debe calcular y mostrar cuántas horas deben transcurrir para que la
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#cuadrado-verde-de-3-de-lado">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <Enunciado>Escribir un programa que ponga un cuadrado de tamaño 3 con bolitas de color Verde, con centro en la celda actual.</Enunciado>
@@ -809,6 +854,10 @@ El programa debe calcular y mostrar cuántas horas deben transcurrir para que la
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#depurar-dibujar-cuadrado-de-lado-2">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-depuracion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion"/>
@@ -880,8 +929,11 @@ FUNCION LíneaDe2CeldasHaciaElEste(colorLínea){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#descuentos-del-cine">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <Enunciado xml:lang="es-ar">Un cine ofrece descuentos a niños  de hasta 12 años y a adultos mayores a partir de 65. Dar una expresión lógica que exprese esta condición.</Enunciado>
         <Respuesta xml:lang="es-ar">edad &lt;= 12 | edad &gt;= 65</Respuesta>
         <rdfs:label xml:lang="es-ar">Descuentos del cine</rdfs:label>
@@ -893,8 +945,11 @@ FUNCION LíneaDe2CeldasHaciaElEste(colorLínea){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#dibujar-franja-diagonal-1">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion-complecion-espacios-vacios"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>Completar los espacios vacíos con las expresiones correspondientes para que las funciones cumplan con su propósito y las precondiciones queden correctamente definidas.
@@ -989,8 +1044,11 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#dibujar-franja-diagonal-2">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
         <Enunciado>Implementar la función DibujarFranjaDiagonalSuroesteANoresteDeGrosor_YLargo_DeColor_(grosor, largo, color) que dibuja una franja diagonal ascendente de **grosor** celdas de grosor y **largo** celdas de largo, y de color **color**, empezando en el extremo inferior izquierdo y terminando en el extremo inferior derecho.
@@ -2341,8 +2399,11 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#envios-gratis">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <Enunciado xml:lang="es-ar">Una tienda online ofrece envíos gratis a los clientes con órdenes de compra superiores a los $75000. Sin embargo, por cuestiones de costo, la promoción no aplica para los clientes que viven en Tierra del Fuego o Jujuy.</Enunciado>
         <Respuesta xml:lang="es-ar">Variables: TotalCompra ; Provincia
 Expresión: TotalCompra &gt; 75000 &amp; (Provincia &lt;&gt; &quot;Tierra del Fuego&quot; &amp; Provincia &lt;&gt; &quot;Jujuy&quot;)</Respuesta>
@@ -2355,6 +2416,10 @@ Expresión: TotalCompra &gt; 75000 &amp; (Provincia &lt;&gt; &quot;Tierra del Fu
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#escribir-fecha-en-tablero">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <Enunciado>Construir una función EscribirFechaConDía_Mes_Año_(día, mes, año), que permita representar cualquier fecha dados el día, mes y año (como números). La representación debe ser la siguiente: Azul para el día, Rojo para el mes y Verde para el año, en tres celdas hacia el Este.
@@ -2381,8 +2446,12 @@ Se cuenta con la siguiente función ya implementada:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#evaluar-expresion-logica-1">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-evaluacion-consigna-cerrada"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <Enunciado>Obtener el valor de verdad de la siguiente expresión:
 
 A  =&gt; B &amp; A
@@ -4334,6 +4403,8 @@ A: F ; B: V</Enunciado>
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#generalizar-pintar-3-puntos-azules-cada-3-celdas-hacia-el-este">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion-consigna-cerrada"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <Enunciado>Generalizar la función Pintar3PuntosAzulesCada3CeldasHaciaElEste() de modo que dado un colorPunto y una dirección, dibuje los puntos de ese color en esa dirección.
@@ -4380,7 +4451,9 @@ FUNCION Pintar3PuntosAzulesCada3CeldasHaciaElEste() {
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#imprimir-factores-primos">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-evaluacion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#variable-definicion"/>
@@ -4389,23 +4462,23 @@ FUNCION Pintar3PuntosAzulesCada3CeldasHaciaElEste() {
 El algoritmo debe encontrar e imprimir todos los factores primos del número en orden ascendente. Por ejemplo, si el número es 12, debe imprimir 2, 2, 3. Si el número es 13, debe imprimir 13.
 
 Nota: Debes resolverlo reduciendo el número progresivamente mediante divisiones sucesivas dentro de una estructura repetitiva.</Enunciado>
-        <Respuesta>FUNCION ImprimirFactoresPrimos(numero)
+        <Respuesta>FUNCION ImprimirFactoresPrimos(numero){
     divisor &lt;- 2
     
     // Mientras el número no haya sido reducido completamente a 1
-    MIENTRAS numero &gt; 1 HACER
+    MIENTRAS numero &gt; 1 HACER{
         
         // Verificamos si es divisible por el divisor actual
-        MIENTRAS (numero MODULO divisor) == 0 HACER
+        MIENTRAS (numero MODULO divisor) == 0 HACER {
             IMPRIMIR divisor
             numero &lt;- numero / divisor
-        FIN MIENTRAS
+        }
         
         // Pasamos al siguiente posible divisor
         divisor &lt;- divisor + 1
         
-    FIN MIENTRAS
-FIN FUNCION</Respuesta>
+    }
+}</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -4413,19 +4486,31 @@ FIN FUNCION</Respuesta>
     <!-- urn:protege:ontology:progreval#imprimir-reverso -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#imprimir-reverso">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-definicion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-evaluacion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#variable-definicion"/>
         <Enunciado xml:lang="es-ar">Se recibe un array llamado palabra que contiene un caracter en cada posición. El objetivo del siguiente código es imprimir los caracteres en el orden inverso al que aparecen en el array. Por ejemplo, si el array es [&quot;R&quot;, &quot;O&quot;, &quot;M&quot;, &quot;A&quot;], el programa debe imprimir &quot;AMOR&quot;, caracter a caracter.
 Cuentan con la función tamañoArray(array), que retona el tamaño del array pasado por parámetro.
 
-imprimirReverso(palabra){
-    for (int i = ______; i &gt;= 0; ______) {
+FUNCION imprimirReverso(palabra){
+    i = ______
+    MIENTRAS ______ HACER {
         print(palabra[i])
+         ______
     }
 }</Enunciado>
         <Respuesta>imprimirReverso(palabra){
-    for (int i = tamañoArray(palabra); i &gt;= 0; i--) {
+    i = tamañoArray(palabra)
+    MIENTRAS i &gt;= 0 HACER {
         print(palabra[i])
+        i--
     }
 }</Respuesta>
     </owl:NamedIndividual>
@@ -4436,9 +4521,13 @@ imprimirReverso(palabra){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#inicio-de-sesion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-consigna-abierta"/>
-        <Enunciado xml:lang="es-ar">Un usuario puede iniciar sesión en un sistema si su nombre de usuario y contraseña son correctos, y si su cuenta no está bloqueada.</Enunciado>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <Enunciado xml:lang="es-ar">Definir una expresión lógica que exprese la siguiente frase: 
+&quot;Un usuario puede iniciar sesión en un sistema si su nombre de usuario y contraseña son correctos, y si su cuenta no está bloqueada.&quot;</Enunciado>
         <Respuesta xml:lang="es-ar">usuarioCorrecto &amp; contraseñaCorrecta &amp; ¬cuentaBloqueada</Respuesta>
         <rdfs:label xml:lang="es-ar">Inicio de sesión</rdfs:label>
     </owl:NamedIndividual>
@@ -4470,6 +4559,7 @@ imprimirReverso(palabra){
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#longitud-de-conjetura-de-collatz">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-implementacion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#variable-definicion"/>
@@ -4484,28 +4574,28 @@ imprimirReverso(palabra){
 Escribe una función AnalizarCollatz que reciba un entero inicial n y retorne la longitud de la secuencia (cuántos pasos toma llegar a 1).
 
 Ejemplo: Si n=6, la secuencia es 6 -&gt; 3 -&gt; 10 -&gt; 5 -&gt; 16 -&gt; 8 -&gt; 4 -&gt; 2 -&gt; 1. La función debe retornar 8 (número de pasos).</Enunciado>
-        <Respuesta>FUNCION AnalizarCollatz(n)
+        <Respuesta>FUNCION AnalizarCollatz(n){
     pasos &lt;- 0
     actual &lt;- n
     
-    MIENTRAS actual &gt; 1 HACER
+    MIENTRAS actual &gt; 1 HACER{
         
         // Lógica de decisión dentro del bucle
-        SI (actual MODULO 2) == 0 ENTONCES
+        SI (actual MODULO 2) == 0 ENTONCES{
             // Es par
             actual &lt;- actual / 2
-        SINO
+        }SINO{
             // Es impar
             actual &lt;- (actual * 3) + 1
-        FIN SI
+        }
         
         // Contamos un paso más
         pasos &lt;- pasos + 1
         
-    FIN MIENTRAS
+    }
     
     RETORNAR pasos
-FIN FUNCION</Respuesta>
+}</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -4524,8 +4614,11 @@ FIN FUNCION</Respuesta>
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#nova-contrato-mal-hecho">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>Tenemos un nuevo compañero del equipo, Nova, que no tiene formación profesional, y su código está lleno de malas prácticas de programación. Esta vez, en su código se encontró un procedimiento que tiene el código hecho, pero no el contrato.
   Se pide completar los contratos de función. No olvidar indicar en qué posición queda el cabezal, ni de establecer para qué son los parámetros. El código de Nova es el siguiente:
 
@@ -4558,8 +4651,11 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#nova-dividir-en-subtareas">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>En el equipo de programación empezó a trabajar un programador que no tiene formación profesional, y al que todos apodaron Nova . En el código que escribió Nova se encontró un procedimiento que no aplica la técnica de división en subtareas, y tampoco tiene contrato. Para poder integrar el código con el resto, en este equipo se requiere que los programas sigan buenas prácticas de programación. Por eso, se pide corregir este código para que cumpla con las mismas.
 
   FUNCION ConstruirEscaleraAzulDe4Escalones() {
@@ -4610,11 +4706,13 @@ FUNCION ConstruirEscalon(){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pasar-palabra-a-mayuscula">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Hacer el procedimiento PasarPalabraActualAMayúsculas() que suponiendo que en la fila actual se codifica una palabra en minúsculas usando bolitas, ponga la misma palabra en mayúsculas en la fila al Norte.
+        <Enunciado>Hacer el procedimiento PasarPalabraActualAMayúsculas() que, suponiendo que en la fila actual se codifica una palabra en minúsculas usando bolitas, ponga la misma palabra en mayúsculas en la fila al Norte.
            - Cada letra se representa con una cantidad diferente de bolitas negras, según un código numérico llamado ASCII.
            - En la celda más al Oeste de la fila actual se codifica la cantidad de letras de la palabra, usando bolitas rojas.
            - La primera letra de la palabra está en la celda lindante al Este de la que contiene la cantidad de letras.
@@ -4641,8 +4739,14 @@ FUNCION Poner_BolitasDeColor_Al_(cantidad, color, direccion) {
     <!-- urn:protege:ontology:progreval#patron-triangular -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#patron-triangular">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
-        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-definicion-complecion-espacios-vacios"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado xml:lang="es-ar">Se desea imprimir un triángulo rectángulo de asteriscos alineado a la izquierda. Si, por ejemplo, altura es 4, la salida debe ser:
 
 *
@@ -4652,19 +4756,31 @@ FUNCION Poner_BolitasDeColor_Al_(cantidad, color, direccion) {
 
 Complete la definición del bucle interno para lograr esta estructura variable por fila.
 
-trianguloDeAsteriscos(altura){
-    for (int i = 0; i &lt; altura; i++) {
-        for (int j = 0; ______; j++) {
-            print(&quot;*&quot;);
+FUNCION trianguloDeAsteriscos(altura){
+    i = 0
+    j = 0
+    
+    MIENTRAS ______ HACER {
+        MIENTRAS ______ HACER{
+            IMPRIMIR(&quot;*&quot;)
+            j++
         }
-        print(&quot;\n&quot;); // Salto de línea
+        IMPRIMIR(&quot;\n&quot;) // Salto de línea
+        i++
+    }
 }</Enunciado>
-        <Respuesta>trianguloDeAsteriscos(altura){
-    for (int i = 0; i &lt; altura; i++) {
-        for (int j = 0; j &lt;= i; j++) {
-            print(&quot;*&quot;);
+        <Respuesta>FUNCION trianguloDeAsteriscos(altura){
+    i = 0
+    j = 0
+    
+    MIENTRAS i &lt; altura HACER {
+        MIENTRAS j &lt;= i HACER{
+            IMPRIMIR(&quot;*&quot;)
+            j++
         }
-        print(&quot;\n&quot;); // Salto de línea
+        IMPRIMIR(&quot;\n&quot;) // Salto de línea
+        i++
+    }
 }</Respuesta>
     </owl:NamedIndividual>
     
@@ -4674,6 +4790,8 @@ trianguloDeAsteriscos(altura){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pelear-la-batalla-1">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion-complecion-espacios-vacios"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
@@ -4707,6 +4825,8 @@ FUNCION PelearLaBatalla(){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pelear-la-batalla-2">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
@@ -4730,8 +4850,11 @@ FUNCION PelearLaBatalla(){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pintar-3-puntos-azules-cada-3-celdas-hacia-el-este">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>Escribir el contrato faltante para la siguiente función:
 
 FUNCION Pintar3PuntosAzulesCada3CeldasHaciaElEste() {
@@ -4769,6 +4892,10 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pintar-tablero-dimensiones-conocidas">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
@@ -4776,27 +4903,27 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
 La estrategia de solución debe quedar clara a partir de la lectura del código. Use subtareas con nombres apropiados para dicho objetivo.
 El cabezal comienza y termina en la esquina inferior izquierda del tablero.</Enunciado>
         <Respuesta>FUNCION PintarElTableroDeAzul(){
-	REPETIR 6 VECES {
-    	PintarFilaDeAzul()
+    REPETIR 6 VECES {
+        PintarFilaDeAzul()
         Mover(Norte)
     }
     PintarFilaDeAzul()
     
     REPETIR 6 VECES{
-    	Mover(Sur)
+        Mover(Sur)
     }
 }
 
 FUNCION PintarFilaDeAzul(){
     REPETIR 9 VECES {
-		Poner(Azul)
+        Poner(Azul)
         Mover(Este)
     }
     
     Poner(Azul)
     
     REPETIR 9 VECES{
-    	Mover(Oeste)
+        Mover(Oeste)
     }
 }</Respuesta>
     </owl:NamedIndividual>
@@ -4807,6 +4934,9 @@ FUNCION PintarFilaDeAzul(){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#precondiciones-programas-simples">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <Enunciado>Cuáles serı́an las precondiciones para programas cuyo propósito sea:
