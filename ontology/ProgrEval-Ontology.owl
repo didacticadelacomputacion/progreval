@@ -516,6 +516,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Nivel-Universitario">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Publico-Objetivo"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
         <rdfs:label>Nivel universitario</rdfs:label>
     </owl:NamedIndividual>
     
@@ -4961,24 +4962,31 @@ c.
     <!-- urn:protege:ontology:progreval#promedio-de-ventas -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#promedio-de-ventas">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#variable-definicion"/>
         <Enunciado xml:lang="es-ar">Escribe una función llamada calcular_promedio_ventas que reciba como parámetro una lista de números reales representando las ventas diarias de un negocio durante un mes. La función debe calcular y retornar el promedio de dichas ventas. Si la lista está vacía, debe retornar 0. La solución no debe hacer uso de funciones externas, toda lógica debe ser implementada desde cero.</Enunciado>
-        <Respuesta>calcular_promedio_ventas(ventas){
-    if (ventas.size == 0) {
+        <Respuesta>FUNCION calcular_promedio_ventas(ventas){
+    SI (ventas.size == 0) ENTONCES{
         return 0
     }
 
     suma_total = 0
     cantidad =  ventas.size
     
-    for(i = 0; i &lt; cantidad; i++){
+    i = 0
+    MIENTRAS (i &lt; cantidad) HACER{
         suma_total += venta[i]
+        i++
     }
         
     promedio = suma_total / cantidad
-    return promedio
+    RETORNAR promedio
 }</Respuesta>
     </owl:NamedIndividual>
     
@@ -5008,16 +5016,16 @@ La función debe recibir el número n y una tolerancia error_maximo (ej. 0.0001)
 3 - El proceso debe repetirse mientras la diferencia absoluta entre la nueva estimación y la anterior sea mayor que error_maximo.
 
 4 - Retorna la última estimación calculada.</Enunciado>
-        <Respuesta>FUNCION RaizCuadradaAprox(n, error_maximo)
+        <Respuesta>FUNCION RaizCuadradaAprox(n, error_maximo){
     // Validación básica (opcional, pero buena práctica)
-    SI n &lt; 0 ENTONCES
+    SI n &lt; 0 ENTONCES{
         RETORNAR &quot;Error: Número negativo&quot;
-    FIN SI
+    }
 
     estimacion_actual &lt;- n / 2.0  // Una semilla inicial razonable
     diferencia &lt;- error_maximo + 1.0 // Asegura que entre al bucle la primera vez
 
-    MIENTRAS diferencia &gt; error_maximo HACER
+    MIENTRAS diferencia &gt; error_maximo HACER{
         
         // Fórmula del método babilónico
         nueva_estimacion &lt;- (estimacion_actual + (n / estimacion_actual)) / 2
@@ -5028,10 +5036,10 @@ La función debe recibir el número n y una tolerancia error_maximo (ej. 0.0001)
         // Actualizar el estado para la siguiente iteración
         estimacion_actual &lt;- nueva_estimacion
         
-    FIN MIENTRAS
+    }
 
     RETORNAR estimacion_actual
-FIN FUNCION</Respuesta>
+}</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -5040,40 +5048,43 @@ FIN FUNCION</Respuesta>
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#rectangulo-rojo-negro-5x3">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
         <Enunciado>Escribir un procedimiento DibujarRectánguloRojoYNegroDe5x3() que dibuje un rectángulo sólido de 5 celdas de largo por 3 de alto utilizando directivas de repetición.
 El cabezal comienza y termina en la esquina inferior izquierda del rectángulo.</Enunciado>
         <Respuesta>FUNCION DibujarRectánguloRojoYNegroDe5x3(){
-	REPETIR 2 VECES{
-    
-    	DibujarLineaRojaYNegraDe5()
+    REPETIR 2 VECES{
+        DibujarLineaRojaYNegraDe5()
         Mover(Norte)
     }
     
     DibujarLineaRojaYNegraDe5()
     
     REPETIR 2 VECES {
-    	Mover(Sur)
+        Mover(Sur)
     }
 }
 
 FUNCION DibujarLineaRojaYNegraDe5() {
-	REPETIR 4 VECES{
-     	PonerRojaYNegra()
+    REPETIR 4 VECES{
+        PonerRojaYNegra()
         Mover(Este)
     }
 
-	PonerRojaYNegra()
+    PonerRojaYNegra()
 
-  	REPETIR 4 VECES{
-  		Mover(Oeste)
-  	}
+    REPETIR 4 VECES{
+        Mover(Oeste)
+    }
 }
 
 FUNCION PonerRojaYNegra() {
-	Poner(Rojo)
+    Poner(Rojo)
     Poner(Negro)
 }</Respuesta>
     </owl:NamedIndividual>
@@ -5084,20 +5095,24 @@ FUNCION PonerRojaYNegra() {
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#reloj-analogico-radio-3">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <Enunciado>Dibujar un reloj analógico de agujas en un tablero cuadriculado puede ser un desafío. Una simplificación posible sería representar solamente algunos de los números que aparecen en el mismo: el 12 arriba, el 3 a la derecha, el 9 a la izquierda y el 6 abajo.
 Construir un procedimiento DibujarRelojAnalógicoSimplificado(), que ponga los números del reloj tal como se indicó, alrededor del casillero actual. El tamaño del reloj será de 2 celdas de “radio” (suponiendo que miramos al reloj como un círculo).
 Dividan el problema en partes más pequeñas y definan sus propios procedimientos para resolver cada una.</Enunciado>
         <Respuesta>FUNCION DibujarRelojAnalógicoSimplificado(){
-	Dibujar12()
+    Dibujar12()
     Dibujar3()
     Dibujar6()
     Dibujar9()
 }
 
 FUNCION Dibujar12(){
-	Mover(Norte)
+    Mover(Norte)
     Mover(Norte)
     Poner12BolitasRojas()
     Mover(Sur)
@@ -5105,7 +5120,7 @@ FUNCION Dibujar12(){
 }
 
 FUNCION Dibujar3(){
-	Mover(Este)
+    Mover(Este)
     Mover(Este)
     Poner3BolitasRojas()
     Mover(Oeste)
@@ -5113,7 +5128,7 @@ FUNCION Dibujar3(){
 }
 
 FUNCION Dibujar6(){
-	Mover(Sur)
+    Mover(Sur)
     Mover(Sur)
     Poner6BolitasRojas()
     Mover(Norte)
@@ -5121,7 +5136,7 @@ FUNCION Dibujar6(){
 }
 
 FUNCION Dibujar9(){
-	Mover(Oeste)
+    Mover(Oeste)
     Mover(Oeste)
     Poner9BolitasRojas()
     Mover(Este)
@@ -5129,7 +5144,7 @@ FUNCION Dibujar9(){
 }
 
 FUNCION Poner12BolitasRojas(){
-	Poner(Roja)
+    Poner(Roja)
     Poner(Roja)
     Poner(Roja)
     Poner(Roja)
@@ -5156,7 +5171,7 @@ FUNCION Poner9BolitasRojas(){
 }
 
 FUNCION Poner6BolitasRojas(){
-	Poner(Roja)
+    Poner(Roja)
     Poner(Roja)
     Poner(Roja)
     Poner(Roja)
@@ -5165,7 +5180,7 @@ FUNCION Poner6BolitasRojas(){
 }
 
 FUNCION Poner3BolitasRojas(){
-	Poner(Roja)
+    Poner(Roja)
     Poner(Roja)
     Poner(Roja)
 }</Respuesta>
@@ -5177,6 +5192,9 @@ FUNCION Poner3BolitasRojas(){
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#reloj-analogico-radio-n">
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion-consigna-cerrada"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
@@ -5267,26 +5285,30 @@ FUNCION Dibujar9ADistancia_(radio){
     <!-- urn:protege:ontology:progreval#solicitar_temperatura -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#solicitar_temperatura">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-evaluacion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
         <Enunciado xml:lang="es-ar">Escribe un programa para un sistema de control de temperatura. El sistema debe pedir al usuario que ingrese una temperatura válida para un reactor, la cual debe estar estrictamente entre 100°C y 200°C.
 
 Si el usuario ingresa un valor fuera de este rango, el programa debe mostrar un mensaje de error y volver a pedir el dato. Este proceso debe repetirse indefinidamente hasta que se ingrese un valor válido. Finalmente, el programa debe imprimir &apos;Temperatura aceptada&apos;.
 
 Para solicitar un valor al usuario contamos con la función input(variable), donde variable es donde se almacenará el dato ingresado. Esta función no terminará de ejecutarse hasta que el usuario ingrese un valor.
 Para imprimir mensajes podemos usar la función print(string).</Enunciado>
-        <Respuesta>solicitar_temperatura() {
-    print(&quot;Ingrese temperatura del reactor: &quot;)
+        <Respuesta>FUNCION solicitar_temperatura() {
+    IMPRIMIR(&quot;Ingrese temperatura del reactor: &quot;)
+    ENTRADA(temperatura)
     
-    
-    while (temperatura &lt;= 100 or temperatura &gt;= 200){
-        print(&quot;Error: La temperatura debe estar entre 100 y 200.&quot;)
-        input(temperatura)
+    MIENTRAS (temperatura &lt;= 100 or temperatura &gt;= 200) HACER{
+        IMPRIMIR(&quot;Error: La temperatura debe estar entre 100 y 200.&quot;)
+        ENTRADA(temperatura)
     }
-    print(&quot;Temperatura aceptada&quot;)
+    IMPRIMIR(&quot;Temperatura aceptada&quot;)
 }</Respuesta>
     </owl:NamedIndividual>
     
@@ -6525,8 +6547,11 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
     <!-- urn:protege:ontology:progreval#traduccion-de-calificaciones -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#traduccion-de-calificaciones">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
@@ -6541,17 +6566,17 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
 Menos de 70: &apos;F&apos; 
 
 Implemente una función que reciba el puntaje numérico y devuelva la letra correspondiente. Asuma que el puntaje ingresado siempre es válido (entre 0 y 100).</Enunciado>
-        <Respuesta>FUNCION ConvertirNota(puntaje)
-    SI puntaje &gt;= 90 ENTONCES
+        <Respuesta>FUNCION ConvertirNota(puntaje){
+    SI puntaje &gt;= 90 ENTONCES{
         RETORNAR &apos;A&apos;
-    SINO SI puntaje &gt;= 80 ENTONCES
+    }SINO SI puntaje &gt;= 80 ENTONCES{
         RETORNAR &apos;B&apos;
-    SINO SI puntaje &gt;= 70 ENTONCES
+    }SINO SI puntaje &gt;= 70 ENTONCES{
         RETORNAR &apos;C&apos;
-    SINO
+    }SINO{
         RETORNAR &apos;F&apos;
-    FIN_SI
-FIN_FUNCION</Respuesta>
+    }
+}</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -6559,9 +6584,13 @@ FIN_FUNCION</Respuesta>
     <!-- urn:protege:ontology:progreval#validacion-de-fechas -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#validacion-de-fechas">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
         <Enunciado xml:lang="es">Implemente una función EsFechaValida(dia, mes, anio) que reciba tres enteros y devuelva VERDADERO si la fecha es válida en el calendario gregoriano, o FALSO en caso contrario. Considere que:
 
@@ -6570,33 +6599,33 @@ FIN_FUNCION</Respuesta>
 - Febrero tiene 28 días, excepto en años bisiestos donde tiene 29.
 
 Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también sea divisible por 400. Asuma que el año debe ser mayor a 0.</Enunciado>
-        <Respuesta>FUNCION EsFechaValida(dia, mes, año)
-    SI año &lt; 1 O mes &lt; 1 O mes &gt; 12 O dia &lt; 1 ENTONCES
+        <Respuesta>FUNCION EsFechaValida(dia, mes, año){
+    SI (año &lt; 1 O mes &lt; 1 O mes &gt; 12 O dia &lt; 1) ENTONCES{
         RETORNAR FALSO
-    FIN_SI
+    }
 
-    variable diasEnMes
+    VARIABLE diasEnMes
 
-    SEGUN mes HACER
+    SEGUN mes HACER{
         CASO 4, 6, 9, 11:
             diasEnMes = 30
         CASO 2:
             // Lógica de año bisiesto
-            SI (año % 4 == 0 Y año % 100 != 0) O (año % 400 == 0) ENTONCES
+            SI (año % 4 == 0 Y año % 100 != 0) O (año % 400 == 0) ENTONCES{
                 diasEnMes = 29
-            SINO
+            }SINO{
                 diasEnMes = 28
-            FIN_SI
+            }
         DE_OTRO_MODO: // Meses 1, 3, 5, 7, 8, 10, 12
             diasEnMes = 31
-    FIN_SEGUN
+    }
 
-    SI dia &lt;= diasEnMes ENTONCES
+    SI dia &lt;= diasEnMes ENTONCES{
         RETORNAR VERDADERO
-    SINO
+    }SINO{
         RETORNAR FALSO
-    FIN_SI
-FIN_FUNCION</Respuesta>
+    }
+}</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -7215,19 +7244,23 @@ FIN_FUNCION</Respuesta>
     <!-- urn:protege:ontology:progreval#verificar-acceso-montaña-rusa -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#verificar-acceso-montaña-rusa">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-implementacion-consigna-abierta"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
         <Enunciado xml:lang="es-ar">Escriba un programa para controlar la entrada a una montaña rusa. El programa debe recibir como entrada la altura de una persona en centímetros. Si la altura es menor a 140 cm, el programa debe mostrar el mensaje &quot;Acceso denegado: altura insuficiente&quot;. En caso contrario (140 cm o más), debe mostrar &quot;Acceso permitido&quot;.</Enunciado>
-        <Respuesta>FUNCION VerificarAcceso(altura)
-    SI altura &lt; 140 ENTONCES
-        MOSTRAR &quot;Acceso denegado: altura insuficiente&quot;
-    SINO
-        MOSTRAR &quot;Acceso permitido&quot;
-    FIN_SI
-FIN_FUNCION</Respuesta>
+        <Respuesta>FUNCION VerificarAcceso(altura){
+    SI altura &lt; 140 ENTONCES {
+        IMPRIMIR &quot;Acceso denegado: altura insuficiente&quot;
+    }SINO{
+        IMPRIMIR &quot;Acceso permitido&quot;
+    }
+}</Respuesta>
     </owl:NamedIndividual>
 </rdf:RDF>
 
