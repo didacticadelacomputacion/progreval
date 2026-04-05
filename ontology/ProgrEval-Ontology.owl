@@ -1636,8 +1636,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
-        <dc:description>- Repetición condicional
-- Repetición simple anidada</dc:description>
+        <dc:description>Repetición condicional o repetición simple anidada.</dc:description>
     </owl:NamedIndividual>
     
 

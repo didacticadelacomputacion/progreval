@@ -822,9 +822,10 @@
     const generateAIPrompt = async () => {
 
         // Fetch all data first
-        const [conceptos, desempenos] = await Promise.all([
+        const [conceptos, desempenos, formatos] = await Promise.all([
             fetchData('concepto'),
-            fetchData('desempeno')
+            fetchData('desempeno'),
+            fetchData('formato_esfuerzo')
         ]);
 
         const getSelectedText = (id) => {
@@ -883,6 +884,8 @@
         const nivel_basico_concepto = getCompetenciaDesc('Básico');
         const nivel_intermedio_concepto = getCompetenciaDesc('Intermedio');
         const nivel_avanzado_concepto = getCompetenciaDesc('Avanzado');
+
+        const definicion_actividad_seleccionada = getDesc(formatos, getVal('select-formato').split('#').pop());
         
         // Retrieve generated examples from the results section
         let ejemplos = 'N/A';
@@ -890,16 +893,18 @@
         if (resultsContainer && resultsContainer.querySelectorAll('.result-row').length > 0) {
             ejemplos = Array.from(resultsContainer.querySelectorAll('.result-row')).map((row, i) => {
                 const content = Array.from(row.querySelectorAll('.data-pair')).map(pair => {
-                    return `${pair.querySelector('.data-label').textContent} ${pair.querySelector('.data-value').textContent}`;
+                    return `${pair.querySelector('.data-label').textContent} \n \`\`\` \n ${pair.querySelector('.data-value').textContent} \n \`\`\` \n`;
                 }).join('\n');
-                return `Ejemplo ${i+1}:\n${content}`;
+                return `### Ejemplo ${i+1}:\n${content}`;
             }).join('\n\n');
         }        
          
         const contexto_adicional = getVal('input-additional-info');
+        const buenas_practicas = getVal('input-best-practices');
+        const objetivos_aprendizaje = null; // getVal('input-learning-objectives');
         
         const formato_salida = 'Markdown';
-        const lenguaje_progamacion = getVal('input-language') || 'un lenguaje de programación adecuado';
+        const lenguaje_progamacion = getVal('input-language');
         const caracteristicas_vetadas_del_lenguaje = getVal('input-forbidden-features');
         
         const conocimientos_previos = Array.from(document.querySelectorAll('input[name="conocimiento_previo"]:checked')).map(cb => {
@@ -916,63 +921,64 @@
 Sos un profesor de programación de ${publico} especializado en el diseño de evaluaciones. Tu tarea es generar consignas de evaluación sobre un concepto y desempeños específicos de programación. El propósito de cada consigna es obtener evidencias de aprendizaje de los estudiantes respecto a lo evaluado. Para esto, las consignas deben proponer situaciones en las que los estudiantes pongan en juego un determinado nivel de competencia sobre el concepto y un desempeño de programación específicos.
 
 # Terminologia
-Conceptos:
-Directiva de Repetición: ${definicion_directiva_repeticion}
-Directiva de Selección: ${definicion_directiva_seleccion}
-Expresión Lógica: ${definicion_expresion_logica}
-Expresión Matemática: ${definicion_expresion_matematica}
-Función: ${definicion_funcion}
-Tipo de Dato Primitivo: ${definicion_tipo_dato_primitivo}
-Tipo de Dato Estructurado: ${definicion_tipo_dato_estructurado}
-Variable: ${definicion_variable}
+## Conceptos:
+-Directiva de Repetición: ${definicion_directiva_repeticion}
+-Directiva de Selección: ${definicion_directiva_seleccion}
+-Expresión Lógica: ${definicion_expresion_logica}
+-Expresión Matemática: ${definicion_expresion_matematica}
+-Función: ${definicion_funcion}
+-Tipo de Dato Primitivo: ${definicion_tipo_dato_primitivo}
+-Tipo de Dato Estructurado: ${definicion_tipo_dato_estructurado}
+-Variable: ${definicion_variable}
 
-Desempeños:
-Definición: ${definicion_definicion}
-Depuración: ${definicion_depuracion}
-Especificación: ${definicion_especificacion}
-Esquematización: ${definicion_esquematizacion}
-Evaluación: ${definicion_evaluacion}
-Explicación: ${definicion_explicacion}
-Implementación: ${definicion_implementacion}
-Modificación: ${definicion_modificacion}
-Seguimiento: ${definicion_seguimiento}
+## Desempeños:
+-Definición: ${definicion_definicion}
+-Depuración: ${definicion_depuracion}
+-Especificación: ${definicion_especificacion}
+-Esquematización: ${definicion_esquematizacion}
+-Evaluación: ${definicion_evaluacion}
+-Explicación: ${definicion_explicacion}
+-Implementación: ${definicion_implementacion}
+-Modificación: ${definicion_modificacion}
+-Seguimiento: ${definicion_seguimiento}
 
-Conocimientos previos: conjunto de conocimientos ya adquiridos por los estudiantes previo a la tarea actual. Se detallará como un conjunto de pares (Concepto)-(Desempeño).
+## Conocimientos previos: conjunto de conocimientos ya adquiridos por los estudiantes previo a la tarea actual. Se detallará como un conjunto de pares (Concepto)-(Desempeño).
 
-# Nivel de competencia para el concepto a evaluar
-Básico: ${nivel_basico_concepto}
-Intermedio: ${nivel_intermedio_concepto}
-Avanzado: ${nivel_avanzado_concepto}
+## Nivel de competencia para el concepto a evaluar
+1. Básico: ${nivel_basico_concepto}
+2. Intermedio: ${nivel_intermedio_concepto}
+3. Avanzado: ${nivel_avanzado_concepto}
+
+## Formato de Actividad
+${formato}: ${definicion_actividad_seleccionada}
+
 
 # Tarea
-Generar una consigna para evaluar ${concepto} donde los estudiantes pongan en juego desempeños de ${desempeno}. Además, deberás elaborar una respuesta posible y argumentos breves que validen la consigna respecto del concepto, el desempeño, el nivel de competencia y los conocimientos previos indicados.
+Generar una consigna para evaluar ${concepto} donde los estudiantes pongan en juego desempeños de ${desempeno}. Además, deberás elaborar una solución posible explicando paso a paso cómo se obtuvo.
 
-# Requisitos de la consigna
+## Requisitos de la consigna
 La consigna debe:
 - Evaluar el concepto: ${concepto}
-- Requerir un nivel de competencia: ${competencia}. La consigna puede poner en juego competencias de niveles inferiores pero no debe involucrar competencias de niveles superiores. Además, en ningún caso debe anticipar cuál es el concepto que se debe utilizar para resolver la consigna y cómo se espera que sea empleado.
+- Requerir un nivel de competencia: ${competencia}. La consigna puede poner en juego competencias de niveles inferiores pero no debe involucrar competencias de niveles superiores.
 - Utilizar el formato de actividad: ${formato}
 - Promover desempeños de programación asociados a: ${desempeno}
-- Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos}
-- Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje : ''}
+- Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos} ${(!lenguaje_progamacion || lenguaje_progamacion.trim() === '') ? '' : `\n - Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje : ''}`}
+- Evitar anticipar cuál es el concepto que se debe utilizar para resolver la consigna y cómo se espera que sea empleado.
+- Especificar un dominio concreto en el que se basa.
 
-
-# Ejemplos
+## Ejemplos
 Los siguiente ejemplos muestran consignas de evaluación y una posible solución escrita en pseudocódigo.
 
 Utilizá los ejemplos como referencia para: 
 - Definir la estructura de la consigna y el nivel de detalle esperado. 
 - Generar una consigna para ser resuelta con el lenguaje de programación especificado. No utilices instrucciones que no están definidas en el lenguaje.
-- La consigna no debe ser una copia de los ejemplos.
 
 ${ejemplos}
 
 # Formato de salida
-Deberás generar la consigna y su posible resolución tomando en cuenta los requisitos y el nivel de competencia indicados anteriormente, en formato ${formato_salida}, sin ningún tipo de información adicional como título, textos introductorios, preguntas, el formato de actividad utilizado.
+Deberás generar la salida en formato ${formato_salida}, sin ningún tipo de información adicional como título, textos introductorios, preguntas, el formato de actividad utilizado.
 
-
-# Información adicional
-${contexto_adicional}
+${(!contexto_adicional || contexto_adicional.trim() === '') ? '' : `# Información adicional${contexto_adicional}`} ${(!buenas_practicas || buenas_practicas.trim() === '') ? '' : `\n ## Buenas Prácticas a contemplar en la solución \n ${buenas_practicas}`} ${(!objetivos_aprendizaje || objetivos_aprendizaje.trim() === '') ? '' : `\n ## Objetivos de aprendizaje \n ${objetivos_aprendizaje}`}
 `
 
 };
