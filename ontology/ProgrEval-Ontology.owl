@@ -360,17 +360,6 @@
     
 
 
-    <!-- urn:protege:ontology:progreval#Deteccion-de-Ocurrencia -->
-
-    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
-        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#semi-automatico"/>
-        <dc:description xml:lang="es-ar">Consigna en la que se presenta un elemento bien formulado y debe señalarse sobre él un fenómeno especificado, cuya aparición ha sido insertada deliberadamente.</dc:description>
-        <rdfs:label>Detección de Ocurrencia</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- urn:protege:ontology:progreval#Directiva-de-Repeticion -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Directiva-de-Repeticion">
@@ -391,13 +380,13 @@
     
 
 
-    <!-- urn:protege:ontology:progreval#Emparejar-opciones -->
+    <!-- urn:protege:ontology:progreval#Emparejamiento-de-opciones -->
 
-    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Emparejar-opciones">
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Emparejamiento-de-opciones">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#automatico"/>
         <dc:description>Consignas en las que se presentan dos o más grupos de elementos que deben emparejarse de acuerdo a alguna relación establecida.</dc:description>
-        <rdfs:label>Emparejar opciones</rdfs:label>
+        <rdfs:label>Emparejamiento de opciones</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -608,6 +597,17 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Publico-Objetivo"/>
         <rdfs:label>Segundo ciclo del nivel secundario</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
+        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#semi-automatico"/>
+        <dc:description xml:lang="es-ar">Consigna en la que se presenta un elemento bien formulado y debe señalarse sobre él un fenómeno especificado, cuya aparición ha sido insertada deliberadamente.</dc:description>
+        <rdfs:label>Señalamiento de Ocurrencia</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1219,7 +1219,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1295,7 +1295,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1372,7 +1372,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1448,7 +1448,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1525,7 +1525,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1603,7 +1603,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1690,7 +1690,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1766,7 +1766,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1865,7 +1865,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -1941,7 +1941,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2018,7 +2018,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2094,7 +2094,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2171,7 +2171,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2247,7 +2247,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2334,7 +2334,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2411,7 +2411,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2580,7 +2580,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2656,7 +2656,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2732,7 +2732,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2809,7 +2809,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2885,7 +2885,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -2961,7 +2961,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3048,7 +3048,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3124,7 +3124,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3222,7 +3222,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3298,7 +3298,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3374,7 +3374,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3450,7 +3450,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3526,7 +3526,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3602,7 +3602,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3689,7 +3689,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3765,7 +3765,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3863,7 +3863,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -3939,7 +3939,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -4025,7 +4025,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -4101,7 +4101,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -4177,7 +4177,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -4253,7 +4253,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -4340,7 +4340,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -4416,7 +4416,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5407,7 +5407,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5483,7 +5483,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5559,7 +5559,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5635,7 +5635,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5711,7 +5711,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5787,7 +5787,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5863,7 +5863,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -5939,7 +5939,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6015,7 +6015,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6091,7 +6091,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6167,7 +6167,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6243,7 +6243,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6319,7 +6319,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6395,7 +6395,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6471,7 +6471,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6547,7 +6547,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6722,7 +6722,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6798,7 +6798,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6874,7 +6874,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -6950,7 +6950,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -7027,7 +7027,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -7103,7 +7103,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -7180,7 +7180,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
@@ -7257,7 +7257,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Deteccion-de-Ocurrencia"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Senalamiento-de-Ocurrencia"/>
     </owl:NamedIndividual>
     
 
