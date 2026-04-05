@@ -323,30 +323,19 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Complecion-de-Espacios-Vacios">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#semi-automatico"/>
-        <dc:description xml:lang="es-ar">Consigna que presentan un objetivo y una solución bien definida pero con elementos en blanco que deben ser completados.</dc:description>
+        <dc:description xml:lang="es-ar">Consigna que presenta un programa con un propósito específico en el que hay que completar sus partes faltantes (espacios en blanco) elaborando manualmente el contenido necesario para que funcione.</dc:description>
         <rdfs:label>Compleción de espacios vacíos</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- urn:protege:ontology:progreval#Consigna-Abierta -->
+    <!-- urn:protege:ontology:progreval#Complecion-de-Espacios-Vacios-con-Opciones -->
 
-    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Consigna-Abierta">
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Complecion-de-Espacios-Vacios-con-Opciones">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
-        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#intenso"/>
-        <dc:description xml:lang="es-ar">Consigna para que la hay que desarrollar una de sus posibles respuestas desde cero.</dc:description>
-        <rdfs:label>Consigna abierta</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- urn:protege:ontology:progreval#Consigna-Cerrada -->
-
-    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Consigna-Cerrada">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
-        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#moderado"/>
-        <dc:description xml:lang="es-ar">Consigna cuya respuesta única debe ser desarrollada desde cero.</dc:description>
-        <rdfs:label>Consigna cerrada</rdfs:label>
+        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#automatico"/>
+        <dc:description>Consigna que presenta un programa con un propósito específico en el que hay que completar sus partes faltantes (espacios en blanco) a partir de una lista de opciones posibles para que funcione. La lista puede contener distractores que no corresponden a ningún espacio.</dc:description>
+        <rdfs:label>Compleción de espacios vacíos con opciones posibles</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -522,13 +511,35 @@
     
 
 
-    <!-- urn:protege:ontology:progreval#Opcion-Multiple -->
+    <!-- urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Multiple -->
 
-    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Opcion-Multiple">
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Multiple">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
+        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#automatico"/>
+        <dc:description>Consignas en las que se presentan opciones como potenciales soluciones. Varias de las opciones son correctas. Las que no, son distractores diseñados para ser el resultado de errores conceptuales comunes.</dc:description>
+        <rdfs:label>Opción múltiple con respuestas múltiples</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#automatico"/>
         <dc:description xml:lang="es-ar">Consignas en las que se presentan opciones como potenciales soluciones. Una es correcta y las demás son distractores diseñados para ser el resultado de errores conceptuales comunes.</dc:description>
-        <rdfs:label>Opción múltiple</rdfs:label>
+        <rdfs:label>Opción múltiple con respuesta única</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#Parsons -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Parsons">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
+        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#automatico"/>
+        <dc:description>Consigna en la que se deben ordenar las instrucciones de un programa para resolver una tarea específica. Se provee una lista de instrucciones entre las que se encuentran las necesarias para resolver el problema y otras innecesarias que cumplen el rol de distractoras.</dc:description>
+        <rdfs:label>Parsons</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -547,6 +558,28 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Primer-Ciclo-Secundario">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Publico-Objetivo"/>
         <rdfs:label>Primer ciclo del nivel secundario</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#Respuesta-Abierta -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Respuesta-Abierta">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
+        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#intenso"/>
+        <dc:description xml:lang="es-ar">Consigna para que la hay que desarrollar una de sus posibles respuestas desde cero. Su corrección requiere criterios graduales o rúbricas, ya que las respuestas pueden diferir en forma y calidad.</dc:description>
+        <rdfs:label>Respuesta abierta</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#Respuesta-Unica-Acotada -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Respuesta-Unica-Acotada">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
+        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#moderado"/>
+        <dc:description xml:lang="es-ar">Consigna cuya respuesta esperada es única o pertenece a un conjunto bien definido (por ejemplo, un número, una palabra o una expresión específica). La corrección puede realizarse de manera binaria, comparando la respuesta con el valor esperado.</dc:description>
+        <rdfs:label>Respuesta única acotada</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -635,12 +668,23 @@
     
 
 
+    <!-- urn:protege:ontology:progreval#Verdadero-o-Falso -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Verdadero-o-Falso">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
+        <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#automatico"/>
+        <dc:description>Consignas en la que se plantea una afirmación como un hecho y hay que determinar si es verdadera o falsa.</dc:description>
+        <rdfs:label>Verdadero o falso</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#Verdadero-o-Falso-Justificado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Verdadero-o-Falso-Justificado">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#moderado"/>
-        <dc:description xml:lang="es-ar">Consignas en la que se plantea una afirmación como un hecho y hay que determinar si es verdadera o falsa, justificando debidamente.</dc:description>
+        <dc:description xml:lang="es-ar">Consignas en la que se plantea una afirmación como un hecho y hay que determinar si es verdadera o falsa, justificando debidamente la respuesta seleccionada.</dc:description>
         <rdfs:label>Verdadero o falso con justificación</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1149,7 +1193,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:comment xml:lang="es-ar">Se entiende por caracterísicas a la pre condición, post condición e invarante.</rdfs:comment>
         <rdfs:label xml:lang="es-ar">Definición justificada de característica del ciclo de un programa.</rdfs:label>
     </owl:NamedIndividual>
@@ -1162,7 +1206,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
         <rdfs:comment xml:lang="es-ar">Se entiende por caracterísicas a la pre condición, post condición e invarante.</rdfs:comment>
         <rdfs:label xml:lang="es-ar">Definición de característica del ciclo de un programa.</rdfs:label>
     </owl:NamedIndividual>
@@ -1186,7 +1230,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1229,7 +1273,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -1240,7 +1284,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1262,7 +1306,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1305,7 +1349,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Esquematización del flujo de un programa con ciclos</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1317,7 +1361,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1339,7 +1383,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1382,7 +1426,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -1393,7 +1437,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1415,7 +1459,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1458,7 +1502,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Explicación del funcionamiento de un programa con ciclos</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1470,7 +1514,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1492,7 +1536,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1535,7 +1579,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Implementación de un programa con ciclos</rdfs:label>
         <rdfs:label xml:lang="es-ar">Implementación de un programa con ramificaciones condicionales</rdfs:label>
     </owl:NamedIndividual>
@@ -1548,7 +1592,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1570,7 +1614,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1625,7 +1669,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -1636,7 +1680,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1658,7 +1702,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1701,7 +1745,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -1712,7 +1756,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1734,7 +1778,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
         <rdfs:label xml:lang="es-ar">Selección del resultado de la ejecución de un programa con ciclos</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1800,7 +1844,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -1811,7 +1855,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1833,7 +1877,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1876,7 +1920,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -1887,7 +1931,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1909,7 +1953,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -1952,7 +1996,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Esquematización del flujo de un programa con ramificaciones condicionales</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1964,7 +2008,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -1986,7 +2030,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2029,7 +2073,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2040,7 +2084,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2062,7 +2106,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2105,7 +2149,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Explicación del funcionamiento de un programa con ramificaciones condicionales</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2117,7 +2161,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2139,7 +2183,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2182,7 +2226,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2193,7 +2237,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2215,7 +2259,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2269,7 +2313,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2280,7 +2324,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2302,7 +2346,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2345,7 +2389,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2356,7 +2400,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
         <rdfs:label xml:lang="es-ar">Determinación resultado ejecución de un programa con ramificaciones condicionales</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2379,7 +2423,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
         <rdfs:label xml:lang="es-ar">Selección resultado programa condicionales</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2514,7 +2558,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Definición de expresión lógica que describe una condición</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2526,7 +2570,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2548,7 +2592,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2591,7 +2635,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2602,7 +2646,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2624,7 +2668,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2667,7 +2711,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2678,7 +2722,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2700,7 +2744,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2743,7 +2787,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2754,7 +2798,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
         <rdfs:label xml:lang="es-ar">Evaluación de una expresión lógica</rdfs:label>
     </owl:NamedIndividual>
     
@@ -2777,7 +2821,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2820,7 +2864,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2831,7 +2875,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2853,7 +2897,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2896,7 +2940,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2907,7 +2951,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -2929,7 +2973,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -2983,7 +3027,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -2994,7 +3038,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3016,7 +3060,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3059,7 +3103,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3070,7 +3114,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3092,7 +3136,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3157,7 +3201,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3168,7 +3212,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3190,7 +3234,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3233,7 +3277,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3244,7 +3288,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3266,7 +3310,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3309,7 +3353,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3320,7 +3364,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3342,7 +3386,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3385,7 +3429,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3396,7 +3440,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3418,7 +3462,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3461,7 +3505,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3472,7 +3516,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3494,7 +3538,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3537,7 +3581,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3548,7 +3592,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3570,7 +3614,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3624,7 +3668,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3635,7 +3679,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3657,7 +3701,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3700,7 +3744,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3711,7 +3755,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3733,7 +3777,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3798,7 +3842,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3809,7 +3853,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3831,7 +3875,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3874,7 +3918,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3885,7 +3929,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3907,7 +3951,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -3928,7 +3972,7 @@ A: F ; B: V</Enunciado>
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta">
         <evalua rdf:resource="urn:protege:ontology:progreval#Especificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3960,7 +4004,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -3971,7 +4015,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -3993,7 +4037,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -4036,7 +4080,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -4047,7 +4091,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -4069,7 +4113,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -4112,7 +4156,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -4123,7 +4167,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -4145,7 +4189,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -4188,7 +4232,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -4199,7 +4243,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -4221,7 +4265,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -4275,7 +4319,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -4286,7 +4330,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -4308,7 +4352,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -4351,7 +4395,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -4362,7 +4406,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -4384,7 +4428,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5341,7 +5385,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Definición tipo de dato estructurado</rdfs:label>
     </owl:NamedIndividual>
     
@@ -5353,7 +5397,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5375,7 +5419,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5418,7 +5462,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5429,7 +5473,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5451,7 +5495,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5494,7 +5538,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5505,7 +5549,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5527,7 +5571,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5570,7 +5614,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5581,7 +5625,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5603,7 +5647,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5646,7 +5690,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5657,7 +5701,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5679,7 +5723,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5722,7 +5766,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5733,7 +5777,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5755,7 +5799,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5798,7 +5842,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5809,7 +5853,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5831,7 +5875,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5874,7 +5918,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5885,7 +5929,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5907,7 +5951,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -5950,7 +5994,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -5961,7 +6005,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -5983,7 +6027,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6026,7 +6070,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6037,7 +6081,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6059,7 +6103,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6102,7 +6146,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6113,7 +6157,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6135,7 +6179,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6178,7 +6222,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6189,7 +6233,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6211,7 +6255,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6254,7 +6298,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6265,7 +6309,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6287,7 +6331,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6330,7 +6374,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6341,7 +6385,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6363,7 +6407,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6406,7 +6450,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6417,7 +6461,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6439,7 +6483,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6482,7 +6526,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6493,7 +6537,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6515,7 +6559,7 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6537,8 +6581,8 @@ Para imprimir mensajes podemos usar la función print(string).</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
         <rdfs:label xml:lang="es-ar">Definición tipo de dato primitivo variable</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6657,7 +6701,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6668,7 +6712,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6690,7 +6734,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6733,7 +6777,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6744,7 +6788,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6766,7 +6810,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Depuracion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6809,7 +6853,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6820,7 +6864,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6842,7 +6886,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Esquematizacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6885,7 +6929,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -6896,7 +6940,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6918,7 +6962,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Evaluacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -6961,7 +7005,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Explicación propósito variable</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6973,7 +7017,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -6995,7 +7039,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Explicacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -7038,7 +7082,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -7049,7 +7093,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -7071,7 +7115,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -7114,7 +7158,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
         <rdfs:label xml:lang="es-ar">Modificación programa variables</rdfs:label>
     </owl:NamedIndividual>
     
@@ -7126,7 +7170,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
     </owl:NamedIndividual>
     
 
@@ -7148,7 +7192,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Modificacion"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
@@ -7191,7 +7235,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Abierta"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Abierta"/>
     </owl:NamedIndividual>
     
 
@@ -7202,7 +7246,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Consigna-Cerrada"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Respuesta-Unica-Acotada"/>
         <rdfs:label xml:lang="es-ar">Determinación valor variable</rdfs:label>
     </owl:NamedIndividual>
     
@@ -7225,7 +7269,7 @@ Un año es bisiesto si es divisible por 4, pero no por 100, a menos que también
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Seguimiento"/>
         <evalua rdf:resource="urn:protege:ontology:progreval#Variable"/>
-        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
     </owl:NamedIndividual>
     
 
