@@ -265,7 +265,7 @@
     transform: translateX(-50%);
 }
 
-/* --- Competencia Checkbox List --- */
+/* --- Complejidad Checkbox List --- */
 .checkbox-list-container {
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -277,7 +277,7 @@
     flex-direction: column;
 }
 
-.competencia-option {
+.complejidad-option {
     display: block;
     background: #fff;
     border: 1px solid #ddd;
@@ -288,25 +288,25 @@
     transition: border-color 0.2s;
 }
 
-.competencia-option.selected {
+.complejidad-option.selected {
     background-color: #e7f3ff;
     border-color: #9acffa;
 }
 
-.competencia-option:hover {
+.complejidad-option:hover {
     border-color: #aaa;
 }
 
-.competencia-option:last-child {
+.complejidad-option:last-child {
     margin-bottom: 0;
 }
 
-.competencia-header {
+.complejidad-header {
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.competencia-body {
+.complejidad-body {
     font-size: 0.9em;
     color: #555;
     text-align: center;

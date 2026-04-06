@@ -61,7 +61,7 @@
     <!-- urn:protege:ontology:progreval#concepto -->
 
     <owl:ObjectProperty rdf:about="urn:protege:ontology:progreval#concepto">
-        <rdfs:domain rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdfs:domain rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <rdfs:range rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
     </owl:ObjectProperty>
     
@@ -119,7 +119,7 @@
 
     <owl:ObjectProperty rdf:about="urn:protege:ontology:progreval#evaluaConceptoANivel">
         <rdfs:domain rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
-        <rdfs:range rdf:resource="urn:protege:ontology:progreval#Nivel-de-Competencia"/>
+        <rdfs:range rdf:resource="urn:protege:ontology:progreval#Nivel-de-Complejidad"/>
     </owl:ObjectProperty>
     
 
@@ -135,8 +135,8 @@
     <!-- urn:protege:ontology:progreval#nivel -->
 
     <owl:ObjectProperty rdf:about="urn:protege:ontology:progreval#nivel">
-        <rdfs:domain rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
-        <rdfs:range rdf:resource="urn:protege:ontology:progreval#Nivel-de-Competencia"/>
+        <rdfs:domain rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
+        <rdfs:range rdf:resource="urn:protege:ontology:progreval#Nivel-de-Complejidad"/>
     </owl:ObjectProperty>
     
 
@@ -228,9 +228,9 @@
     
 
 
-    <!-- urn:protege:ontology:progreval#Competencia-por-Concepto -->
+    <!-- urn:protege:ontology:progreval#Complejidad-por-Concepto -->
 
-    <owl:Class rdf:about="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+    <owl:Class rdf:about="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
     
 
 
@@ -290,9 +290,9 @@
     
 
 
-    <!-- urn:protege:ontology:progreval#Nivel-de-Competencia -->
+    <!-- urn:protege:ontology:progreval#Nivel-de-Complejidad -->
 
-    <owl:Class rdf:about="urn:protege:ontology:progreval#Nivel-de-Competencia">
+    <owl:Class rdf:about="urn:protege:ontology:progreval#Nivel-de-Complejidad">
         <dc:description>Acá hay que poner información sobre el rol que cumple este parámetro</dc:description>
     </owl:Class>
     
@@ -702,7 +702,7 @@
     <!-- urn:protege:ontology:progreval#avanzado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#avanzado">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Nivel-de-Competencia"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Nivel-de-Complejidad"/>
         <orden rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</orden>
         <rdfs:label>Avanzado</rdfs:label>
     </owl:NamedIndividual>
@@ -712,7 +712,7 @@
     <!-- urn:protege:ontology:progreval#basico -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#basico">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Nivel-de-Competencia"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Nivel-de-Complejidad"/>
         <orden rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</orden>
         <rdfs:label>Básico</rdfs:label>
     </owl:NamedIndividual>
@@ -731,13 +731,13 @@
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-seguimiento"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#variable-seguimiento"/>
-        <Enunciado xml:lang="es-ar">Debemos recorrer un arreglo de enteros llamado datos y un valor objetivo a buscar. Completar el espacio vacío de modo que el bucle se detenga inmediatamente si se encuentra el valor o si se terminan los elementos.
-Cuentan con la función tamañoArray(array) para determinar el tamaño de un array.
+        <Enunciado xml:lang="es-ar">Debemos recorrer un arreglo de enteros llamado datos y un valor objetivo a buscar. Completar los espacios vacíos que correspondan con operadores de relación, operadores lógicos o paréntesis de modo que el bucle se detenga inmediatamente si se encuentra el valor o si se terminan los elementos.
+La función tamañoArray(array) retorna el tamaño de un array.
 
 FUNCION estáPresenteEnArray(valor_objetivo, datos) {
     int i = 0;
     boolean encontrado = false;
-    MIENTRAS (______) HACER{
+    MIENTRAS (i __ tamañoArray(datos) __ __encontrado__) HACER{
         SI (datos[i] == valor_objetivo) ENTONCES {
             encontrado = true;
         } SINO {
@@ -1146,7 +1146,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     <!-- urn:protege:ontology:progreval#directiva-repeticion-avanzado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#directiva-repeticion-avanzado">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <dc:description>Repetición condicional anidada</dc:description>
@@ -1157,7 +1157,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     <!-- urn:protege:ontology:progreval#directiva-repeticion-basico -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#directiva-repeticion-basico">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <dc:description>Repetición simple, cantidad fija de iteraciones.</dc:description>
@@ -1633,7 +1633,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     <!-- urn:protege:ontology:progreval#directiva-repeticion-intermedio -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#directiva-repeticion-intermedio">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <dc:description>Repetición condicional o repetición simple anidada.</dc:description>
@@ -1797,7 +1797,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     <!-- urn:protege:ontology:progreval#directiva-seleccion-avanzado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#directiva-seleccion-avanzado">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <dc:description>Selección anidada con más de dos ramas en uno o más niveles.</dc:description>
@@ -1808,7 +1808,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     <!-- urn:protege:ontology:progreval#directiva-seleccion-basico -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#directiva-seleccion-basico">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <dc:description>Selección simple hasta dos ramas.</dc:description>
@@ -2277,7 +2277,7 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     <!-- urn:protege:ontology:progreval#directiva-seleccion-intermedio -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#directiva-seleccion-intermedio">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Seleccion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <dc:description>Selección simple de más de dos ramas o selección anidada de hasta dos ramas en cada nivel.</dc:description>
@@ -2511,10 +2511,10 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#expresion-logica-avanzado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-logica-avanzado">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
-        <dc:description>Expresiones lógicas cuyos términos son otras expresiones y/o variables booleanas relacionados mediante operadores lógicos, incluyendo llamados a funciones puras.</dc:description>
+        <dc:description>Expresiones lógicas cuyos términos son otras expresiones y/o variables booleanas relacionados mediante operadores lógicos (al menos dos distintos), incluyendo llamados a funciones puras.</dc:description>
     </owl:NamedIndividual>
     
 
@@ -2522,7 +2522,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#expresion-logica-basico -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-logica-basico">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <dc:description>Expresiones lógicas compuestas por un operador de relación y al menos una variable.</dc:description>
@@ -2991,7 +2991,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#expresion-logica-intermedio -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-logica-intermedio">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <dc:description>Expresiones lógicas cuyos términos son expresiones básicas y/o variables booleanas relacionados mediante operadores lógicos.</dc:description>
@@ -3154,7 +3154,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#expresion-matematica-avanzado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-matematica-avanzado">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <dc:description>Expresiones con múltiples variables y llamados a funciones.</dc:description>
@@ -3165,7 +3165,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#expresion-matematica-basico -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-matematica-basico">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <dc:description>Expresiones con una sola variable y sin llamados a funciones.</dc:description>
@@ -3632,7 +3632,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#expresion-matematica-intermedio -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-matematica-intermedio">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Matematica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <dc:description>Expresiones con más de una variable o expresiones con una variable y llamados a funciones.</dc:description>
@@ -3795,7 +3795,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#funcion-avanzado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#funcion-avanzado">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <dc:description>Funciones recursivas o funciones que llaman a otras funciones cualesquiera.</dc:description>
@@ -3806,7 +3806,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#funcion-basico -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#funcion-basico">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <dc:description>Funciones sin parámetros de entrada ni valor de retorno, pueden ser autocontenidas o ejecutar comandos que afectan a un contexto global.</dc:description>
@@ -4283,7 +4283,7 @@ A: F ; B: V</Enunciado>
     <!-- urn:protege:ontology:progreval#funcion-intermedio -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#funcion-intermedio">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Complejidad-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Funcion"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <dc:description>Funciones con parámetros de entrada, funciones con valor de retorno o funciones que llaman a otras funciones sin parámetros de entrada ni valor de retorno.</dc:description>
@@ -4591,7 +4591,7 @@ FUNCION imprimirReverso(palabra){
     <!-- urn:protege:ontology:progreval#intermedio -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#intermedio">
-        <rdf:type rdf:resource="urn:protege:ontology:progreval#Nivel-de-Competencia"/>
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Nivel-de-Complejidad"/>
         <orden rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</orden>
         <rdfs:label>Intermedio</rdfs:label>
     </owl:NamedIndividual>

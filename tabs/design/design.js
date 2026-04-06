@@ -135,19 +135,19 @@
             ?Instance_URI rdfs:label ?Label.
             OPTIONAL { ?Instance_URI dc:description ?Description. }
         }`,
-        competencia: `PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        complejidad: `PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX dc: <http://purl.org/dc/elements/1.1/>
         PREFIX progreval: <urn:protege:ontology:progreval#>
 
         SELECT ?Label ?Instance_URI ?Description ?Order
         WHERE {
-            ?Instance_URI a progreval:Nivel-de-Competencia .
+            ?Instance_URI a progreval:Nivel-de-Complejidad .
             ?Instance_URI rdfs:label ?Label .
 	        ?Instance_URI progreval:orden ?Order .
 
             OPTIONAL { 
-               ?nivel_para_concepto a progreval:Competencia-por-Concepto. 
+               ?nivel_para_concepto a progreval:Complejidad-por-Concepto. 
 	  	       ?nivel_para_concepto progreval:nivel ?Instance_URI.
 	  	       ?nivel_para_concepto progreval:concepto {{CONCEPTO_URI}}.
                ?nivel_para_concepto dc:description ?Description.		       
@@ -185,7 +185,7 @@
         # Busca enunciados que cumplan con el público objetivo
         ?enunciado_modelo progreval:apuntadoA {{NIVEL_EDUCATIVO_URI}} .
 
-        ?enunciado_modelo progreval:evaluaConceptoANivel {{NIVEL_COMPETENCIA_URI}} .        
+        ?enunciado_modelo progreval:evaluaConceptoANivel {{NIVEL_COMPLEJIDAD_URI}} .        
 
         # Recupera el contexto del enunciado, si existe
         OPTIONAL { ?enunciado_modelo progreval:Enunciado ?Consigna . }
@@ -340,17 +340,17 @@
     };
 
     /**
-     * Renders the Competencia options as a list of checkboxes.
+     * Renders the Complejidad options as a list of checkboxes.
      * @param {Array} data 
      */
-    const renderCompetenciaOptions = (data) => {
-        const container = document.getElementById('competencia-container');
+    const renderComplejidadOptions = (data) => {
+        const container = document.getElementById('complejidad-container');
         if (!container) return;
 
         container.innerHTML = '';
 
         if (data.length === 0) {
-            container.innerHTML = '<div class="status-message">No se encontraron niveles de competencia.</div>';
+            container.innerHTML = '<div class="status-message">No se encontraron niveles de complejidad.</div>';
             return;
         }
 
@@ -361,26 +361,26 @@
 
         let html = '';
         data.forEach(item => {
-            html += `<label class="competencia-option">
-                <div class="competencia-header">
-                    <input type="radio" name="competencia_option" value="${item.value}" style="margin-right: 8px;">
+            html += `<label class="complejidad-option">
+                <div class="complejidad-header">
+                    <input type="radio" name="complejidad_option" value="${item.value}" style="margin-right: 8px;">
                     ${item.label}
                 </div>
-                <div class="competencia-body">${item.description || ''}</div>
+                <div class="complejidad-body">${item.description || ''}</div>
             </label>`;
         });
         container.innerHTML = html;
 
         // Event delegation for validation and styling
         container.onchange = (e) => {
-            if (e.target.name === 'competencia_option') {
+            if (e.target.name === 'complejidad_option') {
                 // Remove 'selected' class from all options
-                container.querySelectorAll('.competencia-option').forEach(opt => {
+                container.querySelectorAll('.complejidad-option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
                 // Add 'selected' class to the parent label of the checked radio
                 if (e.target.checked) {
-                    e.target.closest('.competencia-option').classList.add('selected');
+                    e.target.closest('.complejidad-option').classList.add('selected');
                 }
                 checkFormValidity();
             }
@@ -555,8 +555,8 @@
         });
 
         if (allFilled) {
-            const checkedCompetencia = document.querySelector('input[name="competencia_option"]:checked');
-            if (!checkedCompetencia) {
+            const checkedComplejidad = document.querySelector('input[name="complejidad_option"]:checked');
+            if (!checkedComplejidad) {
                 allFilled = false;
             }
         }
@@ -629,7 +629,7 @@
             'Concepto-Fundamental': 'select-concepto',
             'Desempeño': 'select-desempeno',
             'Formato-Actividad': 'select-formato',
-            'Nivel-de-Competencia': 'competencia-container' // Special case: find label relative to container
+            'Nivel-de-Complejidad': 'complejidad-container' // Special case: find label relative to container
         };
 
         classDescriptions.forEach(item => {
@@ -639,7 +639,7 @@
             
             if (targetId) {
                 let labelEl;
-                if (className === 'Nivel-de-Competencia') {
+                if (className === 'Nivel-de-Complejidad') {
                     // This label doesn't have a 'for' attribute, find it via the container
                     const container = document.getElementById(targetId);
                     if (container && container.parentElement) {
@@ -694,12 +694,12 @@
         // Render Grid
         renderGrid(conceptos, desempenos);
 
-        // Add event listener for Concepto -> Competencia
+        // Add event listener for Concepto -> Complejidad
         const conceptoSelect = document.getElementById('select-concepto');
         if (conceptoSelect) {
             conceptoSelect.addEventListener('change', async (e) => {
                 const val = e.target.value;
-                const compContainer = document.getElementById('competencia-container');
+                const compContainer = document.getElementById('complejidad-container');
 
                 if (!compContainer) return;
 
@@ -714,9 +714,9 @@
                 // Construct URI (assuming standard namespace pattern)
                 const uri = `<${val}>`;
                 
-                const data = await fetchData('competencia', { '{{CONCEPTO_URI}}': uri });
+                const data = await fetchData('complejidad', { '{{CONCEPTO_URI}}': uri });
                 data.forEach(d => d.value = d.instance_uri);
-                renderCompetenciaOptions(data);
+                renderComplejidadOptions(data);
                 checkFormValidity();
             });
         }
@@ -761,13 +761,13 @@
                 }
             });
             
-            // Get Competencia value
-            const checkedCompetencia = document.querySelector('input[name="competencia_option"]:checked');
-            const competenciaReplacement = checkedCompetencia ? `<${checkedCompetencia.value}>` : '';
+            // Get Complejidad value
+            const checkedComplejidad = document.querySelector('input[name="complejidad_option"]:checked');
+            const complejidadReplacement = checkedComplejidad ? `<${checkedComplejidad.value}>` : '';
 
             const replacements = {
                 '{{CONCEPTO_URI}}': getSelectedValue('select-concepto'),
-                '{{NIVEL_COMPETENCIA_URI}}': competenciaReplacement,
+                '{{NIVEL_COMPLEJIDAD_URI}}': complejidadReplacement,
                 '{{DESEMPENO_URI}}': getSelectedValue('select-desempeno'),
                 '{{NIVEL_EDUCATIVO_URI}}': getSelectedValue('select-publico'),
                 '{{FORMATO_URI}}': getSelectedValue('select-formato')
@@ -839,14 +839,14 @@
             const checked = document.querySelector(`input[name="${name}"]:checked`);
             if (!checked) return 'N/A';
             // Clone the node to avoid modifying the DOM, then remove the input to get clean text
-            const headerClone = checked.closest('.competencia-option').querySelector('.competencia-header').cloneNode(true);
+            const headerClone = checked.closest('.complejidad-option').querySelector('.complejidad-header').cloneNode(true);
             headerClone.querySelector('input').remove();
             return headerClone.textContent.trim();
         };
 
         const publico = getSelectedText('select-publico');
         const concepto = getSelectedText('select-concepto');
-        const competencia = getCheckedLabel('competencia_option');
+        const complejidad = getCheckedLabel('complejidad_option');
         const desempeno = getSelectedText('select-desempeno');
         const formato = getSelectedText('select-formato');
 
@@ -875,15 +875,15 @@
             return el ? el.value.trim() : '';
         };
 
-        const getCompetenciaDesc = (term) => {
-            const options = Array.from(document.querySelectorAll('#competencia-container .competencia-option'));
-            const found = options.find(opt => opt.querySelector('.competencia-header')?.textContent.toLowerCase().includes(term.toLowerCase()));
-            return found ? found.querySelector('.competencia-body')?.textContent.trim() || 'N/A' : 'N/A';
+        const getComplejidadDesc = (term) => {
+            const options = Array.from(document.querySelectorAll('#complejidad-container .complejidad-option'));
+            const found = options.find(opt => opt.querySelector('.complejidad-header')?.textContent.toLowerCase().includes(term.toLowerCase()));
+            return found ? found.querySelector('.complejidad-body')?.textContent.trim() || 'N/A' : 'N/A';
         };
 
-        const nivel_basico_concepto = getCompetenciaDesc('Básico');
-        const nivel_intermedio_concepto = getCompetenciaDesc('Intermedio');
-        const nivel_avanzado_concepto = getCompetenciaDesc('Avanzado');
+        const nivel_basico_concepto = getComplejidadDesc('Básico');
+        const nivel_intermedio_concepto = getComplejidadDesc('Intermedio');
+        const nivel_avanzado_concepto = getComplejidadDesc('Avanzado');
 
         const definicion_actividad_seleccionada = getDesc(formatos, getVal('select-formato').split('#').pop());
         
@@ -918,7 +918,7 @@
         
 
         return `# Identidad
-Sos un profesor de programación de ${publico} especializado en el diseño de evaluaciones. Tu tarea es generar consignas de evaluación sobre un concepto y desempeños específicos de programación. El propósito de cada consigna es obtener evidencias de aprendizaje de los estudiantes respecto a lo evaluado. Para esto, las consignas deben proponer situaciones en las que los estudiantes pongan en juego un determinado nivel de competencia sobre el concepto y un desempeño de programación específicos.
+Sos un profesor de programación de ${publico} especializado en el diseño de evaluaciones. Tu tarea es generar consignas de evaluación sobre un concepto y desempeños específicos de programación. El propósito de cada consigna es obtener evidencias de aprendizaje de los estudiantes respecto a lo evaluado. Para esto, las consignas deben proponer situaciones en las que los estudiantes se enfrenten a un determinado nivel de complejidad para el concepto y un desempeño de programación específicos.
 
 # Terminologia
 ## Conceptos:
@@ -944,7 +944,7 @@ Sos un profesor de programación de ${publico} especializado en el diseño de ev
 
 ## Conocimientos previos: conjunto de conocimientos ya adquiridos por los estudiantes previo a la tarea actual. Se detallará como un conjunto de pares (Concepto)-(Desempeño).
 
-## Nivel de competencia para el concepto a evaluar
+## Niveles de complejidad para el concepto a evaluar
 1. Básico: ${nivel_basico_concepto}
 2. Intermedio: ${nivel_intermedio_concepto}
 3. Avanzado: ${nivel_avanzado_concepto}
@@ -959,7 +959,7 @@ Generar una consigna para evaluar ${concepto} donde los estudiantes pongan en ju
 ## Requisitos de la consigna
 La consigna debe:
 - Evaluar el concepto: ${concepto}
-- Requerir un nivel de competencia: ${competencia}. La consigna puede poner en juego competencias de niveles inferiores pero no debe involucrar competencias de niveles superiores.
+- Cumplir con un nivel de complejidad: ${complejidad}. La consigna puede poner en juego niveles de complejidad inferiores pero no debe involucrar niveles superiores.
 - Utilizar el formato de actividad: ${formato}
 - Promover desempeños de programación asociados a: ${desempeno}
 - Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos} ${(!lenguaje_progamacion || lenguaje_progamacion.trim() === '') ? '' : `\n - Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje : ''}`}
