@@ -2514,7 +2514,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
-        <dc:description>Expresiones de la lógica proposicional que incluyen entre sus términos predicados de propiedad y relación, y llamados a funciones puras.</dc:description>
+        <dc:description>Expresiones lógicas cuyos términos son otras expresiones y/o variables booleanas relacionados mediante operadores lógicos, incluyendo llamados a funciones puras.</dc:description>
     </owl:NamedIndividual>
     
 
@@ -2525,7 +2525,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#basico"/>
-        <dc:description>Expresiones de la lógica proposicional que no incluyen entre sus términos predicados de propiedad o relación, ni llamados a funciones puras.</dc:description>
+        <dc:description>Expresiones lógicas compuestas por un operador de relación y al menos una variable.</dc:description>
     </owl:NamedIndividual>
     
 
@@ -2994,7 +2994,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
-        <dc:description>Expresiones de la lógica proposicional que incluyen entre sus términos predicados de propiedad y de relación pero no llamados a funciones.</dc:description>
+        <dc:description>Expresiones lógicas cuyos términos son expresiones básicas y/o variables booleanas relacionados mediante operadores lógicos.</dc:description>
     </owl:NamedIndividual>
     
 
