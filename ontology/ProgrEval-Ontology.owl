@@ -2525,7 +2525,7 @@ A: F ; B: V</Enunciado>
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Competencia-por-Concepto"/>
         <concepto rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
         <nivel rdf:resource="urn:protege:ontology:progreval#basico"/>
-        <dc:description>Expresiones de la lógica proposicional que incluyen entre sus términos predicados de propiedad y relación, y llamados a funciones puras.</dc:description>
+        <dc:description>Expresiones de la lógica proposicional que no incluyen entre sus términos predicados de propiedad o relación, ni llamados a funciones puras.</dc:description>
     </owl:NamedIndividual>
     
 
