@@ -494,7 +494,6 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Nivel-Universitario">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Publico-Objetivo"/>
-        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
         <rdfs:label>Nivel universitario</rdfs:label>
     </owl:NamedIndividual>
     
@@ -731,6 +730,7 @@
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-seguimiento"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#variable-seguimiento"/>
         <Enunciado xml:lang="es-ar">Debemos recorrer un arreglo de enteros llamado datos y un valor objetivo a buscar. Completar el espacio vacío de modo que el bucle se detenga inmediatamente si se encuentra el valor o si se terminan los elementos.
 Cuentan con la función tamañoArray(array) para determinar el tamaño de un array.
 
