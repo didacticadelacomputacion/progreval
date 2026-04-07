@@ -2495,7 +2495,7 @@ Se cuenta con la siguiente función ya implementada:
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Primario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-evaluacion-consigna-cerrada"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <Enunciado>Obtener el valor de verdad de la siguiente expresión:
 
 A  =&gt; B &amp; A
@@ -4569,7 +4569,7 @@ FUNCION imprimirReverso(palabra){
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-consigna-abierta"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <Enunciado xml:lang="es-ar">Definir una expresión lógica que exprese la siguiente frase: 
 &quot;Un usuario puede iniciar sesión en un sistema si su nombre de usuario y contraseña son correctos, y si su cuenta no está bloqueada.&quot;</Enunciado>
         <Respuesta xml:lang="es-ar">usuarioCorrecto &amp; contraseñaCorrecta &amp; ¬cuentaBloqueada</Respuesta>
@@ -4787,9 +4787,8 @@ FUNCION Poner_BolitasDeColor_Al_(cantidad, color, direccion) {
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-complecion-espacios-vacios"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado xml:lang="es-ar">Se desea imprimir un triángulo rectángulo de asteriscos alineado a la izquierda. Si, por ejemplo, altura es 4, la salida debe ser:
 
