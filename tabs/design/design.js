@@ -962,7 +962,7 @@ La consigna debe:
 - Cumplir con un nivel de complejidad: ${complejidad}. La consigna puede poner en juego niveles de complejidad inferiores pero no debe involucrar niveles superiores.
 - Utilizar el formato de actividad: ${formato}
 - Promover desempeños de programación asociados a: ${desempeno}
-- Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos} ${(!lenguaje_progamacion || lenguaje_progamacion.trim() === '') ? '' : `\n - Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje : ''}`}
+- Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos} ${(!lenguaje_progamacion || lenguaje_progamacion.trim() === '') ? '' : `\n - Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? '' : 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje}`}
 - Evitar anticipar cuál es el concepto que se debe utilizar para resolver la consigna y cómo se espera que sea empleado.
 - Especificar un dominio concreto en el que se basa.
 
