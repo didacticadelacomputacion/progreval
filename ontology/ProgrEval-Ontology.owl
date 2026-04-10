@@ -4803,8 +4803,8 @@ FUNCION trianguloDeAsteriscos(altura){
     i = 0
     j = 0
     
-    MIENTRAS ______ HACER {
-        MIENTRAS ______ HACER{
+    MIENTRAS ___ &lt; ___ HACER {
+        MIENTRAS ___ &lt;= ___ HACER{
             IMPRIMIR(&quot;*&quot;)
             j++
         }
