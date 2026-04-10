@@ -323,7 +323,7 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Complecion-de-Espacios-Vacios">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#semi-automatico"/>
-        <dc:description xml:lang="es-ar">Consigna que presenta un programa o una expresión lógica donde hay que completar sus partes faltantes (espacios en blanco) elaborando manualmente el contenido necesario para que cumpla con su definición.</dc:description>
+        <dc:description xml:lang="es-ar">Consigna que presenta un programa o una expresión lógica donde hay que completar sus partes faltantes (2 o más espacios en blanco) elaborando manualmente el contenido necesario para que cumpla con su definición.</dc:description>
         <rdfs:label>Compleción de espacios vacíos</rdfs:label>
     </owl:NamedIndividual>
     
@@ -334,7 +334,7 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Complecion-de-Espacios-Vacios-con-Opciones">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#automatico"/>
-        <dc:description>Consigna que presenta un programa o una expresión lógica donde hay que completar sus partes faltantes (espacios en blanco) a partir de una lista de opciones posibles para que cumpla con su definición. La lista puede contener distractores que no corresponden a ningún espacio.</dc:description>
+        <dc:description>Consigna que presenta un programa o una expresión lógica donde hay que completar sus partes faltantes (2 o más espacios en blanco) a partir de una lista de opciones posibles para que cumpla con su definición. La lista puede contener distractores que no corresponden a ningún espacio.</dc:description>
         <rdfs:label>Compleción de espacios vacíos con opciones posibles</rdfs:label>
     </owl:NamedIndividual>
     
