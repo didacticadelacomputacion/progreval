@@ -323,7 +323,7 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Complecion-de-Espacios-Vacios">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#semi-automatico"/>
-        <dc:description xml:lang="es-ar">Consigna que presenta un programa o una expresión lógica donde hay que completar sus partes faltantes (2 o más espacios en blanco) elaborando manualmente el contenido necesario para que cumpla con su definición.</dc:description>
+        <dc:description xml:lang="es-ar">Consigna que presenta un programa o una expresión lógica donde hay que completar sus partes faltantes (2 o más espacios en blanco) elaborando manualmente el contenido necesario para que cumpla con su definición. Los espacios en blanco corresponden a elementos directamente relacionados con el concepto a evaluar.</dc:description>
         <rdfs:label>Compleción de espacios vacíos</rdfs:label>
     </owl:NamedIndividual>
     
