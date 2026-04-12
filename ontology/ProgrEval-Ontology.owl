@@ -4654,6 +4654,27 @@ Ejemplo: Si n=6, la secuencia es 6 -&gt; 3 -&gt; 10 -&gt; 5 -&gt; 16 -&gt; 8 -&g
     
 
 
+    <!-- urn:protege:ontology:progreval#mover-norte-10-veces -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#mover-norte-10-veces">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Escribir un procedimiento `Mover10VecesAlNorte()` que mueva el cabezal 10 posiciones al Norte de la celda actual.</Enunciado>
+        <Respuesta>```
+PROCEDIMIENTO Mover3VecesAlNorte() {
+	/* PRECONDICIÓN: Hay al menos 10 celdas al Norte de la celda actual */
+	REPETIR 10 VECES {
+		Mover(Norte)
+	}
+}
+```</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#nova-contrato-mal-hecho -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#nova-contrato-mal-hecho">
