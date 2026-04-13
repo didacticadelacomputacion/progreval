@@ -829,6 +829,26 @@ FUNCION estáPresenteEnArray(valor_objetivo, datos) {
     
 
 
+    <!-- urn:protege:ontology:progreval#colocar-6-bolitas -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#colocar-6-bolitas">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Escribir un procedimiento `Poner6DeColorNegro()` que ponga 6 bolitas de color Negro en la celda actual.</Enunciado>
+        <Respuesta>```
+PROCEDIMIENTO Poner6DeColorNegro() {
+	REPETIR 6 VECES {
+		Poner(Negro)
+	}
+}
+```</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#crecimiento-poblacion-bacterias -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#crecimiento-poblacion-bacterias">
@@ -982,6 +1002,18 @@ FUNCION LíneaDe2CeldasHaciaElEste(colorLínea){
         <Enunciado xml:lang="es-ar">Un cine ofrece descuentos a niños  de hasta 12 años y a adultos mayores a partir de 65. Dar una expresión lógica que exprese esta condición.</Enunciado>
         <Respuesta xml:lang="es-ar">edad &lt;= 12 | edad &gt;= 65</Respuesta>
         <rdfs:label xml:lang="es-ar">Descuentos del cine</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#diagonal-azul -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#diagonal-azul">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
     </owl:NamedIndividual>
     
 
