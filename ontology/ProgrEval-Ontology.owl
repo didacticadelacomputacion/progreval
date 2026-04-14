@@ -344,7 +344,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Definicion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Desempeño"/>
-        <dc:description xml:lang="es-ar">Habilidad para determinar cómo debe estar definido un componente de un programa para que cumpla un propósito determinado, entendiendo como componente a tipos de datos compuestos, variables y funciones.</dc:description>
+        <dc:description xml:lang="es-ar">Habilidad para determinar cómo debe estar definida una expresión o componente de un programa para que cumpla un propósito determinado, entendiendo como componente a tipos de datos estructurados, variables y funciones.</dc:description>
         <rdfs:label>Definición</rdfs:label>
     </owl:NamedIndividual>
     
@@ -641,7 +641,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Tipo-de-Dato-Estructurado">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Son los tipos de datos compuestos por composición de tipos de datos primitivos y/u otros tipos de datos estructurados. Definen cómo se interpreta el valor del dato tipado y qué operaciones se pueden aplicar sobre él.</dc:description>
+        <dc:description xml:lang="es-ar">Son los tipos de datos compuestos por tipos de datos primitivos y/u otros tipos de datos estructurados. Definen cómo se interpreta el valor del dato tipado y qué operaciones se pueden aplicar sobre él.</dc:description>
         <rdfs:label>Tipo de Dato Estructurado</rdfs:label>
     </owl:NamedIndividual>
     
