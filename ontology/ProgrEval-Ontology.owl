@@ -2628,6 +2628,17 @@ A: F ; B: V</Enunciado>
     
 
 
+    <!-- urn:protege:ontology:progreval#expresion-logica-definicion-parsons -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-logica-definicion-parsons">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Actividad"/>
+        <evalua rdf:resource="urn:protege:ontology:progreval#Definicion"/>
+        <evalua rdf:resource="urn:protege:ontology:progreval#Expresion-Logica"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Parsons"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#expresion-logica-definicion-verdadero-falso -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#expresion-logica-definicion-verdadero-falso">
@@ -3824,6 +3835,22 @@ A: F ; B: V</Enunciado>
     
 
 
+    <!-- urn:protege:ontology:progreval#faroles-antiniebla -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#faroles-antiniebla">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <Enunciado>El último modelo de una fábrica de coches tiene sensores integrados para automatizar la activación de diversos componentes que mejoran la experiencia de usuario. En particular, los faroles antiniebla se encienden automáticamente cuando la visibilidad cae por debajo del 50%. El sensor responsable es una cámara que mide la visibilidad calculando un índice de visibilidad que luego es comparado contra una constante de visibilidad ideal por la computadora del vehículo. 
+Definir una expresión lógica que sea verdadera cuando se deben activar los faroles antiniebla. Se cuenta con las siguientes variables definidas: visibilidadIdeal, indiceDeVisibilidad.</Enunciado>
+        <Respuesta>indiceDeVisibilidad &lt; visibilidadIdeal/2</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#funcion-avanzado -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#funcion-avanzado">
@@ -4630,6 +4657,31 @@ FUNCION imprimirReverso(palabra){
     
 
 
+    <!-- urn:protege:ontology:progreval#limite-de-velocidad -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#limite-de-velocidad">
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-depuracion-deteccion-ocurrencia"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-seguimiento"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
+        <Enunciado>La agencia de seguridad vial está recibiendo muchos reclamos por multas de velocidad mal asignadas. Revisaron el sensor de velocidad y funciona correctamente, así que llegaron a la conclusión de que el problema está en el software que genera las alarmas. Identificar la o las causas de este problema en la función ExcedeLímiteDeVelocidad, que es la que determina si hay que multar o no.
+
+FUNCION ExcedeLimiteDeVelocidad(velocidadRegistrada){
+    SI (velocidadRegistrada &lt; limiteDeVelocidad){
+        RegistrarMulta()
+        RETORNAR Verdadero
+    } SINO { 
+        RETORNAR Falso
+    }
+}</Enunciado>
+        <Respuesta>Hay un solo error, está en velocidadRegistrada &lt; limiteDeVelocidad, que debería ser velocidadRegistrada &gt; limiteDeVelocidad.</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#longitud-de-conjetura-de-collatz -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#longitud-de-conjetura-de-collatz">
@@ -4829,6 +4881,31 @@ FUNCION Poner_BolitasDeColor_Al_(cantidad, color, direccion) {
     }   
     Mover(opuesto(direccion))
 }</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#pasaron-doce-horas -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#pasaron-doce-horas">
+        <rdf:type rdf:resource="urn:protege:ontology:progreval#Enunciado-Modelo"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-parsons"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <Enunciado>Un estudiante de computación está trabajando en un proyecto de reconocimiento de imágenes que consiste en analizar fotos en tiempo real de un reloj analógico convencional y determinar si transcurrieron 12 horas o más. Para ello, se le ocurrió medir la distancia recorrida por la punta de la aguja que marca las horas y determinar cuándo la aguja haya dado una vuelta completa. 
+Sabiendo que el perímetro de una de una circunferencia es igual al producto entre el radio de la misma y 2 veces pi, ordenar las siguientes partes para obtener una expresión lógica que sea verdadera cuando la aguja haya dado al menos una vuelta completa. Tener en cuenta que puede haber partes que no se usen en la expresión final.
+
+1. distanciaRecorrida
+2. 2pi
+3. tamañoAguja
+4. =
+5. *
+6. &lt;</Enunciado>
+        <Respuesta>Orden de las partes: 2,5,3,6,4,1
+
+Expresión obtenida: 2pi * tamañoAguja &lt;= distanciaRecorrida</Respuesta>
     </owl:NamedIndividual>
     
 
