@@ -796,7 +796,7 @@
             }
 
             // Apply limit manually after filtering
-            results = results.slice(0, 3);
+            results = results.slice(0, 1);
 
             // Delete the enunciado_modelo column from results so it's not rendered
             results.forEach(row => {
