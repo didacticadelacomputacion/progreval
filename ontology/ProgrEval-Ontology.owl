@@ -374,7 +374,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Directiva-de-Seleccion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Directivas provistas por los lenguajes de programación para definir la bifurcaciones en el flujo de un programa. En la mayoría de los lenguajes imperativos podemos definirlas usando directivas como If-Then-Else y Switch-Case.</dc:description>
+        <dc:description xml:lang="es-ar">Directivas provistas por los lenguajes de programación para definir bifurcaciones en el flujo de un programa. En la mayoría de los lenguajes imperativos podemos definirlas usando directivas como If-Then-Else y Switch-Case.</dc:description>
         <rdfs:label>Directiva de Selección</rdfs:label>
     </owl:NamedIndividual>
     
@@ -837,9 +837,9 @@ FUNCION estáPresenteEnArray(valor_objetivo, datos) {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Escribir un procedimiento `Poner6DeColorNegro()` que ponga 6 bolitas de color Negro en la celda actual.</Enunciado>
+        <Enunciado>Escribir una función `Poner6DeColorNegro()` que ponga 6 bolitas de color Negro en la celda actual.</Enunciado>
         <Respuesta>```
-PROCEDIMIENTO Poner6DeColorNegro() {
+FUNCION Poner6DeColorNegro() {
 	REPETIR 6 VECES {
 		Poner(Negro)
 	}
@@ -856,7 +856,7 @@ PROCEDIMIENTO Poner6DeColorNegro() {
         <apuntadoA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <Enunciado xml:lang="es-ar">Se desea analizar el crecimiento de una población de bacterias. La población inicial es de N bacterias y se sabe que cada hora la población se duplica.
 
 Implementa un programa que solicite al usuario:
@@ -4746,9 +4746,9 @@ Ejemplo: Si n=6, la secuencia es 6 -&gt; 3 -&gt; 10 -&gt; 5 -&gt; 16 -&gt; 8 -&g
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Escribir un procedimiento `Mover10VecesAlNorte()` que mueva el cabezal 10 posiciones al Norte de la celda actual.</Enunciado>
+        <Enunciado>Escribir una función `Mover10VecesAlNorte()` que mueva el cabezal 10 posiciones al Norte de la celda actual.</Enunciado>
         <Respuesta>```
-PROCEDIMIENTO Mover3VecesAlNorte() {
+FUNCION Mover3VecesAlNorte() {
 	/* PRECONDICIÓN: Hay al menos 10 celdas al Norte de la celda actual */
 	REPETIR 10 VECES {
 		Mover(Norte)
@@ -4768,7 +4768,7 @@ PROCEDIMIENTO Mover3VecesAlNorte() {
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-especificacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
-        <Enunciado>Tenemos un nuevo compañero del equipo, Nova, que no tiene formación profesional, y su código está lleno de malas prácticas de programación. Esta vez, en su código se encontró un procedimiento que tiene el código hecho, pero no el contrato.
+        <Enunciado>Tenemos un nuevo compañero del equipo, Nova, que no tiene formación profesional, y su código está lleno de malas prácticas de programación. Esta vez, en su código se encontró una función que tiene el código hecho, pero no el contrato.
   Se pide completar los contratos de función. No olvidar indicar en qué posición queda el cabezal, ni de establecer para qué son los parámetros. El código de Nova es el siguiente:
 
 FUNCION Poner_ADistancia3Al_(color, dirección) {
@@ -4805,7 +4805,7 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#funcion-modificacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
-        <Enunciado>En el equipo de programación empezó a trabajar un programador que no tiene formación profesional, y al que todos apodaron Nova . En el código que escribió Nova se encontró un procedimiento que no aplica la técnica de división en subtareas, y tampoco tiene contrato. Para poder integrar el código con el resto, en este equipo se requiere que los programas sigan buenas prácticas de programación. Por eso, se pide corregir este código para que cumpla con las mismas.
+        <Enunciado>En el equipo de programación empezó a trabajar un programador que no tiene formación profesional, y al que todos apodaron Nova . En el código que escribió Nova se encontró una función que no aplica la técnica de división en subtareas. Para poder integrar el código con el resto, en este equipo se requiere que los programas sigan buenas prácticas de programación. Por eso, se pide corregir este código para que cumpla con las mismas.
 
   FUNCION ConstruirEscaleraAzulDe4Escalones() {
       Poner(Azul)
@@ -4827,7 +4827,7 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
 
 Consejo: pensar primero en qué subtareas dividirías el problema si tuvieses que hacerlo desde cero.
 
-La solución propuesta no debe alterar el código del procedimiento, sino que debe hacer uso de procedimientos auxiliares para extraer y darles nombre a las partes de la solución de Nova.</Enunciado>
+La solución propuesta no debe alterar el código de la función, sino que debe hacer uso de funciones auxiliares para extraer y darles nombre a las partes de la solución de Nova.</Enunciado>
         <Respuesta>FUNCION ConstruirEscaleraAzulDe4Escalones() {
 	ConstruirEscalonYPosicionarParaSiguiente()
 	ConstruirEscalonYPosicionarParaSiguiente()
@@ -4861,7 +4861,7 @@ FUNCION ConstruirEscalon(){
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Hacer el procedimiento PasarPalabraActualAMayúsculas() que, suponiendo que en la fila actual se codifica una palabra en minúsculas usando bolitas, ponga la misma palabra en mayúsculas en la fila al Norte.
+        <Enunciado>Hacer la función PasarPalabraActualAMayúsculas() que, suponiendo que en la fila actual se codifica una palabra en minúsculas usando bolitas, ponga la misma palabra en mayúsculas en la fila al Norte.
            - Cada letra se representa con una cantidad diferente de bolitas negras, según un código numérico llamado ASCII.
            - En la celda más al Oeste de la fila actual se codifica la cantidad de letras de la palabra, usando bolitas rojas.
            - La primera letra de la palabra está en la celda lindante al Este de la que contiene la cantidad de letras.
@@ -4968,7 +4968,7 @@ FUNCION trianguloDeAsteriscos(altura){
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion-complecion-espacios-vacios"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento"/>
-        <Enunciado>Suponiendo que se está programando un juego donde en las celdas del tablero se representan Soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado), implementar el procedimiento PelearLaBatalla(). Sabiendo que, cuando 2 soldados enemigos pelean contra 3 aliados, todos mueren, y suponiendo que siempre hay suficientes soldados aliados como para ganar la batalla, PelearLaBatalla() debe simularla sobre la celda a la que apunta el cabezal.
+        <Enunciado>Suponiendo que se está programando un juego donde en las celdas del tablero se representan Soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado), implementar la función PelearLaBatalla(). Sabiendo que, cuando 2 soldados enemigos pelean contra 3 aliados, todos mueren, y suponiendo que siempre hay suficientes soldados aliados como para ganar la batalla, PelearLaBatalla() debe simularla sobre la celda a la que apunta el cabezal.
  Por ejemplo, si hay 6 enemigos y 10 aliados, tras llamar a PelearLaBatalla() mueren los 6 enemigos y 9 de los aliados; si hay 10 enemigos y 21 aliados, tras llamar a PelearLaBatalla() mueren los 10 enemigos y 15 soldados aliados.
  Se puede asumir que la cantidad de soldados enemigos es par.
 
@@ -5003,7 +5003,7 @@ FUNCION PelearLaBatalla(){
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
-        <Enunciado>Suponiendo que se está programando un juego donde en las celdas del tablero se representan Soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado), implementar el procedimiento PelearLaBatalla(). Sabiendo que, cuando 2 soldados enemigos pelean contra 3 aliados, todos mueren, y suponiendo que siempre hay suficientes soldados aliados como para ganar la batalla, PelearLaBatalla() debe simularla sobre la celda a la que apunta el cabezal.
+        <Enunciado>Suponiendo que se está programando un juego donde en las celdas del tablero se representan Soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado), implementar la función PelearLaBatalla(). Sabiendo que, cuando 2 soldados enemigos pelean contra 3 aliados, todos mueren, y suponiendo que siempre hay suficientes soldados aliados como para ganar la batalla, PelearLaBatalla() debe simularla sobre la celda a la que apunta el cabezal.
  Por ejemplo, si hay 6 enemigos y 10 aliados, tras llamar a PelearLaBatalla() mueren los 6 enemigos y 9 de los aliados; si hay 10 enemigos y 21 aliados, tras llamar a PelearLaBatalla() mueren los 10 enemigos y 15 soldados aliados.
  Se puede asumir que la cantidad de soldados enemigos es par.</Enunciado>
         <Respuesta>FUNCION PelearLaBatalla(){
@@ -5072,7 +5072,7 @@ FUNCION Mover3VecesAl_(direcciónAMover) {
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Escribir un procedimiento PintarElTableroDeAzul() que, asumiendo que el tablero tiene 10 celdas de largo y 7 celdas de alto, pinte absolutamente todo el tablero con bolitas azules, dejando exactamente una bolita azul en cada celda.
+        <Enunciado>Escribir una función PintarElTableroDeAzul() que, asumiendo que el tablero tiene 10 celdas de largo y 7 celdas de alto, pinte absolutamente todo el tablero con bolitas azules, dejando exactamente una bolita azul en cada celda.
 La estrategia de solución debe quedar clara a partir de la lectura del código. Use subtareas con nombres apropiados para dicho objetivo.
 El cabezal comienza y termina en la esquina inferior izquierda del tablero.</Enunciado>
         <Respuesta>FUNCION PintarElTableroDeAzul(){
@@ -5227,7 +5227,7 @@ La función debe recibir el número n y una tolerancia error_maximo (ej. 0.0001)
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Escribir un procedimiento DibujarRectánguloRojoYNegroDe5x3() que dibuje un rectángulo sólido de 5 celdas de largo por 3 de alto utilizando directivas de repetición.
+        <Enunciado>Escribir una función DibujarRectánguloRojoYNegroDe5x3() que dibuje un rectángulo sólido de 5 celdas de largo por 3 de alto utilizando directivas de repetición.
 El cabezal comienza y termina en la esquina inferior izquierda del rectángulo.</Enunciado>
         <Respuesta>FUNCION DibujarRectánguloRojoYNegroDe5x3(){
     REPETIR 2 VECES{
@@ -5274,8 +5274,8 @@ FUNCION PonerRojaYNegra() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <Enunciado>Dibujar un reloj analógico de agujas en un tablero cuadriculado puede ser un desafío. Una simplificación posible sería representar solamente algunos de los números que aparecen en el mismo: el 12 arriba, el 3 a la derecha, el 9 a la izquierda y el 6 abajo.
-Construir un procedimiento DibujarRelojAnalógicoSimplificado(), que ponga los números del reloj tal como se indicó, alrededor del casillero actual. El tamaño del reloj será de 2 celdas de “radio” (suponiendo que miramos al reloj como un círculo).
-Dividan el problema en partes más pequeñas y definan sus propios procedimientos para resolver cada una.</Enunciado>
+Construir una función DibujarRelojAnalógicoSimplificado(), que ponga los números del reloj tal como se indicó, alrededor del casillero actual. El tamaño del reloj será de 2 celdas de “radio” (suponiendo que miramos al reloj como un círculo).
+Dividan el problema en partes más pequeñas y definan sus propias funciones para resolver cada una.</Enunciado>
         <Respuesta>FUNCION DibujarRelojAnalógicoSimplificado(){
     Dibujar12()
     Dibujar3()
