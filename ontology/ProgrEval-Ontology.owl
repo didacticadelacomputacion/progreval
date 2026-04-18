@@ -555,7 +555,7 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Respuesta-Abierta">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Formato-Actividad"/>
         <conllevaEsfuerzoDeCorreccion rdf:resource="urn:protege:ontology:progreval#intenso"/>
-        <dc:description xml:lang="es-ar">Consigna para que la hay que desarrollar una de sus posibles respuestas desde cero. Su corrección requiere criterios graduales o rúbricas, ya que las respuestas pueden diferir en forma y calidad.</dc:description>
+        <dc:description xml:lang="es-ar">Consigna para la que hay que desarrollar una de sus posibles respuestas desde cero. Su corrección requiere criterios graduales o rúbricas, ya que las respuestas pueden diferir en forma y calidad.</dc:description>
         <rdfs:label>Respuesta abierta</rdfs:label>
     </owl:NamedIndividual>
     
