@@ -160,7 +160,7 @@
 
         SELECT ?Label ?Instance_URI ?Description ?Esfuerzo ?Order
         WHERE {
-            ?Instance_URI a progreval:Formato-Actividad.
+            ?Instance_URI a progreval:Formato-Consigna.
             ?Instance_URI rdfs:label ?Label.
             OPTIONAL { ?Instance_URI dc:description ?Description. }
             OPTIONAL { ?Instance_URI progreval:conllevaEsfuerzoDeCorreccion ?Esfuerzo_URI.
@@ -171,33 +171,27 @@
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX progreval: <urn:protege:ontology:progreval#>
 
-        SELECT ?enunciado_modelo ?Contexto ?Dominio ?Consigna ?Respuesta
+        SELECT ?consigna_modelo ?Consigna ?Respuesta
         WHERE {
         
         # Busca las actividades que evalúan el concepto y el desempeño
-        ?actividad progreval:evalua {{CONCEPTO_URI}} ;
-                    progreval:evalua {{DESEMPENO_URI}};
+        ?actividad progreval:evaluaConcepto {{CONCEPTO_URI}} ;
+                    progreval:evaluaDesempeño {{DESEMPENO_URI}};
                     progreval:usaFormato {{FORMATO_URI}} .
 
         # Busca enunciados que sean ejemplos de la actividad
-        ?enunciado_modelo progreval:esEjemploDe ?actividad .
+        ?consigna_modelo progreval:esEjemploDe ?actividad .
 
         # Busca enunciados que cumplan con el público objetivo
-        ?enunciado_modelo progreval:apuntadoA {{NIVEL_EDUCATIVO_URI}} .
+        ?consigna_modelo progreval:apuntadaA {{NIVEL_EDUCATIVO_URI}} .
 
-        ?enunciado_modelo progreval:evaluaConceptoANivel {{NIVEL_COMPLEJIDAD_URI}} .        
-
-        # Recupera el contexto del enunciado, si existe
-        OPTIONAL { ?enunciado_modelo progreval:Enunciado ?Consigna . }
-        
-        # Recupera el dominio del enunciado, si existe
-        OPTIONAL { ?enunciado_modelo progreval:Respuesta-Posible ?Respuesta . }
+        ?consigna_modelo progreval:evaluaConceptoANivel {{NIVEL_COMPLEJIDAD_URI}} .        
 
         # Recupera la consigna del enunciado, si existe
-        OPTIONAL { ?enunciado_modelo progreval:Enunciado ?Consigna . }
+        OPTIONAL { ?consigna_modelo progreval:Enunciado ?Consigna . }
         
         # Recupera la respuesta del enunciado, si existe
-        OPTIONAL { ?enunciado_modelo progreval:Respuesta ?Respuesta . }
+        OPTIONAL { ?consigna_modelo progreval:Respuesta ?Respuesta . }
         }
         ORDER BY RAND()`,
         class_descriptions: `PREFIX dc: <http://purl.org/dc/elements/1.1/>
@@ -780,7 +774,7 @@
             
             if (forbiddenSkillURIs.size > 0) {
                 results = results.filter(row => {
-                    const enunciadoUri = row.enunciado_modelo;
+                    const enunciadoUri = row.consigna_modelo;
                     if (!enunciadoUri) return false;
                     
                     const enunciadoNode = window.$rdf.sym(enunciadoUri);
@@ -798,9 +792,9 @@
             // Apply limit manually after filtering
             results = results.slice(0, 1);
 
-            // Delete the enunciado_modelo column from results so it's not rendered
+            // Delete the consigna_modelo column from results so it's not rendered
             results.forEach(row => {
-                delete row.enunciado_modelo;
+                delete row.consigna_modelo;
             });
             
 
