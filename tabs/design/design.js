@@ -622,7 +622,7 @@
             'Publico-Objetivo': 'select-publico',
             'Concepto-Fundamental': 'select-concepto',
             'Desempeño': 'select-desempeno',
-            'Formato-Actividad': 'select-formato',
+            'Formato-Consigna': 'select-formato',
             'Nivel-de-Complejidad': 'complejidad-container' // Special case: find label relative to container
         };
 
@@ -943,7 +943,7 @@ Sos un profesor de programación de ${publico} especializado en el diseño de ev
 2. Intermedio: ${nivel_intermedio_concepto}
 3. Avanzado: ${nivel_avanzado_concepto}
 
-## Formato de Actividad
+## Formato de Consigna
 ${formato}: ${definicion_actividad_seleccionada}
 
 
@@ -954,7 +954,7 @@ Generar una consigna para evaluar ${concepto} donde los estudiantes pongan en ju
 La consigna debe:
 - Evaluar el concepto: ${concepto}
 - Cumplir con un nivel de complejidad: ${complejidad}. La consigna puede poner en juego niveles de complejidad inferiores pero no debe involucrar niveles superiores.
-- Utilizar el formato de actividad: ${formato}
+- Utilizar el formato de consigna: ${formato}
 - Promover desempeños de programación asociados a: ${desempeno}
 - Considerar que los estudiantes poseen los siguientes conocimientos previos: ${conocimientos_previos} ${(!lenguaje_progamacion || lenguaje_progamacion.trim() === '') ? '' : `\n - Utilizar el lenguaje de programación: ${lenguaje_progamacion}. ${(!caracteristicas_vetadas_del_lenguaje || caracteristicas_vetadas_del_lenguaje.trim() === '') ? '' : 'No deben utilizarse las siguientes características del lenguaje: ' + caracteristicas_vetadas_del_lenguaje}`}
 - Evitar anticipar cuál es el concepto que se debe utilizar para resolver la consigna y cómo se espera que sea empleado.
@@ -970,7 +970,7 @@ Utilizá los ejemplos como referencia para:
 ${ejemplos}
 
 # Formato de salida
-Deberás generar la salida en formato ${formato_salida}, sin ningún tipo de información adicional como título, textos introductorios, preguntas, el formato de actividad utilizado.
+Deberás generar la salida en formato ${formato_salida}, sin ningún tipo de información adicional como título, textos introductorios, preguntas, el formato de consigna utilizado.
 
 ${(!contexto_adicional || contexto_adicional.trim() === '') ? '' : `# Información adicional${contexto_adicional}`} ${(!buenas_practicas || buenas_practicas.trim() === '') ? '' : `\n ## Buenas Prácticas a contemplar en la solución \n ${buenas_practicas}`} ${(!objetivos_aprendizaje || objetivos_aprendizaje.trim() === '') ? '' : `\n ## Objetivos de aprendizaje \n ${objetivos_aprendizaje}`}
 `
