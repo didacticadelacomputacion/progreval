@@ -142,12 +142,12 @@
 
         SELECT ?Label ?Instance_URI ?Description ?Order
         WHERE {
-            ?Instance_URI a progreval:Nivel-de-Complejidad .
+            ?Instance_URI a progreval:Nivel-Complejidad .
             ?Instance_URI rdfs:label ?Label .
 	        ?Instance_URI progreval:orden ?Order .
 
             OPTIONAL { 
-               ?nivel_para_concepto a progreval:Complejidad-por-Concepto. 
+               ?nivel_para_concepto a progreval:Complejidad-Concepto. 
 	  	       ?nivel_para_concepto progreval:nivel ?Instance_URI.
 	  	       ?nivel_para_concepto progreval:concepto {{CONCEPTO_URI}}.
                ?nivel_para_concepto dc:description ?Description.		       
@@ -623,7 +623,7 @@
             'Concepto-Fundamental': 'select-concepto',
             'Desempeño': 'select-desempeno',
             'Formato-Consigna': 'select-formato',
-            'Nivel-de-Complejidad': 'complejidad-container' // Special case: find label relative to container
+            'Nivel-Complejidad': 'complejidad-container' // Special case: find label relative to container
         };
 
         classDescriptions.forEach(item => {
@@ -633,7 +633,7 @@
             
             if (targetId) {
                 let labelEl;
-                if (className === 'Nivel-de-Complejidad') {
+                if (className === 'Nivel-Complejidad') {
                     // This label doesn't have a 'for' attribute, find it via the container
                     const container = document.getElementById(targetId);
                     if (container && container.parentElement) {
