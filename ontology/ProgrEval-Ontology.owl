@@ -529,6 +529,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Nivel-Universitario">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Publico-Objetivo"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento-opcion-multiple"/>
         <rdfs:label>Nivel universitario</rdfs:label>
     </owl:NamedIndividual>
     
@@ -724,6 +725,70 @@
     
 
 
+    <!-- urn:protege:ontology:progreval#agregar-12-bolitas-rojas -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#agregar-12-bolitas-rojas">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-parsons"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Ordenar las siguientes instrucciones para que el procedimiento tenga como propósito agregar al casillero actual 12 bolitas negras.
+
+1. }
+2. Poner(Rojo)
+3. REPETIR 9 VECES {
+4. PROCEDIMIENTO Agregar12BolitasNegras() {
+5. Poner(Rojo)
+6. Poner(Rojo)	
+7. }
+8. Poner(Rojo)</Enunciado>
+        <Respuesta>Solución posible: 4, 2, 3, 5, 1, 6, 8, 7
+
+```
+PROCEDIMIENTO Agregar12BolitasNegras() {
+	Poner(Rojo)
+	REPETIR 9 VECES {
+		Poner(Rojo)
+	}
+	Poner(Rojo)
+	Poner(Rojo)
+}
+```</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#agregar-30-bolitas-verdes -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#agregar-30-bolitas-verdes">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse coloque en la celda actual 30 bolitas verdes.
+
+```
+PROCEDIMIENTO Agregar30BolitasVerdes() {
+	REPETIR _ VECES {
+		Poner(Verde)
+		Poner(Verde)
+	}
+}
+```</Enunciado>
+        <Respuesta>```
+PROCEDIMIENTO Agregar30BolitasVerdes() {
+	REPETIR 15 VECES {
+		Poner(Verde)
+		Poner(Verde)
+	}
+}
+```</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#agregar-bolitas-rojas-segun-verdes -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#agregar-bolitas-rojas-segun-verdes">
@@ -769,6 +834,37 @@ Opciones:
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Nivel-Complejidad"/>
         <orden rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</orden>
         <rdfs:label>Avanzado</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#avanzar-al-este -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#avanzar-al-este">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-opcion-multiple"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>¿Cuántos casilleros al Este avanza el cabezal si se ejecuta el siguiente procedimiento `AvanzarAlEste()`?
+
+```
+PROCEDIMIENTO AvanzarAlEste() {
+	Mover(Este)
+	REPETIR 4 VECES {
+		Mover(Este)
+	}
+	Mover(Este)
+}
+```
+
+Opciones:
+
+1. 3 casilleros
+2. 4 casilleros
+3. 5 casilleros
+4. 6 casilleros</Enunciado>
+        <Respuesta>Opción 4 (6 casilleros)</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -906,6 +1002,112 @@ FUNCION estáPresenteEnArray(valor_objetivo, datos) {
 FUNCION Poner6DeColorNegro() {
 	REPETIR 6 VECES {
 		Poner(Negro)
+	}
+}
+```</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#completar-tablero-con-16-bolitas -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#completar-tablero-con-16-bolitas">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse sobre un tablero de 1 fila y 2 columnas, comenzando desde el casillero Oeste, coloque 10 bolitas azules en casillero inicial y 6 bolitas rojas en el casillero Este.
+
+```
+PROCEDIMIENTO CompletarTableroCon16Bolitas() {
+	Poner(Rojo)
+	REPETIR _ VECES {
+		Poner(Azul)
+	}
+	Mover(_)
+	REPETIR _ VECES {
+		Poner(Rojo)
+		Poner(Rojo)
+	}
+}
+```</Enunciado>
+        <Respuesta>```
+PROCEDIMIENTO CompletarTableroCon16Bolitas() {
+	Poner(Rojo)
+	REPETIR 9 VECES {
+		Poner(Azul)
+	}
+	Mover(_)
+	REPETIR 3 VECES {
+		Poner(Rojo)
+		Poner(Rojo)
+	}
+}
+```</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#crear-camino-de-10-rojas -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#crear-camino-de-10-rojas">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse construya un camino de 10 bolitas rojas hacia el Norte.
+
+```
+PROCEDIMIENTO CrearCaminoDe10Rojas() {
+	/* Precondición: hay 10 casilleros disponibles al Norte de la celda actual */
+	REPETIR _ VECES {
+		Poner(Rojo)
+		Mover(Norte)
+	}
+}
+```</Enunciado>
+        <Respuesta>```
+PROCEDIMIENTO CrearCaminoDe10Rojas() {
+	/*
+	Precondición: hay 10 casilleros disponibles al Norte de la celda actual
+	*/
+	REPETIR 10 VECES {
+		Poner(Rojo)
+		Mover(Norte)
+	}
+}
+```</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#crear-camino-de-8-verdes -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#crear-camino-de-8-verdes">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-parsons"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Ordenar las siguientes instrucciones para que el procedimiento tenga como propósito formar un camino de 8 bolitas verdes hacia el Este.
+
+1. Poner(Rojo)
+2. }
+3. REPETIR 8 VECES {
+4. PROCEDIMIENTO CrearCaminoDe8Verdes() {
+5. Mover(Norte)
+6. }
+7. /* Precondición: hay 8 casilleros disponibles al Norte de la celda actual */</Enunciado>
+        <Respuesta>Solución posible: 4, 7, 3, 1, 5, 2, 6
+
+```
+PROCEDIMIENTO CrearCaminoDe8Verdes() {
+	/* Precondición: hay 8 casilleros disponibles al Norte de la celda actual */
+	REPETIR 8 VECES {
+		Poner(Rojo)
+		Mover(Norte)
 	}
 }
 ```</Respuesta>
@@ -1711,6 +1913,16 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <evaluaConcepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
         <evaluaDesempeño rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
         <usaFormato rdf:resource="urn:protege:ontology:progreval#Opcion-Multiple-Respuesta-Unica"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#directiva-repeticion-implementacion-parsons -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#directiva-repeticion-implementacion-parsons">
+        <evaluaConcepto rdf:resource="urn:protege:ontology:progreval#Directiva-de-Repeticion"/>
+        <evaluaDesempeño rdf:resource="urn:protege:ontology:progreval#Implementacion"/>
+        <usaFormato rdf:resource="urn:protege:ontology:progreval#Parsons"/>
     </owl:NamedIndividual>
     
 
@@ -4823,6 +5035,42 @@ FUNCION Mover3VecesAlNorte() {
     
 
 
+    <!-- urn:protege:ontology:progreval#moverse-por-el-tablero -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#moverse-por-el-tablero">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-seguimiento-opcion-multiple"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>¿En qué posición, respecto del casillero inicial, queda el cabezal luego de ejecutar el procedimiento `MoversePorElTablero()`?
+
+```
+PROCEDIMIENTO MoversePorElTablero() {
+	Mover(Norte)
+	REPETIR 2 VECES {
+		Mover(Este)
+		Mover(Norte)
+	}
+	REPETIR 2 VECES {
+		Mover(Sur)
+	}
+	Mover(Oeste)
+	Mover(Sur)
+}
+```
+
+Opciones:
+
+1. Celda Norte
+2. Celda Noreste
+3. Celda Este
+4. Celda Noroeste</Enunciado>
+        <Respuesta>Celda Este</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#nova-contrato-mal-hecho -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#nova-contrato-mal-hecho">
@@ -5323,6 +5571,40 @@ FUNCION PonerRojaYNegra() {
     Poner(Rojo)
     Poner(Negro)
 }</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#rellenar-con-7-rojas -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#rellenar-con-7-rojas">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse sobre un casillero vacío ponga 7 bolitas rojas.
+
+```
+PROCEDIMIENTO RellenarCon7Rojas() {
+	Poner(Rojo)
+	REPETIR _ VECES {
+		Poner(Rojo)
+	}
+	Poner(Rojo)
+	Poner(Rojo)
+}
+```</Enunciado>
+        <Respuesta>```
+PROCEDIMIENTO RellenarCon7Rojas() {
+	Poner(Rojo)
+	REPETIR 4 VECES {
+		Poner(Rojo)
+	}
+	Poner(Rojo)
+	Poner(Rojo)
+}
+```</Respuesta>
     </owl:NamedIndividual>
     
 
