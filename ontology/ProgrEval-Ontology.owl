@@ -732,22 +732,23 @@
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Consigna:
+        <Enunciado>El siguiente programa debe armar un camino de 5 bolitas rojas hacia el Este, colocando una bolita roja en cada celda comenzando desde la celda actual. ¿Qué deberíamos modificar en el siguiente programa para que cumpla el propósito?
 
-Para agregar la misma cantidad de bolitas rojas en el casillero actual según la cantidad de bolitas verdes, ¿qué líneas podríamos modificar o eliminar del procedimiento para que cumpla ese propósito?
-
-1. PROCEDIMIENTO AgregarBolitasRojasSegunVerdes() {
-2.     Poner(Rojo)
-3.     REPETIR nroBolitas(Verde) VECES {
-4.         Poner(Rojo)
-5.     }
-6. }
+```
+1. PROCEDIMIENTO ArmarCaminoDe5Rojas() {
+2.     /* Precondición: Debe haber 4 celdas al Este de la celda actual */
+3.     REPETIR 4 VECES {
+4.         Mover(Este)
+5.         Poner(Rojo)
+6.     }
+7. }
+```
 
 Opciones:
-1. Línea 2
-2. Línea 3
-3. Línea 4</Enunciado>
-        <Respuesta>Opción 2, eliminar la línea 2 del programa</Respuesta>
+1. Colocar una bolita Roja antes de la repetición
+2. Cambiar la cantidad de repeticiones
+3. Invertir el orden de las instrucciones que se repiten</Enunciado>
+        <Respuesta>Respuesta: Opción 1, colocar una bolita roja antes de la repetición</Respuesta>
     </owl:NamedIndividual>
     
 
