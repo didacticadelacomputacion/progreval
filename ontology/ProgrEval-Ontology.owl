@@ -2747,6 +2747,105 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
     
 
 
+    <!-- urn:protege:ontology:progreval#ejemplo-expresion-1 -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#ejemplo-expresion-1">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-complecion-espacios-vacios"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
+        <Enunciado>Completar la siguiente expresión para que sea verdadera cuando en la celda actual haya bolitas rojas y haya más bolitas verdes que azules.
+
+`__(Rojo) __ nroBolitas(Verde) __ nroBolitas(Azul)`</Enunciado>
+        <Respuesta>`hayBolitas(Rojo) &amp;&amp; nroBolitas(Verde) &gt; nroBolitas(Azul)`</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#ejemplo-expresion-2 -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#ejemplo-expresion-2">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-parsons"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
+        <Enunciado>Ordenar las siguientes expresiones para obtener una expresión general que sea verdadera cuando la celda actual tiene bolitas verdes y al menos 9 bolitas en total entre rojas y negras.
+
+1. nroBolitas(Rojo)
+2.-nroBolitas(Negro)
+3. hayBolitas(Verdes)
+4. 9
+5. +
+6. &amp;&amp;
+7. &gt;=</Enunciado>
+        <Respuesta>Solución posible: 3, 6, 1, 5, 2, 7, 4
+
+`hayBolitas(Verdes) &amp;&amp; nroBolitas(Rojo) + nroBolitas(Negro) &gt;= 9`</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#ejemplo-expresion-3 -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#ejemplo-expresion-3">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
+        <Enunciado>Escribir una expresión lógica que sea verdadera si la celda actual tiene bolitas de todos los colores.</Enunciado>
+        <Respuesta>`hayBolitas(Rojo) &amp;&amp; hayBolitas(Verde) &amp;&amp; hayBolitas(Azul) &amp;&amp; hayBolitas(Negro)`</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#ejemplo-expresion-4 -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#ejemplo-expresion-4">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-evaluacion-opcion-multiple"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
+        <Enunciado>¿Cuántas bolitas rojas y azules puede haber en la celda actual para que la siguiente expresión sea falsa?
+
+`nroBolitas(Rojo) &lt; 5 || nroBolitas(Rojo) &gt; nroBolitas(Azul)`
+
+Opciones:
+
+1. Rojo = 0, Azul = 0
+2. Rojo = 1, Azul = 0
+3. Rojo = 5, Azul = 6
+4. Rojo = 5, Azul = 4</Enunciado>
+        <Respuesta>Opción 3 (Rojo = 5, Azul = 6)</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:protege:ontology:progreval#ejemplo-expresion-5 -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#ejemplo-expresion-5">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-depuracion-deteccion-ocurrencia"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
+        <Enunciado>¿Qué se debe cambiar en la siguiente expresión para que se pueda evaluar correctamente como expresión lógica?
+
+`nroBolitas(Negro) &gt; nroBolitas(Azul) || hayBolitas(Rojo) &gt; 0`
+
+Opciones:
+
+1. Cambiar nroBolitas(Negro) por hayBolitas(Negro)
+2. Cambiar hayBolitas(Rojo) por nroBolitas(Rojo)
+3. Cambiar nroBolitas(Azul) por hayBolitas(Azul)</Enunciado>
+        <Respuesta>Opción 2 (Cambiar hayBolitas(Rojo) por nroBolitas(Rojo))</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#envios-gratis -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#envios-gratis">
@@ -5066,7 +5165,7 @@ Opciones:
 2. Celda Noreste
 3. Celda Este
 4. Celda Noroeste</Enunciado>
-        <Respuesta>Celda Este</Respuesta>
+        <Respuesta>Opción 3 (Celda Este)</Respuesta>
     </owl:NamedIndividual>
     
 
