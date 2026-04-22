@@ -733,12 +733,12 @@
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Ordenar las siguientes instrucciones para que el procedimiento tenga como propósito agregar al casillero actual 12 bolitas negras.
+        <Enunciado>Ordenar las siguientes instrucciones para que la función tenga como propósito agregar al casillero actual 12 bolitas negras.
 
 1. }
 2. Poner(Rojo)
 3. REPETIR 9 VECES {
-4. PROCEDIMIENTO Agregar12BolitasNegras() {
+4. FUNCION Agregar12BolitasNegras() {
 5. Poner(Rojo)
 6. Poner(Rojo)	
 7. }
@@ -746,7 +746,7 @@
         <Respuesta>Solución posible: 4, 2, 3, 5, 1, 6, 8, 7
 
 ```
-PROCEDIMIENTO Agregar12BolitasNegras() {
+FUNCION Agregar12BolitasNegras() {
 	Poner(Rojo)
 	REPETIR 9 VECES {
 		Poner(Rojo)
@@ -767,10 +767,10 @@ PROCEDIMIENTO Agregar12BolitasNegras() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse coloque en la celda actual 30 bolitas verdes.
+        <Enunciado>Completar la siguiente función para que al ejecutarse coloque en la celda actual 30 bolitas verdes.
 
 ```
-PROCEDIMIENTO Agregar30BolitasVerdes() {
+FUNCION Agregar30BolitasVerdes() {
 	REPETIR _ VECES {
 		Poner(Verde)
 		Poner(Verde)
@@ -778,7 +778,7 @@ PROCEDIMIENTO Agregar30BolitasVerdes() {
 }
 ```</Enunciado>
         <Respuesta>```
-PROCEDIMIENTO Agregar30BolitasVerdes() {
+FUNCION Agregar30BolitasVerdes() {
 	REPETIR 15 VECES {
 		Poner(Verde)
 		Poner(Verde)
@@ -800,7 +800,7 @@ PROCEDIMIENTO Agregar30BolitasVerdes() {
         <Enunciado>El siguiente programa debe armar un camino de 5 bolitas rojas hacia el Este, colocando una bolita roja en cada celda comenzando desde la celda actual. ¿Qué deberíamos modificar en el siguiente programa para que cumpla el propósito?
 
 ```
-1. PROCEDIMIENTO ArmarCaminoDe5Rojas() {
+1. FUNCION ArmarCaminoDe5Rojas() {
 2.     /* Precondición: Debe haber 4 celdas al Este de la celda actual */
 3.     REPETIR 4 VECES {
 4.         Mover(Este)
@@ -846,10 +846,10 @@ Opciones:
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>¿Cuántos casilleros al Este avanza el cabezal si se ejecuta el siguiente procedimiento `AvanzarAlEste()`?
+        <Enunciado>¿Cuántos casilleros al Este avanza el cabezal si se ejecuta la función `AvanzarAlEste()`?
 
 ```
-PROCEDIMIENTO AvanzarAlEste() {
+FUNCION AvanzarAlEste() {
 	Mover(Este)
 	REPETIR 4 VECES {
 		Mover(Este)
@@ -1017,10 +1017,10 @@ FUNCION Poner6DeColorNegro() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse sobre un tablero de 1 fila y 2 columnas, comenzando desde el casillero Oeste, coloque 10 bolitas azules en casillero inicial y 6 bolitas rojas en el casillero Este.
+        <Enunciado>Completar la siguiente función para que al ejecutarse sobre un tablero de 1 fila y 2 columnas, comenzando desde el casillero Oeste, coloque 10 bolitas azules en casillero inicial y 6 bolitas rojas en el casillero Este.
 
 ```
-PROCEDIMIENTO CompletarTableroCon16Bolitas() {
+FUNCION CompletarTableroCon16Bolitas() {
 	Poner(Rojo)
 	REPETIR _ VECES {
 		Poner(Azul)
@@ -1033,7 +1033,7 @@ PROCEDIMIENTO CompletarTableroCon16Bolitas() {
 }
 ```</Enunciado>
         <Respuesta>```
-PROCEDIMIENTO CompletarTableroCon16Bolitas() {
+FUNCION CompletarTableroCon16Bolitas() {
 	Poner(Rojo)
 	REPETIR 9 VECES {
 		Poner(Azul)
@@ -1057,10 +1057,10 @@ PROCEDIMIENTO CompletarTableroCon16Bolitas() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse construya un camino de 10 bolitas rojas hacia el Norte.
+        <Enunciado>Completar la siguiente función para que al ejecutarse construya un camino de 10 bolitas rojas hacia el Norte.
 
 ```
-PROCEDIMIENTO CrearCaminoDe10Rojas() {
+FUNCION CrearCaminoDe10Rojas() {
 	/* Precondición: hay 10 casilleros disponibles al Norte de la celda actual */
 	REPETIR _ VECES {
 		Poner(Rojo)
@@ -1069,7 +1069,7 @@ PROCEDIMIENTO CrearCaminoDe10Rojas() {
 }
 ```</Enunciado>
         <Respuesta>```
-PROCEDIMIENTO CrearCaminoDe10Rojas() {
+FUNCION CrearCaminoDe10Rojas() {
 	/*
 	Precondición: hay 10 casilleros disponibles al Norte de la celda actual
 	*/
@@ -1091,19 +1091,19 @@ PROCEDIMIENTO CrearCaminoDe10Rojas() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Ordenar las siguientes instrucciones para que el procedimiento tenga como propósito formar un camino de 8 bolitas verdes hacia el Este.
+        <Enunciado>Ordenar las siguientes instrucciones para que la función tenga como propósito formar un camino de 8 bolitas verdes hacia el Este.
 
 1. Poner(Rojo)
 2. }
 3. REPETIR 8 VECES {
-4. PROCEDIMIENTO CrearCaminoDe8Verdes() {
+4. FUNCION CrearCaminoDe8Verdes() {
 5. Mover(Norte)
 6. }
 7. /* Precondición: hay 8 casilleros disponibles al Norte de la celda actual */</Enunciado>
         <Respuesta>Solución posible: 4, 7, 3, 1, 5, 2, 6
 
 ```
-PROCEDIMIENTO CrearCaminoDe8Verdes() {
+FUNCION CrearCaminoDe8Verdes() {
 	/* Precondición: hay 8 casilleros disponibles al Norte de la celda actual */
 	REPETIR 8 VECES {
 		Poner(Rojo)
@@ -5141,10 +5141,10 @@ FUNCION Mover3VecesAlNorte() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>¿En qué posición, respecto del casillero inicial, queda el cabezal luego de ejecutar el procedimiento `MoversePorElTablero()`?
+        <Enunciado>¿En qué posición, respecto del casillero inicial, queda el cabezal luego de ejecutar la función `MoversePorElTablero()`?
 
 ```
-PROCEDIMIENTO MoversePorElTablero() {
+FUNCION MoversePorElTablero() {
 	Mover(Norte)
 	REPETIR 2 VECES {
 		Mover(Este)
@@ -5681,10 +5681,10 @@ FUNCION PonerRojaYNegra() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>Completar el siguiente procedimiento para que al ejecutarse sobre un casillero vacío ponga 7 bolitas rojas.
+        <Enunciado>Completar la siguiente función para que al ejecutarse sobre un casillero vacío ponga 7 bolitas rojas.
 
 ```
-PROCEDIMIENTO RellenarCon7Rojas() {
+FUNCION RellenarCon7Rojas() {
 	Poner(Rojo)
 	REPETIR _ VECES {
 		Poner(Rojo)
@@ -5694,7 +5694,7 @@ PROCEDIMIENTO RellenarCon7Rojas() {
 }
 ```</Enunciado>
         <Respuesta>```
-PROCEDIMIENTO RellenarCon7Rojas() {
+FUNCION RellenarCon7Rojas() {
 	Poner(Rojo)
 	REPETIR 4 VECES {
 		Poner(Rojo)
