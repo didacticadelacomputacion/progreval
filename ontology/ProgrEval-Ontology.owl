@@ -2753,12 +2753,10 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-complecion-espacios-vacios"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
-        <Enunciado>Completar la siguiente expresión para que sea verdadera cuando en la celda actual haya bolitas rojas y haya más bolitas verdes que azules.
+        <Enunciado>Completar la siguiente expresión para que sea verdadera cuando haya bolitas rojas y haya más bolitas verdes que azules.
 
-`__(Rojo) __ nroBolitas(Verde) __ nroBolitas(Azul)`</Enunciado>
-        <Respuesta>`hayBolitas(Rojo) &amp;&amp; nroBolitas(Verde) &gt; nroBolitas(Azul)`</Respuesta>
+`0 __ bolitasRojas __ bolitasVerdes __ bolitasAzules`</Enunciado>
+        <Respuesta>`0 &lt; bolitasRojas &amp;&amp; bolitasVerdes &gt; bolitasAzules`</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -2771,18 +2769,20 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
-        <Enunciado>Ordenar las siguientes expresiones para obtener una expresión general que sea verdadera cuando la celda actual tiene bolitas verdes y al menos 9 bolitas en total entre rojas y negras.
+        <Enunciado>Ordenar las siguientes expresiones para obtener una expresión general que sea verdadera cuando hay bolitas verdes y al menos 9 bolitas en total entre rojas y negras.
 
-1. nroBolitas(Rojo)
-2.-nroBolitas(Negro)
-3. hayBolitas(Verdes)
+1. bolitasRojas
+2.-bolitasNegras
+3. bolitasVerdes
 4. 9
 5. +
 6. &amp;&amp;
-7. &gt;=</Enunciado>
-        <Respuesta>Solución posible: 3, 6, 1, 5, 2, 7, 4
+7. &gt;=
+8. &gt;
+9. 0</Enunciado>
+        <Respuesta>Solución posible: 3, 8, 9, 6, 1, 5, 2, 7, 4
 
-`hayBolitas(Verdes) &amp;&amp; nroBolitas(Rojo) + nroBolitas(Negro) &gt;= 9`</Respuesta>
+`bolitasVerdes &gt; 0 &amp;&amp; bolitasRojas + bolitasNegras &gt;= 9`</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -2795,8 +2795,8 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
-        <Enunciado>Escribir una expresión lógica que sea verdadera si la celda actual tiene bolitas de todos los colores.</Enunciado>
-        <Respuesta>`hayBolitas(Rojo) &amp;&amp; hayBolitas(Verde) &amp;&amp; hayBolitas(Azul) &amp;&amp; hayBolitas(Negro)`</Respuesta>
+        <Enunciado>Escribir una expresión lógica que sea verdadera si hay bolitas de todos los colores. Contamos con las variables numéricas bolitasRojas, bolitasNegras, bolitasAzules y bolitasVerdes.</Enunciado>
+        <Respuesta>`bolitasRojas &gt; 0 &amp;&amp; bolitasVerdes &gt; 0 &amp;&amp; bolitasAzules &gt; 0 &amp;&amp; bolitasNegras &gt; 0`</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -2807,19 +2807,17 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-evaluacion-opcion-multiple"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
         <Enunciado>¿Cuántas bolitas rojas y azules puede haber en la celda actual para que la siguiente expresión sea falsa?
 
-`nroBolitas(Rojo) &lt; 5 || nroBolitas(Rojo) &gt; nroBolitas(Azul)`
+`bolitasRojas &lt; 5 || bolitasRojas &gt; bolitasAzules`
 
 Opciones:
 
-1. Rojo = 0, Azul = 0
-2. Rojo = 1, Azul = 0
-3. Rojo = 5, Azul = 6
-4. Rojo = 5, Azul = 4</Enunciado>
-        <Respuesta>Opción 3 (Rojo = 5, Azul = 6)</Respuesta>
+1. bolitasRojas = 0, bolitasAzules = 0
+2. bolitasRojas = 1, bolitasAzules = 0
+3. bolitasRojas = 5, bolitasAzules = 6
+4. bolitasRojas = 5, bolitasAzules = 4</Enunciado>
+        <Respuesta>Opción 3 (bolitasRojas = 5, bolitasAzules = 6)</Respuesta>
     </owl:NamedIndividual>
     
 
@@ -2828,10 +2826,11 @@ Opciones:
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#ejemplo-expresion-5">
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
-        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-depuracion-deteccion-ocurrencia"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-depuracion-opcion-multiple"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#tipo-dato-primitivo-seguimiento"/>
         <Enunciado>¿Qué se debe cambiar en la siguiente expresión para que se pueda evaluar correctamente como expresión lógica?
 
 `nroBolitas(Negro) &gt; nroBolitas(Azul) || hayBolitas(Rojo) &gt; 0`
@@ -5039,14 +5038,14 @@ FUNCION imprimirReverso(palabra){
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Primer-Ciclo-Secundario"/>
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-depuracion-deteccion-ocurrencia"/>
-        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#directiva-seleccion-seguimiento"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-seguimiento"/>
         <Enunciado>La agencia de seguridad vial está recibiendo muchos reclamos por multas de velocidad mal asignadas. Revisaron el sensor de velocidad y funciona correctamente, así que llegaron a la conclusión de que el problema está en el software que genera las alarmas. Identificar la o las causas de este problema en la función ExcedeLímiteDeVelocidad, que es la que determina si hay que multar o no.
 
-FUNCION ExcedeLimiteDeVelocidad(velocidadRegistrada){
-    SI (velocidadRegistrada &lt; limiteDeVelocidad){
-        RegistrarMulta()
+FUNCION ExcedeLimiteDeVelocidad(velocidadRegistrada, patente){
+    SI (velocidadRegistrada &lt; limiteDeVelocidad &amp;&amp; patente != &apos;&apos;){
+        RegistrarMultaPara(patente)
         RETORNAR Verdadero
     } SINO { 
         RETORNAR Falso
