@@ -797,7 +797,7 @@ FUNCION Agregar30BolitasVerdes() {
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#basico"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
-        <Enunciado>El siguiente programa debe armar un camino de 5 bolitas rojas hacia el Este, colocando una bolita roja en cada celda comenzando desde la celda actual. ¿Qué deberíamos modificar en el siguiente programa para que cumpla el propósito?
+        <Enunciado>El siguiente programa tiene una falla. Su propósito es armar un camino de 5 bolitas rojas hacia el Este, colocando una bolita roja en cada celda comenzando desde la celda actual. Identificá el error y explicá cómo corregirlo.
 
 ```
 1. FUNCION ArmarCaminoDe5Rojas() {
@@ -807,13 +807,8 @@ FUNCION Agregar30BolitasVerdes() {
 5.         Poner(Rojo)
 6.     }
 7. }
-```
-
-Opciones:
-1. Colocar una bolita Roja antes de la repetición
-2. Cambiar la cantidad de repeticiones
-3. Invertir el orden de las instrucciones que se repiten</Enunciado>
-        <Respuesta>Respuesta: Opción 1, colocar una bolita roja antes de la repetición</Respuesta>
+```</Enunciado>
+        <Respuesta>Falta colocar una bolita roja antes de la repetición para que el camino comience en la celda actual.</Respuesta>
     </owl:NamedIndividual>
     
 
