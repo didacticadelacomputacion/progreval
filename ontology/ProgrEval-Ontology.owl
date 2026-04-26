@@ -4989,6 +4989,41 @@ FUNCION imprimirReverso(palabra){
     
 
 
+    <!-- urn:protege:ontology:progreval#ingles-pasar-palabra-a-mayuscula -->
+
+    <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#ingles-pasar-palabra-a-mayuscula">
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
+        <apuntadaA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
+        <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
+        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
+        <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
+        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
+        <Enunciado>Write the function `ConvertCurrentWordToUppercase()` which, assuming a lowercase word is encoded in the current row using marbles, places the same word in uppercase in the row to the North.
+
+* **Each letter** is represented by a specific number of **black marbles**, according to the ASCII numerical code.
+* The **westernmost cell** of the current row encodes the **number of letters** in the word using **red marbles**.
+* The **first letter** of the word is located in the cell immediately to the **East** of the one containing the word&apos;s length.
+* In the ASCII code, if an uppercase letter is encoded with a number $N$, the corresponding lowercase letter is represented by $N+32$ (e.g., lowercase ‘a’ is represented by the number 97 and uppercase ‘A’ by 65).
+* The **claw** (header) is positioned at the **westernmost cell** of the row where the word is represented.</Enunciado>
+        <Respuesta>FUNCTION ConvertCurrentWordToUppercase() {
+    REPEAT numberOfBeans(Red) TIMES{
+        Move(East)
+        Put_BeanOfColor_ToThe_(numberOfBeans(Black)-32, Black, North)
+    }
+}
+
+FUNCTION Put_BeanOfColor_ToThe_(amount, color, direction) {
+    Move(direction)
+    REPEAT amount TIMES{
+        Put(color)
+    }   
+    Move(opposite(direction))
+}</Respuesta>
+    </owl:NamedIndividual>
+    
+
+
     <!-- urn:protege:ontology:progreval#inicio-de-sesion -->
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#inicio-de-sesion">
