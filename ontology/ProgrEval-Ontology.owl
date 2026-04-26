@@ -4995,7 +4995,6 @@ FUNCION imprimirReverso(palabra){
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Segundo-Ciclo-Secundario"/>
         <conMarcoDeTrabajo rdf:resource="urn:protege:ontology:progreval#Tablero-con-bolitas"/>
-        <esEjemploDe rdf:resource="urn:protege:ontology:progreval#directiva-repeticion-implementacion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-matematica-definicion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#funcion-implementacion"/>
