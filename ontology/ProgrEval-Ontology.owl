@@ -2762,8 +2762,6 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-parsons"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
         <Enunciado>Ordenar las siguientes expresiones para obtener una expresión general que sea verdadera cuando hay bolitas verdes y al menos 9 bolitas en total entre rojas y negras.
 
 1. bolitasRojas
@@ -2788,8 +2786,6 @@ FUNCION DibujarLíneaDeColor_DeLargo_HaciaEl_(colorLinea, largoLinea, direccion)
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion-consigna-abierta"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#intermedio"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
         <Enunciado>Escribir una expresión lógica que sea verdadera si hay bolitas de todos los colores. Contamos con las variables numéricas bolitasRojas, bolitasNegras, bolitasAzules y bolitasVerdes.</Enunciado>
         <Respuesta>`bolitasRojas &gt; 0 &amp;&amp; bolitasVerdes &gt; 0 &amp;&amp; bolitasAzules &gt; 0 &amp;&amp; bolitasNegras &gt; 0`</Respuesta>
     </owl:NamedIndividual>
@@ -2823,8 +2819,6 @@ Opciones:
         <apuntadaA rdf:resource="urn:protege:ontology:progreval#Nivel-Universitario"/>
         <esEjemploDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-depuracion-opcion-multiple"/>
         <evaluaConceptoANivel rdf:resource="urn:protege:ontology:progreval#avanzado"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-definicion"/>
-        <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#expresion-logica-implementacion"/>
         <requiereManejoDe rdf:resource="urn:protege:ontology:progreval#tipo-dato-primitivo-seguimiento"/>
         <Enunciado>¿Qué se debe cambiar en la siguiente expresión para que se pueda evaluar correctamente como expresión lógica?
 
