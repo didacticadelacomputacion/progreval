@@ -123,4 +123,4 @@ window.loadTab = function(tabName) {
 }
 
 // Load default tab
-loadTab('query');
+loadTab('design');
