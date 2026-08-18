@@ -400,7 +400,7 @@
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Directiva-de-Repeticion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
         <dc:description xml:lang="es-ar">Directivas provistas por los lenguajes de programación para definir la ejecución reiterada de secuencias de cómputo. En la mayoría de los lenguajes imperativos podemos definir bucles usando directivas como while y for.</dc:description>
-        <rdfs:label>Directiva de Repetición</rdfs:label>
+        <rdfs:label>Repetición</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -409,8 +409,8 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Directiva-de-Seleccion">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Directivas provistas por los lenguajes de programación para definir bifurcaciones en el flujo de un programa. En la mayoría de los lenguajes imperativos podemos definirlas usando directivas como If-Then-Else y Switch-Case.</dc:description>
-        <rdfs:label>Directiva de Selección</rdfs:label>
+        <dc:description xml:lang="es-ar">Estructuras sintácticas provistas por los lenguajes de programación para realizar una elección a partir de una condición. En la mayoría de los lenguajes imperativos podemos definirlas usando directivas como If-Then-Else y Switch-Case.</dc:description>
+        <rdfs:label>Alternativa condicional</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -677,7 +677,7 @@
 
     <owl:NamedIndividual rdf:about="urn:protege:ontology:progreval#Tipo-de-Dato-Primitivo">
         <rdf:type rdf:resource="urn:protege:ontology:progreval#Concepto-Fundamental"/>
-        <dc:description xml:lang="es-ar">Definen cómo se interpreta el valor del dato tipado y qué operaciones se pueden aplicar sobre él. Se dividen en tipos de datos primitivos y estructurados. Los primitivos son los tipos de datos básicos que no se pueden descomponer en tipos más simples. Cada lenguaje de programación cuenta con un conjunto de éstos integrado. Los estructurados son los tipos de datos compuestos por tipos de datos primitivos y/u otros tipos de datos estructurados.</dc:description>
+        <dc:description xml:lang="es-ar">Definen cómo se interpreta el valor del dato tipado y qué operaciones se pueden aplicar sobre él. Se dividen en tipos de datos atómicos y estructurados. Los atómicos son los tipos de datos básicos que no se pueden descomponer en tipos más simples. Cada lenguaje de programación cuenta con un conjunto de éstos integrado. Los estructurados son los tipos de datos compuestos por tipos de datos atómicos y/u otros tipos de datos estructurados.</dc:description>
         <rdfs:label>Tipo de Dato</rdfs:label>
     </owl:NamedIndividual>
     
